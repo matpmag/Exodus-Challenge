@@ -10,11 +10,20 @@ using System.Windows.Forms;
 
 namespace Exodus_Challenge
 {
-    public partial class Form1 : Form
+    public partial class Title : Form
     {
-        public Form1()
+        #region Public Constructors
+
+        public Title()
         {
             InitializeComponent();
+        }
+
+        #endregion Public Constructors
+
+        private void time2start_Tick(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }
