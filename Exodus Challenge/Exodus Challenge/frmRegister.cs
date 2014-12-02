@@ -28,7 +28,6 @@ namespace Exodus_Challenge
         private void addToFile(string dataToWrite)
         {
             userData = new StreamWriter(path, true);
-            //userCount = File.ReadAllLines(path).Length;
             userData.WriteLine(dataToWrite);
             userData.Close();
         }
@@ -112,9 +111,7 @@ namespace Exodus_Challenge
             string[] conflictingUser;
             bool conflict = loginSystem.userCheck(inpUser.Text, out conflictingUser);
             if (conflict)
-            {
                 return "Username not unique";
-            }
             if (inpPass.Text != inpPassConfirm.Text)
                 return "Passwords do not match";
             if (!loginSystem.validEmail(inpMail.Text))

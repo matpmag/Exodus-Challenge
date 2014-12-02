@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
             this.inpUser = new System.Windows.Forms.TextBox();
@@ -83,8 +84,9 @@
             // pbxAvatar
             // 
             this.pbxAvatar.BackColor = System.Drawing.Color.Transparent;
-            this.pbxAvatar.ErrorImage = global::Exodus_Challenge.Properties.Resources.avatar;
-            this.pbxAvatar.Image = global::Exodus_Challenge.Properties.Resources.avatar;
+            this.pbxAvatar.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pbxAvatar.ErrorImage")));
+            this.pbxAvatar.Image = ((System.Drawing.Image)(resources.GetObject("pbxAvatar.Image")));
+            this.pbxAvatar.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbxAvatar.InitialImage")));
             this.pbxAvatar.Location = new System.Drawing.Point(98, 26);
             this.pbxAvatar.Name = "pbxAvatar";
             this.pbxAvatar.Size = new System.Drawing.Size(125, 125);
@@ -96,7 +98,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Exodus_Challenge.Properties.Resources.hieroglyph;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(317, 416);
             this.Controls.Add(this.pbxAvatar);
             this.Controls.Add(this.inpPass);
@@ -104,7 +106,10 @@
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.btnLogin);
             this.Font = new System.Drawing.Font("Segoe Print", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
