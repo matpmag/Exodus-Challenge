@@ -44,16 +44,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Title.cs">
+    <Compile Include="frmRegister.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Title.Designer.cs">
-      <DependentUpon>Title.cs</DependentUpon>
+    <Compile Include="frmRegister.Designer.cs">
+      <DependentUpon>frmRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTitle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTitle.Designer.cs">
+      <DependentUpon>frmTitle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="loginSystem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Title.resx">
-      <DependentUpon>Title.cs</DependentUpon>
+    <Compile Include="User.cs" />
+    <EmbeddedResource Include="frmRegister.resx">
+      <DependentUpon>frmRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTitle.resx">
+      <DependentUpon>frmTitle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -80,6 +100,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Title.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hieroglyph.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pyramid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\avatar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

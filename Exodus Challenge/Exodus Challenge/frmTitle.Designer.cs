@@ -1,6 +1,6 @@
 ﻿namespace Exodus_Challenge
 {
-    partial class Title
+    partial class frmTitle
     {
         /// <summary>
         /// Required designer variable.
@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Title));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTitle));
             this.time2start = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // time2start
             // 
             this.time2start.Enabled = true;
-            this.time2start.Interval = 5000;
+            this.time2start.Interval = 2500;
             this.time2start.Tick += new System.EventHandler(this.time2start_Tick);
             // 
-            // Title
+            // frmTitle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -48,9 +48,10 @@
             this.BackgroundImage = global::Exodus_Challenge.Properties.Resources.Title;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(781, 598);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Title";
+            this.Name = "frmTitle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Exodus Challenge - Title";
             this.ResumeLayout(false);

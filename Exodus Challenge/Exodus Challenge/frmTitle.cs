@@ -1,29 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Exodus_Challenge
 {
-    public partial class Title : Form
+    public partial class frmTitle : Form
     {
         #region Public Constructors
 
-        public Title()
+        public frmTitle()
         {
             InitializeComponent();
         }
 
         #endregion Public Constructors
 
+        #region Private Methods
+
         private void time2start_Tick(object sender, EventArgs e)
         {
+            time2start.Stop();
             this.Hide();
+            Form login = new frmLogin();
+            login.Show();
         }
+
+        #endregion Private Methods
     }
 }
