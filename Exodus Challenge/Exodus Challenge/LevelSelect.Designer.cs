@@ -64,6 +64,7 @@
             this.btnlvlQ1.Size = new System.Drawing.Size(42, 41);
             this.btnlvlQ1.TabIndex = 0;
             this.btnlvlQ1.UseVisualStyleBackColor = false;
+            this.btnlvlQ1.Click += new System.EventHandler(this.btnlvlQ1_Click);
             // 
             // btnlvlQ2
             // 
@@ -106,6 +107,7 @@
             this.btnlv4.Size = new System.Drawing.Size(42, 41);
             this.btnlv4.TabIndex = 3;
             this.btnlv4.UseVisualStyleBackColor = false;
+            this.btnlv4.Click += new System.EventHandler(this.btnlv4_Click);
             // 
             // btnlvlQ5
             // 

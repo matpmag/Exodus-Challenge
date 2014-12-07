@@ -1,3 +1,0 @@
-bob,1@1.com,1,0,0,0;
-matpmag,matpmag@gmail.com,mizpah1908,0,0,0;
-Username,test@1.com,Password,0,0,0;

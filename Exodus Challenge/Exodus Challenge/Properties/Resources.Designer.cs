@@ -93,9 +93,39 @@ namespace Exodus_Challenge.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Papyrus {
+            get {
+                object obj = ResourceManager.GetObject("Papyrus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap pyramid {
             get {
                 object obj = ResourceManager.GetObject("pyramid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap sandstoneBrick {
+            get {
+                object obj = ResourceManager.GetObject("sandstoneBrick", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap sandstoneBrickSmall {
+            get {
+                object obj = ResourceManager.GetObject("sandstoneBrickSmall", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -1,15 +1,23 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Exodus_Challenge
 {
     public partial class frmLogin : Form
     {
+        #region Public Fields
+
+        public string loginAvatarPath;
+
+        #endregion Public Fields
+
         #region Public Constructors
 
         public frmLogin()
         {
             InitializeComponent();
+            loginSystem.dateDOB = regDOB;
         }
 
         #endregion Public Constructors
@@ -18,36 +26,107 @@ namespace Exodus_Challenge
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            loginSystem.login(inpUser.Text, inpPass.Text);
-            loginSystem.debug();
+            if(loginSystem.login(logUsername.Text, logPassword.Text))
+            {
+                this.Hide();
+                Form lvl = new LevelSelect();
+                lvl.Show();
+            }
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            this.Close();
-            Form register = new frmRegister();
-            register.Show();
+            string[] output = new string[]
+            {
+                regUsername.Text,
+                regEmail.Text,
+                regPassword.Text,
+                regConfirm.Text,
+                0.ToString(),
+                0.ToString(),
+                regDBGAvatar.Value.ToString()
+            };
+            loginSystem.register(output);
         }
 
-        private void inpPass_Click(object sender, EventArgs e)
+        private void logPassword_Enter(object sender, EventArgs e)
         {
-            inpPass.Text = "";
+            logPassword.Text = "";
         }
 
-        private void inpPass_TextChanged(object sender, EventArgs e)
+        private void logPassword_TextChanged(object sender, EventArgs e)
         {
-            if (inpPass.Text != "Password")
-                inpPass.UseSystemPasswordChar = true;
+            if (logPassword.Text != "Password")
+            {
+                logPassword.UseSystemPasswordChar = true;
+                logPassword.ForeColor = Color.Black;
+            }
+            else logPassword.ForeColor = Color.Silver;
         }
 
-        private void inpUser_Click(object sender, EventArgs e)
+        private void logUsername_Enter(object sender, EventArgs e)
         {
-            inpUser.Text = "";
+            logUsername.Text = "";
         }
 
-        private void inpUser_TextChanged(object sender, EventArgs e)
+        private void logUsername_TextChanged(object sender, EventArgs e)
         {
-            //Test code
+            if (logUsername.Text == "Username") logUsername.ForeColor = Color.Silver;
+            else logUsername.ForeColor = Color.Black;
+            if (loginSystem.userCheck(logUsername.Text, out loginAvatarPath))
+                logAvatar.ImageLocation = loginAvatarPath;
+        }
+
+        private void regConfirm_Enter(object sender, EventArgs e)
+        {
+            regConfirm.Text = "";
+        }
+
+        private void regConfirm_TextChanged(object sender, EventArgs e)
+        {
+            if (regConfirm.Text != "Password")
+            {
+                regConfirm.UseSystemPasswordChar = true;
+                regConfirm.ForeColor = Color.Black;
+            }
+            else regConfirm.ForeColor = Color.Silver;
+        }
+
+        private void regEmail_Enter(object sender, EventArgs e)
+        {
+            regEmail.Text = "";
+        }
+
+        private void regEmail_TextChanged(object sender, EventArgs e)
+        {
+            if (regConfirm.Text == "Email") regConfirm.ForeColor = Color.Silver;
+            else regConfirm.ForeColor = Color.Black;
+        }
+
+        private void regPassword_Enter(object sender, EventArgs e)
+        {
+            regPassword.Text = "";
+        }
+
+        private void regPassword_TextChanged(object sender, EventArgs e)
+        {
+            if (regPassword.Text != "Password")
+            {
+                regPassword.UseSystemPasswordChar = true;
+                regPassword.ForeColor = Color.Black;
+            }
+            else regPassword.ForeColor = Color.Silver;
+        }
+
+        private void regUsername_Enter(object sender, EventArgs e)
+        {
+            regUsername.Text = "";
+        }
+
+        private void regUsername_TextChanged(object sender, EventArgs e)
+        {
+            if (regUsername.Text == "Username") regUsername.ForeColor = Color.Silver;
+            else regUsername.ForeColor = Color.Black;
         }
 
         #endregion Private Methods
