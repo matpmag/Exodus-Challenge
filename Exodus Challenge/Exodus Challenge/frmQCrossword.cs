@@ -83,7 +83,7 @@ namespace Exodus_Challenge
                 arrDn2 = new TextBox[] { tbxB1, tbxC1, tbxD1, tbxE1 },
                 arrDn3 = new TextBox[] { tbxB5, tbxC5, tbxD5, tbxE5, tbxF5 },
                 arrDn6 = new TextBox[] { tbxC9, tbxD9, tbxE9, tbxF9, tbxG9, tbxH9, tbxI9, tbxJ9 },
-                arrDn9 = new TextBox[] { tbxF7, tbxG7, tbxH7},
+                arrDn9 = new TextBox[] { tbxF7, tbxG7, tbxH7 },
             };
 
             arrAccross = new TextBox[7][]
