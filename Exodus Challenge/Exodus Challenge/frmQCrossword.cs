@@ -16,6 +16,9 @@ namespace Exodus_Challenge
         }
 
         #endregion Public Constructors
+
+        double time = 0;
+
         TextBox[] arrDn1;
         TextBox[] arrDn2;
         TextBox[] arrDn3;
@@ -144,7 +147,11 @@ namespace Exodus_Challenge
                 if (tbxArray[i].Text == ansArray[i].ToString())
                     count++;
             }
-            if (count == tbxArray.Length) return true;
+            if (count == tbxArray.Length)
+            {
+                ticker.Stop();
+                return true;
+            }
             else return false;
         }
         #endregion Private Methods
@@ -152,6 +159,12 @@ namespace Exodus_Challenge
         private void tbx_TextChanged(object sender, System.EventArgs e)
         {
             checkAll();
+        }
+
+        private void ticker_Tick(object sender, System.EventArgs e)
+        {
+            time += 0.1;
+            lblTime.Text = time.ToString();
         }
 
 

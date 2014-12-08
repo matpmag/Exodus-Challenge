@@ -1,6 +1,6 @@
 ﻿namespace Exodus_Challenge
 {
-    partial class Form1
+    partial class frmWackamole
     {
         /// <summary>
         /// Required designer variable.
@@ -44,7 +44,6 @@
             this.pbxMole.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxMole.TabIndex = 0;
             this.pbxMole.TabStop = false;
-            this.pbxMole.Click += new System.EventHandler(this.pbxMole_Click);
             this.pbxMole.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbxMole_MouseDown);
             // 
             // moleTicker
@@ -56,7 +55,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 215);
+            this.label1.Location = new System.Drawing.Point(966, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 17);
             this.label1.TabIndex = 1;

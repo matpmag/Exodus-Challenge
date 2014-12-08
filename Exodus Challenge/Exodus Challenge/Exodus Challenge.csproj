@@ -44,11 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="frmWackamole.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="frmWackamole.Designer.cs">
+      <DependentUpon>frmWackamole.cs</DependentUpon>
     </Compile>
     <Compile Include="frmQReorder.cs">
       <SubType>Form</SubType>
@@ -88,8 +88,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="frmWackamole.resx">
+      <DependentUpon>frmWackamole.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmQReorder.resx">
       <DependentUpon>frmQReorder.cs</DependentUpon>

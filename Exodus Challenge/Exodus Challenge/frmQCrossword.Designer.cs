@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQCrossword));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tbxJ9 = new System.Windows.Forms.TextBox();
@@ -83,6 +84,8 @@
             this.tbxJ5 = new System.Windows.Forms.TextBox();
             this.tbxJ4 = new System.Windows.Forms.TextBox();
             this.tbxHints = new System.Windows.Forms.TextBox();
+            this.ticker = new System.Windows.Forms.Timer(this.components);
+            this.lblTime = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -699,12 +702,27 @@
             this.tbxHints.Size = new System.Drawing.Size(609, 533);
             this.tbxHints.TabIndex = 1;
             // 
+            // ticker
+            // 
+            this.ticker.Enabled = true;
+            this.ticker.Tick += new System.EventHandler(this.ticker_Tick);
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Location = new System.Drawing.Point(69, 627);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(64, 17);
+            this.lblTime.TabIndex = 2;
+            this.lblTime.Text = "00:00:00";
+            // 
             // frmQCrossword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1548, 741);
+            this.Controls.Add(this.lblTime);
             this.Controls.Add(this.tbxHints);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmQCrossword";
@@ -772,5 +790,7 @@
         private System.Windows.Forms.TextBox tbxE10;
         private System.Windows.Forms.TextBox tbxE8;
         private System.Windows.Forms.TextBox tbxHints;
+        private System.Windows.Forms.Timer ticker;
+        private System.Windows.Forms.Label lblTime;
     }
 }

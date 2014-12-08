@@ -136,6 +136,7 @@
             this.btnlvlG1.Size = new System.Drawing.Size(56, 57);
             this.btnlvlG1.TabIndex = 5;
             this.btnlvlG1.UseVisualStyleBackColor = false;
+            this.btnlvlG1.Click += new System.EventHandler(this.btnlvlG1_Click);
             // 
             // btnlvlG3
             // 
