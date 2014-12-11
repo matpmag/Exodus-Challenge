@@ -50,7 +50,7 @@
             this.btnA.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnA.Font = new System.Drawing.Font("Segoe Print", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnA.Location = new System.Drawing.Point(9, 10);
-            this.btnA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnA.Margin = new System.Windows.Forms.Padding(2);
             this.btnA.Name = "btnA";
             this.btnA.Size = new System.Drawing.Size(371, 101);
             this.btnA.TabIndex = 0;
@@ -68,7 +68,7 @@
             this.btnB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnB.Font = new System.Drawing.Font("Segoe Print", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnB.Location = new System.Drawing.Point(9, 115);
-            this.btnB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnB.Margin = new System.Windows.Forms.Padding(2);
             this.btnB.Name = "btnB";
             this.btnB.Size = new System.Drawing.Size(371, 101);
             this.btnB.TabIndex = 1;
@@ -86,7 +86,7 @@
             this.btnC.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnC.Font = new System.Drawing.Font("Segoe Print", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnC.Location = new System.Drawing.Point(9, 221);
-            this.btnC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnC.Margin = new System.Windows.Forms.Padding(2);
             this.btnC.Name = "btnC";
             this.btnC.Size = new System.Drawing.Size(371, 101);
             this.btnC.TabIndex = 2;
@@ -104,7 +104,7 @@
             this.btnD.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnD.Font = new System.Drawing.Font("Segoe Print", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnD.Location = new System.Drawing.Point(9, 327);
-            this.btnD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnD.Margin = new System.Windows.Forms.Padding(2);
             this.btnD.Name = "btnD";
             this.btnD.Size = new System.Drawing.Size(371, 101);
             this.btnD.TabIndex = 3;
@@ -122,7 +122,7 @@
             this.btnE.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnE.Font = new System.Drawing.Font("Segoe Print", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnE.Location = new System.Drawing.Point(9, 432);
-            this.btnE.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnE.Margin = new System.Windows.Forms.Padding(2);
             this.btnE.Name = "btnE";
             this.btnE.Size = new System.Drawing.Size(371, 101);
             this.btnE.TabIndex = 4;
@@ -140,7 +140,7 @@
             this.btnF.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnF.Font = new System.Drawing.Font("Segoe Print", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnF.Location = new System.Drawing.Point(409, 10);
-            this.btnF.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnF.Margin = new System.Windows.Forms.Padding(2);
             this.btnF.Name = "btnF";
             this.btnF.Size = new System.Drawing.Size(371, 101);
             this.btnF.TabIndex = 5;
@@ -158,7 +158,7 @@
             this.btnG.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnG.Font = new System.Drawing.Font("Segoe Print", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG.Location = new System.Drawing.Point(409, 115);
-            this.btnG.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnG.Margin = new System.Windows.Forms.Padding(2);
             this.btnG.Name = "btnG";
             this.btnG.Size = new System.Drawing.Size(371, 101);
             this.btnG.TabIndex = 6;
@@ -176,7 +176,7 @@
             this.btnH.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnH.Font = new System.Drawing.Font("Segoe Print", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnH.Location = new System.Drawing.Point(409, 221);
-            this.btnH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnH.Margin = new System.Windows.Forms.Padding(2);
             this.btnH.Name = "btnH";
             this.btnH.Size = new System.Drawing.Size(371, 101);
             this.btnH.TabIndex = 7;
@@ -194,7 +194,7 @@
             this.btnI.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnI.Font = new System.Drawing.Font("Segoe Print", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnI.Location = new System.Drawing.Point(409, 327);
-            this.btnI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnI.Margin = new System.Windows.Forms.Padding(2);
             this.btnI.Name = "btnI";
             this.btnI.Size = new System.Drawing.Size(371, 101);
             this.btnI.TabIndex = 8;
@@ -212,7 +212,7 @@
             this.btnJ.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnJ.Font = new System.Drawing.Font("Segoe Print", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnJ.Location = new System.Drawing.Point(409, 432);
-            this.btnJ.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnJ.Margin = new System.Windows.Forms.Padding(2);
             this.btnJ.Name = "btnJ";
             this.btnJ.Size = new System.Drawing.Size(371, 101);
             this.btnJ.TabIndex = 9;
@@ -249,7 +249,7 @@
             this.Controls.Add(this.btnC);
             this.Controls.Add(this.btnB);
             this.Controls.Add(this.btnA);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmQReorder";
             this.Text = "frm10CReorder";
             this.ResumeLayout(false);

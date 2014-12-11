@@ -71,7 +71,7 @@ namespace Exodus_Challenge
 
         private void timeInLevel_Tick(object sender, EventArgs e)
         {
-            loginSystem.user.scoreManna--;
+            loginSystem.user.scoreManna-=10;
             if (loginSystem.user.scoreManna <= 0)
             {
                 loginSystem.user.scoreQuail += count;
