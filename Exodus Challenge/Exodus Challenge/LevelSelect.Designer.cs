@@ -47,6 +47,7 @@
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.btnQuit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxQuail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxManna)).BeginInit();
             this.SuspendLayout();
@@ -294,6 +295,21 @@
             this.btnSave.TabIndex = 18;
             this.btnSave.UseVisualStyleBackColor = false;
             // 
+            // btnQuit
+            // 
+            this.btnQuit.BackColor = System.Drawing.Color.Transparent;
+            this.btnQuit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnQuit.BackgroundImage")));
+            this.btnQuit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnQuit.FlatAppearance.BorderSize = 0;
+            this.btnQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuit.ForeColor = System.Drawing.Color.Transparent;
+            this.btnQuit.Location = new System.Drawing.Point(1032, 12);
+            this.btnQuit.Name = "btnQuit";
+            this.btnQuit.Size = new System.Drawing.Size(56, 57);
+            this.btnQuit.TabIndex = 19;
+            this.btnQuit.UseVisualStyleBackColor = false;
+            this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
+            // 
             // LevelSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -301,6 +317,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1100, 747);
+            this.ControlBox = false;
+            this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnSettings);
@@ -322,7 +340,9 @@
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LevelSelect";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Level Select";
+            this.Load += new System.EventHandler(this.LevelSelect_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxQuail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxManna)).EndInit();
             this.ResumeLayout(false);
@@ -350,5 +370,6 @@
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnQuit;
     }
 }

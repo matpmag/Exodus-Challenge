@@ -6,48 +6,7 @@ namespace Exodus_Challenge
 {
     public partial class frmLogin : Form
     {
-        #region Public Fields
-
-        public string loginAvatarPath;
-
-        #endregion Public Fields
-
-        #region Public Constructors
-
-        public frmLogin()
-        {
-            InitializeComponent();
-            loginSystem.dateDOB = regDOB;
-        }
-
-        #endregion Public Constructors
-
         #region Private Methods
-
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            if(loginSystem.login(logUsername.Text, logPassword.Text))
-            {
-                this.Hide();
-                Form lvl = new LevelSelect();
-                lvl.Show();
-            }
-        }
-
-        private void btnRegister_Click(object sender, EventArgs e)
-        {
-            string[] output = new string[]
-            {
-                regUsername.Text,
-                regEmail.Text,
-                regPassword.Text,
-                regConfirm.Text,
-                0.ToString(),
-                0.ToString(),
-                regDBGAvatar.Value.ToString()
-            };
-            loginSystem.register(output);
-        }
 
         private void logPassword_Enter(object sender, EventArgs e)
         {
@@ -99,8 +58,8 @@ namespace Exodus_Challenge
 
         private void regEmail_TextChanged(object sender, EventArgs e)
         {
-            if (regConfirm.Text == "Email") regConfirm.ForeColor = Color.Silver;
-            else regConfirm.ForeColor = Color.Black;
+            if (regEmail.Text == "Email") regEmail.ForeColor = Color.Silver;
+            else regEmail.ForeColor = Color.Black;
         }
 
         private void regPassword_Enter(object sender, EventArgs e)
@@ -130,5 +89,70 @@ namespace Exodus_Challenge
         }
 
         #endregion Private Methods
+
+        #region Public Fields
+
+        public bool changingForm = false;
+
+        public string loginAvatarPath;
+
+        #endregion Public Fields
+
+        #region Public Constructors
+
+        public frmLogin()
+        {
+            InitializeComponent();
+            loginSystem.dateDOB = regDOB;
+        }
+
+        #endregion Public Constructors
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (loginSystem.login(logUsername.Text, logPassword.Text))
+            {
+                changingForm = true;
+                this.Close();
+                Application.DoEvents();
+                Form lvl = new LevelSelect();
+                lvl.Show();
+                changingForm = false;
+            }
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            string[] output = new string[]
+            {
+                regUsername.Text,
+                regEmail.Text,
+                regPassword.Text,
+                regConfirm.Text,
+                0.ToString(),
+                0.ToString(),
+                loginSystem.avatarTranslate((int)regDBGAvatar.Value)
+            };
+            loginSystem.register(output);
+        }
+
+        private void bypass_Click(object sender, EventArgs e)
+        {
+            if (loginSystem.login("admin", "admin"))
+            {
+                changingForm = true;
+                this.Close();
+                Application.DoEvents();
+                Form lvl = new LevelSelect();
+                lvl.Show();
+                changingForm = false;
+            }
+        }
+
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!changingForm)
+                Application.Exit();
+        }
     }
 }

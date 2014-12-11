@@ -4,7 +4,39 @@ namespace Exodus_Challenge
 {
     public partial class frmQCrossword : Form
     {
-        
+        #region Private Fields
+
+        private char[] ansAc10;
+        private char[] ansAc11;
+        private char[] ansAc12;
+        private char[] ansAc4;
+        private char[] ansAc5;
+        private char[] ansAc7;
+        private char[] ansAc8;
+        private char[][] ansAccross;
+        private char[] ansDn1;
+        private char[] ansDn2;
+        private char[] ansDn3;
+        private char[] ansDn6;
+        private char[] ansDn9;
+        private char[][] ansDown;
+        private TextBox[] arrAc10;
+        private TextBox[] arrAc11;
+        private TextBox[] arrAc12;
+        private TextBox[] arrAc4;
+        private TextBox[] arrAc5;
+        private TextBox[] arrAc7;
+        private TextBox[] arrAc8;
+        private TextBox[][] arrAccross;
+        private TextBox[] arrDn1;
+        private TextBox[] arrDn2;
+        private TextBox[] arrDn3;
+        private TextBox[] arrDn6;
+        private TextBox[] arrDn9;
+        private TextBox[][] arrDown;
+        private double time = 0;
+
+        #endregion Private Fields
 
         #region Public Constructors
 
@@ -17,68 +49,44 @@ namespace Exodus_Challenge
 
         #endregion Public Constructors
 
-        double time = 0;
-
-        TextBox[] arrDn1;
-        TextBox[] arrDn2;
-        TextBox[] arrDn3;
-        TextBox[] arrDn6;
-        TextBox[] arrDn9;
-        TextBox[][] arrDown;
-
-        TextBox[] arrAc4;
-        TextBox[] arrAc5;
-        TextBox[] arrAc7;
-        TextBox[] arrAc8;
-        TextBox[] arrAc10;
-        TextBox[] arrAc11;
-        TextBox[] arrAc12;
-        TextBox[][] arrAccross;
-
-        char[] ansDn1;
-        char[] ansDn2;
-        char[] ansDn3;
-        char[] ansDn6;
-        char[] ansDn9;
-        char[][] ansDown;
-
-        char[] ansAc4;
-        char[] ansAc5;
-        char[] ansAc7;
-        char[] ansAc8;
-        char[] ansAc10;
-        char[] ansAc11;
-        char[] ansAc12;
-        char[][] ansAccross;
         #region Private Methods
 
-        private void setupHints()
+        private void checkAll()
         {
-            string txtdn1 = "1 Down";
-            string txtdn2 = "2 Down";
-            string txtdn3 = "3 Down";
-            string txtdn6 = "6 Down";
-            string txtdn9 = "9 Down";
-            
-            string txtac4 = "4 Across";
-            string txtac5 = "5 Across";
-            string txtac7 = "7 Across";
-            string txtac8 = "8 Across";
-            string txtac10 = "10 Across";
-            string txtac11 = "11 Across";
-            string txtac12 = "12 Across";
-            
-            string hints =
-                "The ruler of " + txtac11 + " had decreed that all " + txtdn9 + " babies were to be " + txtac5 + ".\n" +
-                "One family however decided to disobey the order. Instead they made a small" + txtac4 + "and hid the child in it\n" +
-                "near the " + txtdn3 + " bank. Pharaoh's " + txtdn6 + " came to " + txtdn2 + " in the river and discovered the\n" +
-                 txtac7 + " child and she decided to care for it. The child's " + txtac12 + " meanwhile had been watching and\n" +
-                "volunteered to get a " + txtac8 + ". Of course she got her " + txtac10 + ". Eventually the child was big enough" +
-                "to live with Pharaoh's family. He was given the name " + txtdn1 + ".";
-            tbxHints.Text = hints;
+            bool count = false;
+            if (!checkAns(arrDn1, ansDn1)) count = true;
+            if (!checkAns(arrDn2, ansDn2)) count = true;
+            if (!checkAns(arrDn3, ansDn3)) count = true;
+            if (!checkAns(arrDn6, ansDn6)) count = true;
+            if (!checkAns(arrDn9, ansDn9)) count = true;
+            if (!checkAns(arrAc4, ansAc4)) count = true;
+            if (!checkAns(arrAc5, ansAc5)) count = true;
+            if (!checkAns(arrAc7, ansAc7)) count = true;
+            if (!checkAns(arrAc8, ansAc8)) count = true;
+            if (!checkAns(arrAc10, ansAc10)) count = true;
+            if (!checkAns(arrAc11, ansAc11)) count = true;
+            if (!checkAns(arrAc12, ansAc12)) count = true;
+            if (!count)
+                MessageBox.Show("Congratulations!!!");
         }
 
-        void setupArrays()
+        private bool checkAns(TextBox[] tbxArray, char[] ansArray)
+        {
+            int count = 0;
+            for (int i = 0; i < tbxArray.Length; i++)
+            {
+                if (tbxArray[i].Text == ansArray[i].ToString())
+                    count++;
+            }
+            if (count == tbxArray.Length)
+            {
+                ticker.Stop();
+                return true;
+            }
+            else return false;
+        }
+
+        private void setupArrays()
         {
             arrDown = new TextBox[5][]
             {
@@ -121,40 +129,32 @@ namespace Exodus_Challenge
             };
         }
 
-        void checkAll()
+        private void setupHints()
         {
-            bool count = false;
-            if (!checkAns(arrDn1, ansDn1)) count = true;
-            if (!checkAns(arrDn2, ansDn2)) count = true;
-            if (!checkAns(arrDn3, ansDn3)) count = true;
-            if (!checkAns(arrDn6, ansDn6)) count = true;
-            if (!checkAns(arrDn9, ansDn9)) count = true;
-            if (!checkAns(arrAc4, ansAc4)) count = true;
-            if (!checkAns(arrAc5, ansAc5)) count = true;
-            if (!checkAns(arrAc7, ansAc7)) count = true;
-            if (!checkAns(arrAc8, ansAc8)) count = true;
-            if (!checkAns(arrAc10, ansAc10)) count = true;
-            if (!checkAns(arrAc11, ansAc11)) count = true;
-            if (!checkAns(arrAc12, ansAc12)) count = true;
-            if (!count)
-                MessageBox.Show("Congratulations!!!");
+            string txtdn1 = "(1 Down)";
+            string txtdn2 = "(2 Down)";
+            string txtdn3 = "(3 Down)";
+            string txtdn6 = "(6 Down)";
+            string txtdn9 = "(9 Down)";
+
+            string txtac4 = "(4 Across)";
+            string txtac5 = "(5 Across)";
+            string txtac7 = "(7 Across)";
+            string txtac8 = "(8 Across)";
+            string txtac10 = "(10 Across)";
+            string txtac11 = "(11 Across)";
+            string txtac12 = "(12 Across)";
+
+            string hints =
+                "The ruler of " + txtac11 + " had decreed that all " + txtdn9 + " babies were to be " + txtac5 + ".\r\n" +
+                "One family however decided to disobey the order. Instead they made a small " + txtac4 + "\r\n" +
+                " and hid the child in it near the " + txtdn3 + " bank. Pharaoh's " + txtdn6 + " came to " + txtdn2 + "\r\n" +
+                "in the river and discovered the" + txtac7 + " child and she decided to care for it.\r\n" +
+                "The child's " + txtac12 + " meanwhile had been watching and volunteered to get a " + txtac8 + ".\r\n" +
+                "Of course she got her " + txtac10 + ". Eventually the child was big enough\r\n" +
+                "to live with Pharaoh's family. He was given the name " + txtdn1 + ".";
+            tbxHints.Text = hints;
         }
-        bool checkAns(TextBox[] tbxArray, char[] ansArray)
-        {
-            int count = 0;
-            for (int i = 0; i < tbxArray.Length; i++)
-            {
-                if (tbxArray[i].Text == ansArray[i].ToString())
-                    count++;
-            }
-            if (count == tbxArray.Length)
-            {
-                ticker.Stop();
-                return true;
-            }
-            else return false;
-        }
-        #endregion Private Methods
 
         private void tbx_TextChanged(object sender, System.EventArgs e)
         {
@@ -167,6 +167,6 @@ namespace Exodus_Challenge
             lblTime.Text = time.ToString();
         }
 
-
+        #endregion Private Methods
     }
 }

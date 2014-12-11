@@ -5,6 +5,7 @@ namespace Exodus_Challenge
 {
     public partial class frmTitle : Form
     {
+
         #region Public Constructors
 
         public frmTitle()
@@ -25,5 +26,6 @@ namespace Exodus_Challenge
         }
 
         #endregion Private Methods
+
     }
 }

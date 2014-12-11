@@ -1,37 +1,88 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Exodus_Challenge
 {
     public partial class frmWackamole : Form
     {
-        int count = 0;
-        Random random = new Random();
+        #region Public Fields
+
+        public int countdown = 30;
+
+        #endregion Public Fields
+
+        #region Private Fields
+
+        private Random chanceSelect = new Random();
+        private int clicksThisTick = 0;
+        private int count = 0;
+        private Random random = new Random();
+
+        #endregion Private Fields
+
+        #region Public Constructors
+
         public frmWackamole()
         {
             InitializeComponent();
-            
+            evenProb();
         }
-        
+
+        #endregion Public Constructors
+
+        #region Private Methods
+
+        private Panel evenProb()
+        {
+            double totalAreaA = areaA.Height * areaA.Width;
+            double totalAreaB = areaB.Height * areaB.Width;
+            double totalAreaC = areaC.Height * areaC.Width;
+            double totalArea = totalAreaA + totalAreaB + totalAreaC;
+            double chanceA = totalAreaA / totalArea;
+            double chanceB = totalAreaB / totalArea;
+            double chanceC = totalAreaC / totalArea;
+            double selected = chanceSelect.NextDouble();
+            if (selected <= chanceA)
+                return areaA;
+            else if (selected <= (chanceA + chanceB))
+                return areaB;
+            else
+                return areaC;
+        }
+
         private void moleTicker_Tick(object sender, EventArgs e)
         {
-            int maxLeft = this.Width - pbxMole.Width - 20;
-            int maxTop = this.Height - pbxMole.Height - 20;
-            pbxMole.Left = random.Next(20, maxLeft);
-            pbxMole.Top = random.Next(20, maxTop);
+            if (clicksThisTick == 2)
+                count += 10;
+            clicksThisTick = 0;
+            scoreCount.Text = count.ToString();
+            Panel areaForTarget = evenProb();
+            int minLeft = areaForTarget.Left;
+            int maxLeft = areaForTarget.Right - pbxMole.Width;
+            int minTop = areaForTarget.Top;
+            int maxTop = areaForTarget.Bottom - pbxMole.Height;
+            pbxMole.Left = random.Next(minLeft, maxLeft);
+            pbxMole.Top = random.Next(minTop, maxTop);
+            pbxMole.Visible = true;
         }
 
         private void pbxMole_MouseDown(object sender, MouseEventArgs e)
         {
-            count+=10;
-            label1.Text = count.ToString();
+            clicksThisTick++;
         }
+
+        private void timeInLevel_Tick(object sender, EventArgs e)
+        {
+            countdown--;
+            if (countdown <= 0)
+            {
+                loginSystem.user.scoreQuail += count;
+                this.Close();
+                Form lvl = new LevelSelect();
+                lvl.Show();
+            }
+        }
+
+        #endregion Private Methods
     }
 }

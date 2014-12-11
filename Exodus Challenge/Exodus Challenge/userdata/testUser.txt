@@ -1,0 +1,2 @@
+matpmag,matpmag@gmail.com,Password1#,Password1#,0,0,../../../Media/Avatars/moses.png;
+admin,admintestexchal@gmail.com,admin,admin,0,0,../../../Media/Avatars/moses.png;

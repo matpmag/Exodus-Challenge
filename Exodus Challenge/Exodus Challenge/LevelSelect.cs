@@ -13,11 +13,20 @@ namespace Exodus_Challenge
 
         #endregion Public Constructors
 
+        #region Private Methods
+
         private void btnlv4_Click(object sender, System.EventArgs e)
         {
             this.Close();
             Form frmQ4 = new frmQReorder();
             frmQ4.Show();
+        }
+
+        private void btnlvlG1_Click(object sender, System.EventArgs e)
+        {
+            this.Close();
+            Form frmGame1 = new frmWackamole();
+            frmGame1.Show();
         }
 
         private void btnlvlQ1_Click(object sender, System.EventArgs e)
@@ -27,11 +36,17 @@ namespace Exodus_Challenge
             frmQ1.Show();
         }
 
-        private void btnlvlG1_Click(object sender, System.EventArgs e)
+        private void btnQuit_Click(object sender, System.EventArgs e)
         {
-            this.Close();
-            Form frmGame1 = new frmWackamole();
-            frmGame1.Show();
+            Application.Exit();
         }
+
+        private void LevelSelect_Load(object sender, System.EventArgs e)
+        {
+            lblMannaScore.Text = loginSystem.user.scoreManna.ToString();
+            lblQuailScore.Text = loginSystem.user.scoreQuail.ToString();
+        }
+
+        #endregion Private Methods
     }
 }

@@ -53,13 +53,16 @@ namespace Exodus_Challenge
 
         #region Public Methods
 
-        public static string[] credentialsLookup()
+        public static string avatarTranslate(int avatarNumber)
         {
-            readUserData = new StreamReader(path);
-            string allUsers = readUserData.ReadToEnd();
-            allUserArray = allUsers.Split(';');
-            readUserData.Close();
-            return allUserArray;
+            switch (avatarNumber)
+            {
+                case 1:
+                    return "../../../Media/Avatars/moses.png";
+
+                default:
+                    return "";
+            }
         }
 
         public static bool login(string paramUsername, string paramPassword)
@@ -67,14 +70,20 @@ namespace Exodus_Challenge
             bool success = false;
             string[] loginAs;
             if (userCheck(paramUsername, paramPassword, out loginAs))
-                setUser(loginAs); success = true;
+            {
+                setUser(loginAs);
+                success = true;
+            }
             return success;
         }
 
         public static void register(string[] registerAs)
         {
             if (validRegister(registerAs))
+            {
+                credentialsAdd(registerAs);
                 setUser(registerAs);
+            }
         }
 
         public static void setUser(string[] userArray)
@@ -90,19 +99,6 @@ namespace Exodus_Challenge
             };
         }
 
-        public static bool userCheck(string username)
-        {
-            credentialsLookup();
-            foreach (string record in allUserArray)
-            {
-                string trim = record.Trim();
-                string[] trimArray = trim.Split(',');
-                if (trimArray[0] == username)
-                    return true;
-            }
-            return false;
-        }
-
         public static bool userCheck(string username, out string avatar)
         {
             credentialsLookup();
@@ -112,29 +108,11 @@ namespace Exodus_Challenge
                 string[] trimArray = trim.Split(',');
                 if (trimArray[0] == username)
                 {
-                    avatar = trimArray[5];
+                    avatar = trimArray[6];
                     return true;
                 }
             }
             avatar = null;
-            return false;
-        }
-
-        public static bool userCheck(string username, string password, out string[] arrayOut)
-        {
-            credentialsLookup();
-            string[] notFound = { "" };
-            foreach (string record in allUserArray)
-            {
-                string recordTester = record.Trim();
-                string[] tempUser = recordTester.Split(',');
-                if (tempUser[0] == username && tempUser[2] == password) //error if tempUser[0] = null
-                {
-                    arrayOut = tempUser;
-                    return true;
-                }
-            }
-            arrayOut = null;
             return false;
         }
 
@@ -177,6 +155,62 @@ namespace Exodus_Challenge
         }
 
         #endregion Public Methods
+
+        #region Internal Methods
+
+        internal static void credentialsAdd(string[] arrWrite)
+        {
+            string dataToWrite = string.Join(",", arrWrite) + ";";
+            writeUserData = new StreamWriter(path, true);
+            writeUserData.WriteLine(dataToWrite);
+            writeUserData.Close();
+        }
+
+        internal static string[] credentialsLookup()
+        {
+            readUserData = new StreamReader(path);
+            string allUsers = readUserData.ReadToEnd();
+            allUserArray = allUsers.Split(';');
+            readUserData.Close();
+            return allUserArray;
+        }
+
+        internal static bool userCheck(string username)
+        {
+            credentialsLookup();
+            foreach (string record in allUserArray)
+            {
+                string trim = record.Trim();
+                string[] trimArray = trim.Split(',');
+                if (trimArray[0] == username)
+                    return true;
+            }
+            return false;
+        }
+
+        internal static bool userCheck(string username, string password, out string[] arrayOut)
+        {
+            credentialsLookup();
+            string[] notFound = { "" };
+            foreach (string record in allUserArray)
+            {
+                string recordTester = record.Trim();
+                string[] tempUser = recordTester.Split(',');
+                try
+                {
+                    if (tempUser[0] == username && tempUser[2] == password) //error if tempUser[0] = null
+                    {
+                        arrayOut = tempUser;
+                        return true;
+                    }
+                }
+                catch { }
+            }
+            arrayOut = null;
+            return false;
+        }
+
+        #endregion Internal Methods
 
         #region Private Methods
 
@@ -236,13 +270,6 @@ namespace Exodus_Challenge
                     return true;
             }
             return false;
-        }
-
-        private void credentialsAdd(string dataToWrite)
-        {
-            writeUserData = new StreamWriter(path, true);
-            writeUserData.WriteLine(dataToWrite);
-            writeUserData.Close();
         }
 
         private void sendMail()

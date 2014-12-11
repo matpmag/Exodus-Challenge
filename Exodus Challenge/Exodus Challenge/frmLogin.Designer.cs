@@ -44,6 +44,7 @@
             this.regEmail = new System.Windows.Forms.TextBox();
             this.regPassword = new System.Windows.Forms.TextBox();
             this.regConfirm = new System.Windows.Forms.TextBox();
+            this.bypass = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logAvatar)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabLogin.SuspendLayout();
@@ -115,6 +116,7 @@
             // tabLogin
             // 
             this.tabLogin.BackgroundImage = global::Exodus_Challenge.Properties.Resources.sandstoneBrick;
+            this.tabLogin.Controls.Add(this.bypass);
             this.tabLogin.Controls.Add(this.logAvatar);
             this.tabLogin.Controls.Add(this.btnLogin);
             this.tabLogin.Controls.Add(this.logPassword);
@@ -234,6 +236,16 @@
             this.regConfirm.TextChanged += new System.EventHandler(this.regConfirm_TextChanged);
             this.regConfirm.Enter += new System.EventHandler(this.regConfirm_Enter);
             // 
+            // bypass
+            // 
+            this.bypass.BackColor = System.Drawing.Color.Red;
+            this.bypass.Location = new System.Drawing.Point(8, 17);
+            this.bypass.Name = "bypass";
+            this.bypass.Size = new System.Drawing.Size(22, 23);
+            this.bypass.TabIndex = 1;
+            this.bypass.UseVisualStyleBackColor = false;
+            this.bypass.Click += new System.EventHandler(this.bypass_Click);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 23F);
@@ -249,6 +261,7 @@
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.logAvatar)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabLogin.ResumeLayout(false);
@@ -278,5 +291,6 @@
         private System.Windows.Forms.TextBox regPassword;
         private System.Windows.Forms.TextBox regConfirm;
         private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.Button bypass;
     }
 }
