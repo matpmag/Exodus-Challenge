@@ -24,9 +24,14 @@ namespace Exodus_Challenge
 
         private void btnlvlG1_Click(object sender, System.EventArgs e)
         {
-            this.Close();
-            Form frmGame1 = new frmWackamole();
-            frmGame1.Show();
+            if (loginSystem.user.scoreManna <= 50)
+                MessageBox.Show("You must have 50+ manna");
+            else
+            {
+                this.Close();
+                Form frmGame1 = new frmWackamole();
+                frmGame1.Show();
+            }
         }
 
         private void btnlvlQ1_Click(object sender, System.EventArgs e)
@@ -48,5 +53,29 @@ namespace Exodus_Challenge
         }
 
         #endregion Private Methods
+
+        private void btnlvlQ2_Click(object sender, System.EventArgs e)
+        {
+            this.Close();
+            Form frmQ2 = new frmQQuestions();
+            frmQ2.Show();
+        }
+
+        private void btnlvlG6_Click(object sender, System.EventArgs e)
+        {
+            if (loginSystem.user.scoreQuail <= 100)
+                MessageBox.Show("You must have 100+ quail");
+            else
+            {
+                loginSystem.user.scoreQuail -= 100;
+                MessageBox.Show("Level unlocked");
+                updateLabels();
+            }
+        }
+        private void updateLabels()
+        {
+            lblMannaScore.Text = loginSystem.user.scoreManna.ToString();
+            lblQuailScore.Text = loginSystem.user.scoreQuail.ToString();
+        }
     }
 }

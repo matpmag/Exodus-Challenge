@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmQQuestions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQQuestions.Designer.cs">
+      <DependentUpon>frmQQuestions.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmWackamole.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmQQuestions.resx">
+      <DependentUpon>frmQQuestions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmWackamole.resx">
       <DependentUpon>frmWackamole.cs</DependentUpon>
     </EmbeddedResource>

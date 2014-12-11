@@ -7,8 +7,6 @@ namespace Exodus_Challenge
     {
         #region Public Fields
 
-        public int countdown = 30;
-
         #endregion Public Fields
 
         #region Private Fields
@@ -73,8 +71,8 @@ namespace Exodus_Challenge
 
         private void timeInLevel_Tick(object sender, EventArgs e)
         {
-            countdown--;
-            if (countdown <= 0)
+            loginSystem.user.scoreManna--;
+            if (loginSystem.user.scoreManna <= 0)
             {
                 loginSystem.user.scoreQuail += count;
                 this.Close();
@@ -84,5 +82,12 @@ namespace Exodus_Challenge
         }
 
         #endregion Private Methods
+
+        private void btnQuit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form lvl = new LevelSelect();
+            lvl.Show();
+        }
     }
 }

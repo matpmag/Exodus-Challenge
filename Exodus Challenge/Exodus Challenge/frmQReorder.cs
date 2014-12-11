@@ -299,5 +299,12 @@ namespace Exodus_Challenge
         };
 
         #endregion Private Structs
+
+        private void btnQuit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form lvl = new LevelSelect();
+            lvl.Show();
+        }
     }
 }
