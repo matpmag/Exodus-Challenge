@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Media;
 using System.Windows.Forms;
 
 namespace Exodus_Challenge
 {
     public partial class frmWackamole : Form
     {
+        SoundPlayer sfx = new SoundPlayer();
+
         #region Public Fields
 
         #endregion Public Fields
@@ -24,6 +27,8 @@ namespace Exodus_Challenge
         {
             InitializeComponent();
             evenProb();
+            sfx.SoundLocation = "../../../Media/SFX/Sharp Punch.wav";
+
         }
 
         #endregion Public Constructors
@@ -50,8 +55,17 @@ namespace Exodus_Challenge
 
         private void moleTicker_Tick(object sender, EventArgs e)
         {
+            pbxSpout.Left = pbxMole.Left;
+            pbxSpout.Top = pbxMole.Top;
+            pbxSpout.Top += 15;
+            waitTicker.Start();
             if (clicksThisTick == 2)
+            {
                 count += 10;
+                pbxSpout.Visible = true;
+
+
+            }
             clicksThisTick = 0;
             scoreCount.Text = count.ToString();
             Panel areaForTarget = evenProb();
@@ -67,6 +81,7 @@ namespace Exodus_Challenge
         private void pbxMole_MouseDown(object sender, MouseEventArgs e)
         {
             clicksThisTick++;
+            sfx.Play();
         }
 
         private void timeInLevel_Tick(object sender, EventArgs e)
@@ -88,6 +103,12 @@ namespace Exodus_Challenge
             this.Close();
             Form lvl = new LevelSelect();
             lvl.Show();
+        }
+
+        private void waitTicker_Tick(object sender, EventArgs e)
+        {
+            pbxSpout.Visible = false;
+            waitTicker.Stop();
         }
     }
 }

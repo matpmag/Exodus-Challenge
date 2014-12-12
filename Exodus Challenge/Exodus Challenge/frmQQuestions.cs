@@ -36,5 +36,10 @@ namespace Exodus_Challenge
             Form lvl = new LevelSelect();
             lvl.Show();
         }
+
+        private void tbar2_Scroll(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -77,5 +77,12 @@ namespace Exodus_Challenge
             lblMannaScore.Text = loginSystem.user.scoreManna.ToString();
             lblQuailScore.Text = loginSystem.user.scoreQuail.ToString();
         }
+
+        private void button1_Click(object sender, System.EventArgs e)
+        {
+            loginSystem.user.scoreManna += 9000;
+            loginSystem.user.scoreQuail += 9000;
+            updateLabels();
+        }
     }
 }

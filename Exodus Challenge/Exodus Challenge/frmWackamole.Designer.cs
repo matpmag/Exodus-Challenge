@@ -38,14 +38,17 @@
             this.areaC = new System.Windows.Forms.Panel();
             this.timeInLevel = new System.Windows.Forms.Timer(this.components);
             this.btnQuit = new System.Windows.Forms.Button();
+            this.waitTicker = new System.Windows.Forms.Timer(this.components);
+            this.pbxSpout = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbxMole)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxSpout)).BeginInit();
             this.SuspendLayout();
             // 
             // pbxMole
             // 
             this.pbxMole.BackColor = System.Drawing.Color.Transparent;
             this.pbxMole.Image = ((System.Drawing.Image)(resources.GetObject("pbxMole.Image")));
-            this.pbxMole.Location = new System.Drawing.Point(50, 212);
+            this.pbxMole.Location = new System.Drawing.Point(164, 119);
             this.pbxMole.Margin = new System.Windows.Forms.Padding(2);
             this.pbxMole.Name = "pbxMole";
             this.pbxMole.Size = new System.Drawing.Size(82, 81);
@@ -58,7 +61,7 @@
             // moleTicker
             // 
             this.moleTicker.Enabled = true;
-            this.moleTicker.Interval = 1700;
+            this.moleTicker.Interval = 1000;
             this.moleTicker.Tick += new System.EventHandler(this.moleTicker_Tick);
             // 
             // scoreCount
@@ -66,7 +69,7 @@
             this.scoreCount.AutoSize = true;
             this.scoreCount.BackColor = System.Drawing.Color.Transparent;
             this.scoreCount.Font = new System.Drawing.Font("Segoe Print", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scoreCount.Location = new System.Drawing.Point(720, 7);
+            this.scoreCount.Location = new System.Drawing.Point(659, 7);
             this.scoreCount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.scoreCount.Name = "scoreCount";
             this.scoreCount.Size = new System.Drawing.Size(40, 47);
@@ -116,6 +119,24 @@
             this.btnQuit.UseVisualStyleBackColor = true;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
+            // waitTicker
+            // 
+            this.waitTicker.Interval = 400;
+            this.waitTicker.Tick += new System.EventHandler(this.waitTicker_Tick);
+            // 
+            // pbxSpout
+            // 
+            this.pbxSpout.BackColor = System.Drawing.Color.Transparent;
+            this.pbxSpout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbxSpout.BackgroundImage")));
+            this.pbxSpout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbxSpout.Location = new System.Drawing.Point(12, 93);
+            this.pbxSpout.Name = "pbxSpout";
+            this.pbxSpout.Size = new System.Drawing.Size(115, 163);
+            this.pbxSpout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxSpout.TabIndex = 13;
+            this.pbxSpout.TabStop = false;
+            this.pbxSpout.Visible = false;
+            // 
             // frmWackamole
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -123,8 +144,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(768, 566);
-            this.Controls.Add(this.btnQuit);
+            this.Controls.Add(this.pbxSpout);
             this.Controls.Add(this.pbxMole);
+            this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.areaC);
             this.Controls.Add(this.areaB);
             this.Controls.Add(this.areaA);
@@ -135,6 +157,7 @@
             this.Name = "frmWackamole";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pbxMole)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxSpout)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,5 +173,7 @@
         private System.Windows.Forms.Panel areaC;
         private System.Windows.Forms.Timer timeInLevel;
         private System.Windows.Forms.Button btnQuit;
+        private System.Windows.Forms.Timer waitTicker;
+        private System.Windows.Forms.PictureBox pbxSpout;
     }
 }

@@ -69,16 +69,17 @@
             this.tbar2.Name = "tbar2";
             this.tbar2.Size = new System.Drawing.Size(201, 45);
             this.tbar2.TabIndex = 1;
+            this.tbar2.Scroll += new System.EventHandler(this.tbar2_Scroll);
             // 
             // rbtn4a
             // 
             this.rbtn4a.AutoSize = true;
             this.rbtn4a.Location = new System.Drawing.Point(306, 223);
             this.rbtn4a.Name = "rbtn4a";
-            this.rbtn4a.Size = new System.Drawing.Size(85, 17);
+            this.rbtn4a.Size = new System.Drawing.Size(166, 17);
             this.rbtn4a.TabIndex = 3;
             this.rbtn4a.TabStop = true;
-            this.rbtn4a.Text = "radioButton1";
+            this.rbtn4a.Text = "She drew him out of the water";
             this.rbtn4a.UseVisualStyleBackColor = true;
             // 
             // rbtn4b
