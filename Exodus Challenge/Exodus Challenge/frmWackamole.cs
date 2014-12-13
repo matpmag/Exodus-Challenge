@@ -6,18 +6,13 @@ namespace Exodus_Challenge
 {
     public partial class frmWackamole : Form
     {
-        SoundPlayer sfx = new SoundPlayer();
-
-        #region Public Fields
-
-        #endregion Public Fields
-
         #region Private Fields
 
         private Random chanceSelect = new Random();
         private int clicksThisTick = 0;
         private int count = 0;
         private Random random = new Random();
+        private SoundPlayer sfx = new SoundPlayer();
 
         #endregion Private Fields
 
@@ -28,12 +23,18 @@ namespace Exodus_Challenge
             InitializeComponent();
             evenProb();
             sfx.SoundLocation = "../../../Media/SFX/Sharp Punch.wav";
-
         }
 
         #endregion Public Constructors
 
         #region Private Methods
+
+        private void btnQuit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form lvl = new LevelSelect();
+            lvl.Show();
+        }
 
         private Panel evenProb()
         {
@@ -63,8 +64,6 @@ namespace Exodus_Challenge
             {
                 count += 10;
                 pbxSpout.Visible = true;
-
-
             }
             clicksThisTick = 0;
             scoreCount.Text = count.ToString();
@@ -86,7 +85,7 @@ namespace Exodus_Challenge
 
         private void timeInLevel_Tick(object sender, EventArgs e)
         {
-            loginSystem.user.scoreManna-=10;
+            loginSystem.user.scoreManna -= 10;
             if (loginSystem.user.scoreManna <= 0)
             {
                 loginSystem.user.scoreQuail += count;
@@ -96,19 +95,12 @@ namespace Exodus_Challenge
             }
         }
 
-        #endregion Private Methods
-
-        private void btnQuit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Form lvl = new LevelSelect();
-            lvl.Show();
-        }
-
         private void waitTicker_Tick(object sender, EventArgs e)
         {
             pbxSpout.Visible = false;
             waitTicker.Stop();
         }
+
+        #endregion Private Methods
     }
 }

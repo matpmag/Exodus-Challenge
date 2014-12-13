@@ -1,21 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Exodus_Challenge
 {
     public partial class frmQQuestions : Form
     {
-        int timeRemaining = 10;
+        #region Private Fields
+
+        private int timeRemaining = 10;
+
+        #endregion Private Fields
+
+        #region Public Constructors
+
         public frmQQuestions()
         {
             InitializeComponent();
+        }
+
+        #endregion Public Constructors
+
+        #region Private Methods
+
+        private void btnQuit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form lvl = new LevelSelect();
+            lvl.Show();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -30,16 +41,10 @@ namespace Exodus_Challenge
             }
         }
 
-        private void btnQuit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Form lvl = new LevelSelect();
-            lvl.Show();
-        }
-
         private void tbar2_Scroll(object sender, EventArgs e)
         {
-
         }
+
+        #endregion Private Methods
     }
 }

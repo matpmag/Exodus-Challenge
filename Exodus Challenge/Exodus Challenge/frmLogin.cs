@@ -108,6 +108,18 @@ namespace Exodus_Challenge
 
         #endregion Public Constructors
 
+        private static string avatarTranslate(int avatarNumber)
+        {
+            switch (avatarNumber)
+            {
+                case 1:
+                    return "../../../Media/Avatars/moses.png";
+
+                default:
+                    return "";
+            }
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if (loginSystem.login(logUsername.Text, logPassword.Text))
@@ -131,7 +143,7 @@ namespace Exodus_Challenge
                 regConfirm.Text,
                 0.ToString(),
                 0.ToString(),
-                loginSystem.avatarTranslate((int)regDBGAvatar.Value)
+                avatarTranslate((int)regDBGAvatar.Value)
             };
             loginSystem.register(output);
         }

@@ -34,33 +34,6 @@ namespace Exodus_Challenge
             }
         }
 
-        private void btnlvlQ1_Click(object sender, System.EventArgs e)
-        {
-            this.Close();
-            Form frmQ1 = new frmQCrossword();
-            frmQ1.Show();
-        }
-
-        private void btnQuit_Click(object sender, System.EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void LevelSelect_Load(object sender, System.EventArgs e)
-        {
-            lblMannaScore.Text = loginSystem.user.scoreManna.ToString();
-            lblQuailScore.Text = loginSystem.user.scoreQuail.ToString();
-        }
-
-        #endregion Private Methods
-
-        private void btnlvlQ2_Click(object sender, System.EventArgs e)
-        {
-            this.Close();
-            Form frmQ2 = new frmQQuestions();
-            frmQ2.Show();
-        }
-
         private void btnlvlG6_Click(object sender, System.EventArgs e)
         {
             if (loginSystem.user.scoreQuail <= 100)
@@ -72,10 +45,24 @@ namespace Exodus_Challenge
                 updateLabels();
             }
         }
-        private void updateLabels()
+
+        private void btnlvlQ1_Click(object sender, System.EventArgs e)
         {
-            lblMannaScore.Text = loginSystem.user.scoreManna.ToString();
-            lblQuailScore.Text = loginSystem.user.scoreQuail.ToString();
+            this.Close();
+            Form frmQ1 = new frmQCrossword();
+            frmQ1.Show();
+        }
+
+        private void btnlvlQ2_Click(object sender, System.EventArgs e)
+        {
+            this.Close();
+            Form frmQ2 = new frmQQuestions();
+            frmQ2.Show();
+        }
+
+        private void btnQuit_Click(object sender, System.EventArgs e)
+        {
+            Application.Exit();
         }
 
         private void button1_Click(object sender, System.EventArgs e)
@@ -84,5 +71,19 @@ namespace Exodus_Challenge
             loginSystem.user.scoreQuail += 9000;
             updateLabels();
         }
+
+        private void LevelSelect_Load(object sender, System.EventArgs e)
+        {
+            lblMannaScore.Text = loginSystem.user.scoreManna.ToString();
+            lblQuailScore.Text = loginSystem.user.scoreQuail.ToString();
+        }
+
+        private void updateLabels()
+        {
+            lblMannaScore.Text = loginSystem.user.scoreManna.ToString();
+            lblQuailScore.Text = loginSystem.user.scoreQuail.ToString();
+        }
+
+        #endregion Private Methods
     }
 }

@@ -4,51 +4,6 @@ namespace Exodus_Challenge
 {
     public partial class frmQCrossword : Form
     {
-        #region Private Fields
-
-        private char[] ansAc10;
-        private char[] ansAc11;
-        private char[] ansAc12;
-        private char[] ansAc4;
-        private char[] ansAc5;
-        private char[] ansAc7;
-        private char[] ansAc8;
-        private char[][] ansAccross;
-        private char[] ansDn1;
-        private char[] ansDn2;
-        private char[] ansDn3;
-        private char[] ansDn6;
-        private char[] ansDn9;
-        private char[][] ansDown;
-        private TextBox[] arrAc10;
-        private TextBox[] arrAc11;
-        private TextBox[] arrAc12;
-        private TextBox[] arrAc4;
-        private TextBox[] arrAc5;
-        private TextBox[] arrAc7;
-        private TextBox[] arrAc8;
-        private TextBox[][] arrAccross;
-        private TextBox[] arrDn1;
-        private TextBox[] arrDn2;
-        private TextBox[] arrDn3;
-        private TextBox[] arrDn6;
-        private TextBox[] arrDn9;
-        private TextBox[][] arrDown;
-        private double time = 0;
-
-        #endregion Private Fields
-
-        #region Public Constructors
-
-        public frmQCrossword()
-        {
-            InitializeComponent();
-            setupHints();
-            setupArrays();
-        }
-
-        #endregion Public Constructors
-
         #region Private Methods
 
         private void checkAll()
@@ -168,6 +123,79 @@ namespace Exodus_Challenge
         }
 
         #endregion Private Methods
+
+        #region Private Fields
+
+        private char[] ansAc10;
+
+        private char[] ansAc11;
+
+        private char[] ansAc12;
+
+        private char[] ansAc4;
+
+        private char[] ansAc5;
+
+        private char[] ansAc7;
+
+        private char[] ansAc8;
+
+        private char[][] ansAccross;
+
+        private char[] ansDn1;
+
+        private char[] ansDn2;
+
+        private char[] ansDn3;
+
+        private char[] ansDn6;
+
+        private char[] ansDn9;
+
+        private char[][] ansDown;
+
+        private TextBox[] arrAc10;
+
+        private TextBox[] arrAc11;
+
+        private TextBox[] arrAc12;
+
+        private TextBox[] arrAc4;
+
+        private TextBox[] arrAc5;
+
+        private TextBox[] arrAc7;
+
+        private TextBox[] arrAc8;
+
+        private TextBox[][] arrAccross;
+
+        private TextBox[] arrDn1;
+
+        private TextBox[] arrDn2;
+
+        private TextBox[] arrDn3;
+
+        private TextBox[] arrDn6;
+
+        private TextBox[] arrDn9;
+
+        private TextBox[][] arrDown;
+
+        private double time = 0;
+
+        #endregion Private Fields
+
+        #region Public Constructors
+
+        public frmQCrossword()
+        {
+            InitializeComponent();
+            setupHints();
+            setupArrays();
+        }
+
+        #endregion Public Constructors
 
         private void btnQuit_Click(object sender, System.EventArgs e)
         {

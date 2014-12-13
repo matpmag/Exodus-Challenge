@@ -41,29 +41,14 @@ namespace Exodus_Challenge
         #region Public Fields
 
         public static string[] allUserArray;
-
-        public static string[] currentUser;
         public static DateTimePicker dateDOB;
-        public static string path = "../../userData/testUser.txt";
-        public static StreamReader readUserData;
+        public static StreamReader readUserData = new StreamReader("../../userData/testUser.txt");
         public static User user;
-        public static StreamWriter writeUserData;
+        public static StreamWriter writeUserData = new StreamWriter("../../userData/testUser.txt", true);
 
         #endregion Public Fields
 
         #region Public Methods
-
-        public static string avatarTranslate(int avatarNumber)
-        {
-            switch (avatarNumber)
-            {
-                case 1:
-                    return "../../../Media/Avatars/moses.png";
-
-                default:
-                    return "";
-            }
-        }
 
         public static bool login(string paramUsername, string paramPassword)
         {
@@ -83,20 +68,8 @@ namespace Exodus_Challenge
             {
                 credentialsAdd(registerAs);
                 setUser(registerAs);
+                sendMail();
             }
-        }
-
-        public static void setUser(string[] userArray)
-        {
-            user = new User()
-            {
-                username = userArray[0],
-                email = userArray[1],
-                password = userArray[2],
-                scoreManna = int.Parse(userArray[4]),
-                scoreQuail = int.Parse(userArray[5]),
-                avatar = userArray[6]
-            };
         }
 
         public static bool userCheck(string username, out string avatar)
@@ -116,103 +89,24 @@ namespace Exodus_Challenge
             return false;
         }
 
-        public static bool validEmail(string email)
-        {
-            try { return new System.Net.Mail.MailAddress(email).Address == email; }
-            catch { return false; }
-        }
-
-        public static bool validRegister(string[] input)
-        {
-            accountError? error;
-
-            int age = DateTime.Now.Year - dateDOB.Value.Year;
-            if (dateDOB.Value.Month < DateTime.Now.Month || (dateDOB.Value.Month == DateTime.Now.Month && dateDOB.Value.Day > DateTime.Now.Day)) age++;
-
-            if (input[0] == "") error = accountError.userBlank;
-            else if (!input[0].All(char.IsLetterOrDigit))
-                error = accountError.userAlphaNum;
-            else if (userCheck(input[0]))
-                error = accountError.userConflict;
-            else if (input[2] == "")
-                error = accountError.passBlank;
-            else if (input[2].Length < 8)
-                error = accountError.passLength;
-            else if (!input[2].Any(char.IsDigit))
-                error = accountError.passNoDigit;
-            else if (!input[2].Any(char.IsUpper))
-                error = accountError.passNoUpper;
-            else if (!input[2].Any(c => !char.IsLetterOrDigit(c)))
-                error = accountError.passNoSymbol;
-            else if (input[2] != input[3])
-                error = accountError.passMismatch;
-            else if (!validEmail(input[1]))
-                error = accountError.mailInvalid;
-            else if (age < 13)
-                error = accountError.age;
-            else error = null;
-            return feedback(error);
-        }
-
         #endregion Public Methods
 
-        #region Internal Methods
+        #region Private Methods
 
-        internal static void credentialsAdd(string[] arrWrite)
+        private static void credentialsAdd(string[] arrWrite)
         {
             string dataToWrite = string.Join(",", arrWrite) + ";";
-            writeUserData = new StreamWriter(path, true);
             writeUserData.WriteLine(dataToWrite);
             writeUserData.Close();
         }
 
-        internal static string[] credentialsLookup()
+        private static string[] credentialsLookup()
         {
-            readUserData = new StreamReader(path);
             string allUsers = readUserData.ReadToEnd();
             allUserArray = allUsers.Split(';');
             readUserData.Close();
             return allUserArray;
         }
-
-        internal static bool userCheck(string username)
-        {
-            credentialsLookup();
-            foreach (string record in allUserArray)
-            {
-                string trim = record.Trim();
-                string[] trimArray = trim.Split(',');
-                if (trimArray[0] == username)
-                    return true;
-            }
-            return false;
-        }
-
-        internal static bool userCheck(string username, string password, out string[] arrayOut)
-        {
-            credentialsLookup();
-            string[] notFound = { "" };
-            foreach (string record in allUserArray)
-            {
-                string recordTester = record.Trim();
-                string[] tempUser = recordTester.Split(',');
-                try
-                {
-                    if (tempUser[0] == username && tempUser[2] == password) //error if tempUser[0] = null
-                    {
-                        arrayOut = tempUser;
-                        return true;
-                    }
-                }
-                catch { }
-            }
-            arrayOut = null;
-            return false;
-        }
-
-        #endregion Internal Methods
-
-        #region Private Methods
 
         private static bool feedback(accountError? error)
         {
@@ -272,7 +166,7 @@ namespace Exodus_Challenge
             return false;
         }
 
-        private void sendMail()
+        private static void sendMail()
         {
             MailMessage mail = new MailMessage();
             SmtpClient smtp = new SmtpClient("smtp.gmail.com");
@@ -287,6 +181,92 @@ namespace Exodus_Challenge
             smtp.EnableSsl = true;
 
             smtp.Send(mail);
+        }
+
+        private static void setUser(string[] userArray)
+        {
+            user = new User()
+            {
+                username = userArray[0],
+                email = userArray[1],
+                password = userArray[2],
+                scoreManna = int.Parse(userArray[4]),
+                scoreQuail = int.Parse(userArray[5]),
+                avatar = userArray[6]
+            };
+        }
+
+        private static bool userCheck(string username)
+        {
+            credentialsLookup();
+            foreach (string record in allUserArray)
+            {
+                string trim = record.Trim();
+                string[] trimArray = trim.Split(',');
+                if (trimArray[0] == username)
+                    return true;
+            }
+            return false;
+        }
+
+        private static bool userCheck(string username, string password, out string[] arrayOut)
+        {
+            credentialsLookup();
+            string[] notFound = { "" };
+            foreach (string record in allUserArray)
+            {
+                string recordTester = record.Trim();
+                string[] tempUser = recordTester.Split(',');
+                try
+                {
+                    if (tempUser[0] == username && tempUser[2] == password)
+                    {
+                        arrayOut = tempUser;
+                        return true;
+                    }
+                }
+                catch { }
+            }
+            arrayOut = null;
+            return false;
+        }
+
+        private static bool validEmail(string email)
+        {
+            try { return new System.Net.Mail.MailAddress(email).Address == email; }
+            catch { return false; }
+        }
+
+        private static bool validRegister(string[] input)
+        {
+            accountError? error;
+
+            int age = DateTime.Now.Year - dateDOB.Value.Year;
+            if (dateDOB.Value.Month < DateTime.Now.Month || (dateDOB.Value.Month == DateTime.Now.Month && dateDOB.Value.Day > DateTime.Now.Day)) age++;
+
+            if (input[0] == "") error = accountError.userBlank;
+            else if (!input[0].All(char.IsLetterOrDigit))
+                error = accountError.userAlphaNum;
+            else if (userCheck(input[0]))
+                error = accountError.userConflict;
+            else if (input[2] == "")
+                error = accountError.passBlank;
+            else if (input[2].Length < 8)
+                error = accountError.passLength;
+            else if (!input[2].Any(char.IsDigit))
+                error = accountError.passNoDigit;
+            else if (!input[2].Any(char.IsUpper))
+                error = accountError.passNoUpper;
+            else if (!input[2].Any(c => !char.IsLetterOrDigit(c)))
+                error = accountError.passNoSymbol;
+            else if (input[2] != input[3])
+                error = accountError.passMismatch;
+            else if (!validEmail(input[1]))
+                error = accountError.mailInvalid;
+            else if (age < 13)
+                error = accountError.age;
+            else error = null;
+            return feedback(error);
         }
 
         #endregion Private Methods
