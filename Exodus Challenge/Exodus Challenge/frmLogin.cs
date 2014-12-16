@@ -103,7 +103,6 @@ namespace Exodus_Challenge
         public frmLogin()
         {
             InitializeComponent();
-            loginSystem.dateDOB = regDOB;
         }
 
         #endregion Public Constructors
@@ -165,6 +164,16 @@ namespace Exodus_Challenge
         {
             if (!changingForm)
                 Application.Exit();
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            loginSystem.dateDOB = regDOB;
+        }
+
+        private void regDBGAvatar_ValueChanged(object sender, EventArgs e)
+        {
+            regAvatar.ImageLocation = avatarTranslate((int)regDBGAvatar.Value);
         }
     }
 }

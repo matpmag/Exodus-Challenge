@@ -77,7 +77,7 @@
             this.btnlvlQ2.FlatAppearance.BorderSize = 0;
             this.btnlvlQ2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlvlQ2.ForeColor = System.Drawing.Color.Transparent;
-            this.btnlvlQ2.Location = new System.Drawing.Point(299, 289);
+            this.btnlvlQ2.Location = new System.Drawing.Point(306, 300);
             this.btnlvlQ2.Margin = new System.Windows.Forms.Padding(2);
             this.btnlvlQ2.Name = "btnlvlQ2";
             this.btnlvlQ2.Size = new System.Drawing.Size(32, 33);
@@ -93,7 +93,7 @@
             this.btnlvlQ3.FlatAppearance.BorderSize = 0;
             this.btnlvlQ3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlvlQ3.ForeColor = System.Drawing.Color.Transparent;
-            this.btnlvlQ3.Location = new System.Drawing.Point(428, 393);
+            this.btnlvlQ3.Location = new System.Drawing.Point(433, 410);
             this.btnlvlQ3.Margin = new System.Windows.Forms.Padding(2);
             this.btnlvlQ3.Name = "btnlvlQ3";
             this.btnlvlQ3.Size = new System.Drawing.Size(32, 33);
@@ -108,7 +108,7 @@
             this.btnlv4.FlatAppearance.BorderSize = 0;
             this.btnlv4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlv4.ForeColor = System.Drawing.Color.Transparent;
-            this.btnlv4.Location = new System.Drawing.Point(569, 340);
+            this.btnlv4.Location = new System.Drawing.Point(550, 374);
             this.btnlv4.Margin = new System.Windows.Forms.Padding(2);
             this.btnlv4.Name = "btnlv4";
             this.btnlv4.Size = new System.Drawing.Size(32, 33);
@@ -133,22 +133,24 @@
             // 
             // btnlvlG1
             // 
+            this.btnlvlG1.AutoSize = true;
             this.btnlvlG1.BackColor = System.Drawing.Color.Transparent;
             this.btnlvlG1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnlvlG1.BackgroundImage")));
             this.btnlvlG1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnlvlG1.FlatAppearance.BorderSize = 0;
             this.btnlvlG1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlvlG1.ForeColor = System.Drawing.Color.Transparent;
-            this.btnlvlG1.Location = new System.Drawing.Point(120, 207);
+            this.btnlvlG1.Location = new System.Drawing.Point(107, 163);
             this.btnlvlG1.Margin = new System.Windows.Forms.Padding(2);
             this.btnlvlG1.Name = "btnlvlG1";
-            this.btnlvlG1.Size = new System.Drawing.Size(42, 46);
+            this.btnlvlG1.Size = new System.Drawing.Size(53, 61);
             this.btnlvlG1.TabIndex = 5;
             this.btnlvlG1.UseVisualStyleBackColor = false;
             this.btnlvlG1.Click += new System.EventHandler(this.btnlvlG1_Click);
             // 
             // btnlvlG3
             // 
+            this.btnlvlG3.AutoSize = true;
             this.btnlvlG3.BackColor = System.Drawing.Color.Transparent;
             this.btnlvlG3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnlvlG3.BackgroundImage")));
             this.btnlvlG3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
@@ -158,12 +160,13 @@
             this.btnlvlG3.Location = new System.Drawing.Point(356, 340);
             this.btnlvlG3.Margin = new System.Windows.Forms.Padding(2);
             this.btnlvlG3.Name = "btnlvlG3";
-            this.btnlvlG3.Size = new System.Drawing.Size(42, 46);
+            this.btnlvlG3.Size = new System.Drawing.Size(50, 53);
             this.btnlvlG3.TabIndex = 6;
             this.btnlvlG3.UseVisualStyleBackColor = false;
             // 
             // btnlvlG2
             // 
+            this.btnlvlG2.AutoSize = true;
             this.btnlvlG2.BackColor = System.Drawing.Color.Transparent;
             this.btnlvlG2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnlvlG2.BackgroundImage")));
             this.btnlvlG2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
@@ -173,42 +176,45 @@
             this.btnlvlG2.Location = new System.Drawing.Point(246, 222);
             this.btnlvlG2.Margin = new System.Windows.Forms.Padding(2);
             this.btnlvlG2.Name = "btnlvlG2";
-            this.btnlvlG2.Size = new System.Drawing.Size(42, 46);
+            this.btnlvlG2.Size = new System.Drawing.Size(58, 63);
             this.btnlvlG2.TabIndex = 7;
             this.btnlvlG2.UseVisualStyleBackColor = false;
             // 
             // btnlvlG4
             // 
+            this.btnlvlG4.AutoSize = true;
             this.btnlvlG4.BackColor = System.Drawing.Color.Transparent;
             this.btnlvlG4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnlvlG4.BackgroundImage")));
             this.btnlvlG4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnlvlG4.FlatAppearance.BorderSize = 0;
             this.btnlvlG4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlvlG4.ForeColor = System.Drawing.Color.Transparent;
-            this.btnlvlG4.Location = new System.Drawing.Point(512, 450);
+            this.btnlvlG4.Location = new System.Drawing.Point(496, 465);
             this.btnlvlG4.Margin = new System.Windows.Forms.Padding(2);
             this.btnlvlG4.Name = "btnlvlG4";
-            this.btnlvlG4.Size = new System.Drawing.Size(42, 46);
+            this.btnlvlG4.Size = new System.Drawing.Size(52, 53);
             this.btnlvlG4.TabIndex = 8;
             this.btnlvlG4.UseVisualStyleBackColor = false;
             // 
             // btnlvl5
             // 
+            this.btnlvl5.AutoSize = true;
             this.btnlvl5.BackColor = System.Drawing.Color.Transparent;
             this.btnlvl5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnlvl5.BackgroundImage")));
             this.btnlvl5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnlvl5.FlatAppearance.BorderSize = 0;
             this.btnlvl5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlvl5.ForeColor = System.Drawing.Color.Transparent;
-            this.btnlvl5.Location = new System.Drawing.Point(642, 258);
+            this.btnlvl5.Location = new System.Drawing.Point(614, 284);
             this.btnlvl5.Margin = new System.Windows.Forms.Padding(2);
             this.btnlvl5.Name = "btnlvl5";
-            this.btnlvl5.Size = new System.Drawing.Size(42, 46);
+            this.btnlvl5.Size = new System.Drawing.Size(56, 64);
             this.btnlvl5.TabIndex = 9;
             this.btnlvl5.UseVisualStyleBackColor = false;
             // 
             // btnlvlG6
             // 
+            this.btnlvlG6.AutoSize = true;
             this.btnlvlG6.BackColor = System.Drawing.Color.Transparent;
             this.btnlvlG6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnlvlG6.BackgroundImage")));
             this.btnlvlG6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
@@ -218,7 +224,7 @@
             this.btnlvlG6.Location = new System.Drawing.Point(680, 24);
             this.btnlvlG6.Margin = new System.Windows.Forms.Padding(2);
             this.btnlvlG6.Name = "btnlvlG6";
-            this.btnlvlG6.Size = new System.Drawing.Size(42, 46);
+            this.btnlvlG6.Size = new System.Drawing.Size(50, 51);
             this.btnlvlG6.TabIndex = 10;
             this.btnlvlG6.UseVisualStyleBackColor = false;
             this.btnlvlG6.Click += new System.EventHandler(this.btnlvlG6_Click);

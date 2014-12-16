@@ -36,15 +36,16 @@ namespace Exodus_Challenge
         #endregion Public Fields
     }
 
-    public class loginSystem
+    public static class loginSystem
     {
         #region Public Fields
 
         public static string[] allUserArray;
         public static DateTimePicker dateDOB;
-        public static StreamReader readUserData = new StreamReader("../../userData/testUser.txt");
+        public static string path = "../../userdata/testUser.txt";
+        public static StreamWriter writeUserData;
+        public static StreamReader readUserData;
         public static User user;
-        public static StreamWriter writeUserData = new StreamWriter("../../userData/testUser.txt", true);
 
         #endregion Public Fields
 
@@ -95,6 +96,7 @@ namespace Exodus_Challenge
 
         private static void credentialsAdd(string[] arrWrite)
         {
+            writeUserData = new StreamWriter(path, true);
             string dataToWrite = string.Join(",", arrWrite) + ";";
             writeUserData.WriteLine(dataToWrite);
             writeUserData.Close();
@@ -102,6 +104,7 @@ namespace Exodus_Challenge
 
         private static string[] credentialsLookup()
         {
+            readUserData = new StreamReader(path);
             string allUsers = readUserData.ReadToEnd();
             allUserArray = allUsers.Split(';');
             readUserData.Close();

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Media;
 using System.Windows.Forms;
 
@@ -12,7 +13,7 @@ namespace Exodus_Challenge
         private int clicksThisTick = 0;
         private int count = 0;
         private Random random = new Random();
-        private SoundPlayer sfx = new SoundPlayer();
+        //private SoundPlayer sfx = new SoundPlayer();
 
         #endregion Private Fields
 
@@ -22,7 +23,8 @@ namespace Exodus_Challenge
         {
             InitializeComponent();
             evenProb();
-            sfx.SoundLocation = "../../../Media/SFX/Sharp Punch.wav";
+            //sfx.SoundLocation = "../../../Media/SFX/Sharp Punch.wav";
+            //MessageBox.Show(Path.GetFullPath(sfx.SoundLocation));
         }
 
         #endregion Public Constructors
@@ -80,7 +82,7 @@ namespace Exodus_Challenge
         private void pbxMole_MouseDown(object sender, MouseEventArgs e)
         {
             clicksThisTick++;
-            sfx.Play();
+            //sfx.Play();
         }
 
         private void timeInLevel_Tick(object sender, EventArgs e)
