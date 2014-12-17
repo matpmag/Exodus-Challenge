@@ -37,6 +37,11 @@
             this.tabLogin = new System.Windows.Forms.TabPage();
             this.bypass = new System.Windows.Forms.Button();
             this.tabRegister = new System.Windows.Forms.TabPage();
+            this.panelDifficulty = new System.Windows.Forms.Panel();
+            this.btnHard = new System.Windows.Forms.Button();
+            this.btnMedium = new System.Windows.Forms.Button();
+            this.btnEasy = new System.Windows.Forms.Button();
+            this.pbxDiff = new System.Windows.Forms.PictureBox();
             this.btnRegister = new System.Windows.Forms.Button();
             this.regDOB = new System.Windows.Forms.DateTimePicker();
             this.regAvatar = new System.Windows.Forms.PictureBox();
@@ -45,25 +50,20 @@
             this.regEmail = new System.Windows.Forms.TextBox();
             this.regPassword = new System.Windows.Forms.TextBox();
             this.regConfirm = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logAvatar)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabLogin.SuspendLayout();
             this.tabRegister.SuspendLayout();
+            this.panelDifficulty.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxDiff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.regAvatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.regDBGAvatar)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogin
             // 
             this.btnLogin.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnLogin.Location = new System.Drawing.Point(3, 410);
+            this.btnLogin.Location = new System.Drawing.Point(3, 404);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(349, 36);
@@ -77,7 +77,7 @@
             this.logUsername.ForeColor = System.Drawing.Color.Silver;
             this.logUsername.Location = new System.Drawing.Point(59, 199);
             this.logUsername.Name = "logUsername";
-            this.logUsername.Size = new System.Drawing.Size(236, 26);
+            this.logUsername.Size = new System.Drawing.Size(236, 30);
             this.logUsername.TabIndex = 0;
             this.logUsername.Text = "Username";
             this.logUsername.TextChanged += new System.EventHandler(this.logUsername_TextChanged);
@@ -88,7 +88,7 @@
             this.logPassword.ForeColor = System.Drawing.Color.Silver;
             this.logPassword.Location = new System.Drawing.Point(59, 235);
             this.logPassword.Name = "logPassword";
-            this.logPassword.Size = new System.Drawing.Size(236, 26);
+            this.logPassword.Size = new System.Drawing.Size(236, 30);
             this.logPassword.TabIndex = 1;
             this.logPassword.Text = "Password";
             this.logPassword.TextChanged += new System.EventHandler(this.logPassword_TextChanged);
@@ -128,10 +128,10 @@
             this.tabLogin.Controls.Add(this.btnLogin);
             this.tabLogin.Controls.Add(this.logPassword);
             this.tabLogin.Controls.Add(this.logUsername);
-            this.tabLogin.Location = new System.Drawing.Point(4, 26);
+            this.tabLogin.Location = new System.Drawing.Point(4, 32);
             this.tabLogin.Name = "tabLogin";
             this.tabLogin.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLogin.Size = new System.Drawing.Size(355, 449);
+            this.tabLogin.Size = new System.Drawing.Size(355, 443);
             this.tabLogin.TabIndex = 0;
             this.tabLogin.Text = "Login";
             this.tabLogin.UseVisualStyleBackColor = true;
@@ -149,7 +149,7 @@
             // tabRegister
             // 
             this.tabRegister.BackgroundImage = global::Exodus_Challenge.Properties.Resources.sandstoneBrickSmall;
-            this.tabRegister.Controls.Add(this.panel1);
+            this.tabRegister.Controls.Add(this.panelDifficulty);
             this.tabRegister.Controls.Add(this.btnRegister);
             this.tabRegister.Controls.Add(this.regDOB);
             this.tabRegister.Controls.Add(this.regAvatar);
@@ -158,18 +158,69 @@
             this.tabRegister.Controls.Add(this.regEmail);
             this.tabRegister.Controls.Add(this.regPassword);
             this.tabRegister.Controls.Add(this.regConfirm);
-            this.tabRegister.Location = new System.Drawing.Point(4, 26);
+            this.tabRegister.Location = new System.Drawing.Point(4, 32);
             this.tabRegister.Name = "tabRegister";
             this.tabRegister.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRegister.Size = new System.Drawing.Size(355, 449);
+            this.tabRegister.Size = new System.Drawing.Size(355, 443);
             this.tabRegister.TabIndex = 1;
             this.tabRegister.Text = "Register";
             this.tabRegister.UseVisualStyleBackColor = true;
             // 
+            // panelDifficulty
+            // 
+            this.panelDifficulty.Controls.Add(this.btnHard);
+            this.panelDifficulty.Controls.Add(this.btnMedium);
+            this.panelDifficulty.Controls.Add(this.btnEasy);
+            this.panelDifficulty.Controls.Add(this.pbxDiff);
+            this.panelDifficulty.Location = new System.Drawing.Point(8, 8);
+            this.panelDifficulty.Name = "panelDifficulty";
+            this.panelDifficulty.Size = new System.Drawing.Size(339, 385);
+            this.panelDifficulty.TabIndex = 7;
+            this.panelDifficulty.Visible = false;
+            // 
+            // btnHard
+            // 
+            this.btnHard.Location = new System.Drawing.Point(224, 302);
+            this.btnHard.Name = "btnHard";
+            this.btnHard.Size = new System.Drawing.Size(100, 64);
+            this.btnHard.TabIndex = 3;
+            this.btnHard.Text = "button3";
+            this.btnHard.UseVisualStyleBackColor = true;
+            this.btnHard.MouseEnter += new System.EventHandler(this.btnHard_MouseEnter);
+            // 
+            // btnMedium
+            // 
+            this.btnMedium.Location = new System.Drawing.Point(118, 302);
+            this.btnMedium.Name = "btnMedium";
+            this.btnMedium.Size = new System.Drawing.Size(100, 64);
+            this.btnMedium.TabIndex = 2;
+            this.btnMedium.Text = "button2";
+            this.btnMedium.UseVisualStyleBackColor = true;
+            this.btnMedium.MouseEnter += new System.EventHandler(this.btnMedium_MouseEnter);
+            // 
+            // btnEasy
+            // 
+            this.btnEasy.Location = new System.Drawing.Point(12, 302);
+            this.btnEasy.Name = "btnEasy";
+            this.btnEasy.Size = new System.Drawing.Size(100, 64);
+            this.btnEasy.TabIndex = 1;
+            this.btnEasy.Text = "button1";
+            this.btnEasy.UseVisualStyleBackColor = true;
+            this.btnEasy.MouseEnter += new System.EventHandler(this.btnEasy_MouseEnter);
+            // 
+            // pbxDiff
+            // 
+            this.pbxDiff.Location = new System.Drawing.Point(12, 13);
+            this.pbxDiff.Name = "pbxDiff";
+            this.pbxDiff.Size = new System.Drawing.Size(312, 283);
+            this.pbxDiff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxDiff.TabIndex = 0;
+            this.pbxDiff.TabStop = false;
+            // 
             // btnRegister
             // 
             this.btnRegister.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnRegister.Location = new System.Drawing.Point(3, 410);
+            this.btnRegister.Location = new System.Drawing.Point(3, 404);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(349, 36);
             this.btnRegister.TabIndex = 6;
@@ -185,7 +236,7 @@
             this.regDOB.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
             this.regDOB.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.regDOB.Name = "regDOB";
-            this.regDOB.Size = new System.Drawing.Size(184, 26);
+            this.regDOB.Size = new System.Drawing.Size(184, 30);
             this.regDOB.TabIndex = 5;
             this.regDOB.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             // 
@@ -207,7 +258,7 @@
             // 
             this.regDBGAvatar.Location = new System.Drawing.Point(117, 174);
             this.regDBGAvatar.Name = "regDBGAvatar";
-            this.regDBGAvatar.Size = new System.Drawing.Size(123, 26);
+            this.regDBGAvatar.Size = new System.Drawing.Size(123, 30);
             this.regDBGAvatar.TabIndex = 0;
             this.regDBGAvatar.ValueChanged += new System.EventHandler(this.regDBGAvatar_ValueChanged);
             // 
@@ -216,7 +267,7 @@
             this.regUsername.ForeColor = System.Drawing.Color.Silver;
             this.regUsername.Location = new System.Drawing.Point(89, 223);
             this.regUsername.Name = "regUsername";
-            this.regUsername.Size = new System.Drawing.Size(184, 26);
+            this.regUsername.Size = new System.Drawing.Size(184, 30);
             this.regUsername.TabIndex = 1;
             this.regUsername.Text = "Username";
             this.regUsername.TextChanged += new System.EventHandler(this.regUsername_TextChanged);
@@ -227,7 +278,7 @@
             this.regEmail.ForeColor = System.Drawing.Color.Silver;
             this.regEmail.Location = new System.Drawing.Point(89, 259);
             this.regEmail.Name = "regEmail";
-            this.regEmail.Size = new System.Drawing.Size(184, 26);
+            this.regEmail.Size = new System.Drawing.Size(184, 30);
             this.regEmail.TabIndex = 2;
             this.regEmail.Text = "Email";
             this.regEmail.TextChanged += new System.EventHandler(this.regEmail_TextChanged);
@@ -238,7 +289,7 @@
             this.regPassword.ForeColor = System.Drawing.Color.Silver;
             this.regPassword.Location = new System.Drawing.Point(89, 295);
             this.regPassword.Name = "regPassword";
-            this.regPassword.Size = new System.Drawing.Size(184, 26);
+            this.regPassword.Size = new System.Drawing.Size(184, 30);
             this.regPassword.TabIndex = 3;
             this.regPassword.Text = "Password";
             this.regPassword.TextChanged += new System.EventHandler(this.regPassword_TextChanged);
@@ -249,62 +300,15 @@
             this.regConfirm.ForeColor = System.Drawing.Color.Silver;
             this.regConfirm.Location = new System.Drawing.Point(89, 331);
             this.regConfirm.Name = "regConfirm";
-            this.regConfirm.Size = new System.Drawing.Size(184, 26);
+            this.regConfirm.Size = new System.Drawing.Size(184, 30);
             this.regConfirm.TabIndex = 4;
             this.regConfirm.Text = "Confirm";
             this.regConfirm.TextChanged += new System.EventHandler(this.regConfirm_TextChanged);
             this.regConfirm.Enter += new System.EventHandler(this.regConfirm_Enter);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(8, 8);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(339, 385);
-            this.panel1.TabIndex = 7;
-            this.panel1.Visible = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(312, 283);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 302);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 64);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(118, 302);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 64);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(224, 302);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 64);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Exodus_Challenge.Properties.Resources.hieroglyph;
             this.ClientSize = new System.Drawing.Size(363, 479);
@@ -325,10 +329,10 @@
             this.tabLogin.PerformLayout();
             this.tabRegister.ResumeLayout(false);
             this.tabRegister.PerformLayout();
+            this.panelDifficulty.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbxDiff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.regAvatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.regDBGAvatar)).EndInit();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -351,10 +355,10 @@
         private System.Windows.Forms.TextBox regConfirm;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button bypass;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panelDifficulty;
+        private System.Windows.Forms.Button btnHard;
+        private System.Windows.Forms.Button btnMedium;
+        private System.Windows.Forms.Button btnEasy;
+        private System.Windows.Forms.PictureBox pbxDiff;
     }
 }

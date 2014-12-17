@@ -13,9 +13,10 @@ namespace Exodus_Challenge
         private int clicksThisTick = 0;
         private int count = 0;
         private Random random = new Random();
-        //private SoundPlayer sfx = new SoundPlayer();
 
         #endregion Private Fields
+
+        //private SoundPlayer sfx = new SoundPlayer();
 
         #region Public Constructors
 
@@ -25,6 +26,7 @@ namespace Exodus_Challenge
             evenProb();
             //sfx.SoundLocation = "../../../Media/SFX/Sharp Punch.wav";
             //MessageBox.Show(Path.GetFullPath(sfx.SoundLocation));
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
         }
 
         #endregion Public Constructors
