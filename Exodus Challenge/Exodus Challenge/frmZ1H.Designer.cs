@@ -1,6 +1,6 @@
 ﻿namespace Exodus_Challenge
 {
-    partial class frmQQuestions
+    partial class frmZ1H
     {
         /// <summary>
         /// Required designer variable.

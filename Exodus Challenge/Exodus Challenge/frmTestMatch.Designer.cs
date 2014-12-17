@@ -1,6 +1,6 @@
 ﻿namespace Exodus_Challenge
 {
-    partial class formQMatch
+    partial class frmTestMatch
     {
         /// <summary>
         /// Required designer variable.

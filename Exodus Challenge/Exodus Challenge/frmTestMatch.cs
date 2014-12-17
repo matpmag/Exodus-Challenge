@@ -17,7 +17,7 @@ namespace Exodus_Challenge
         pbx3
     }
 
-    public partial class formQMatch : Form
+    public partial class frmTestMatch : Form
     {
         #region Private Methods
 
@@ -50,7 +50,7 @@ namespace Exodus_Challenge
 
         #region Public Constructors
 
-        public formQMatch()
+        public frmTestMatch()
         {
             InitializeComponent();
         }

@@ -4,7 +4,6 @@ namespace Exodus_Challenge
 {
     public partial class LevelSelect : Form
     {
-
         #region Public Constructors
 
         public LevelSelect()
@@ -19,7 +18,7 @@ namespace Exodus_Challenge
         private void btnlv4_Click(object sender, System.EventArgs e)
         {
             this.Close();
-            Form frmQ4 = new frmQReorder();
+            Form frmQ4 = new frmZ3E();
             frmQ4.Show();
         }
 
@@ -30,7 +29,7 @@ namespace Exodus_Challenge
             else
             {
                 this.Close();
-                Form frmGame1 = new frmWackamole();
+                Form frmGame1 = new frmZ3B();
                 frmGame1.Show();
             }
         }
@@ -50,14 +49,14 @@ namespace Exodus_Challenge
         private void btnlvlQ1_Click(object sender, System.EventArgs e)
         {
             this.Close();
-            Form frmQ1 = new frmQCrossword();
-            frmQ1.Show();
+            //Form frmQ1 = new ();
+            //frmQ1.Show();
         }
 
         private void btnlvlQ2_Click(object sender, System.EventArgs e)
         {
             this.Close();
-            Form frmQ2 = new frmQQuestions();
+            Form frmQ2 = new frmZ1H();
             frmQ2.Show();
         }
 
@@ -86,6 +85,5 @@ namespace Exodus_Challenge
         }
 
         #endregion Private Methods
-
     }
 }

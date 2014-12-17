@@ -2,7 +2,7 @@
 
 namespace Exodus_Challenge
 {
-    public partial class frmQCrossword : Form
+    public partial class frmZ1M : Form
     {
         #region Private Methods
 
@@ -188,7 +188,7 @@ namespace Exodus_Challenge
 
         #region Public Constructors
 
-        public frmQCrossword()
+        public frmZ1M()
         {
             InitializeComponent();
             setupHints();

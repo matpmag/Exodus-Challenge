@@ -1,11 +1,9 @@
 ﻿using System;
-using System.IO;
-using System.Media;
 using System.Windows.Forms;
 
 namespace Exodus_Challenge
 {
-    public partial class frmWackamole : Form
+    public partial class frmZ3B : Form
     {
         #region Private Fields
 
@@ -20,7 +18,7 @@ namespace Exodus_Challenge
 
         #region Public Constructors
 
-        public frmWackamole()
+        public frmZ3B()
         {
             InitializeComponent();
             evenProb();

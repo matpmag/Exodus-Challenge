@@ -50,35 +50,29 @@
     <Compile Include="Escape.Designer.cs">
       <DependentUpon>Escape.cs</DependentUpon>
     </Compile>
-    <Compile Include="formQMatch.cs">
+    <Compile Include="frmTestMatch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formQMatch.Designer.cs">
-      <DependentUpon>formQMatch.cs</DependentUpon>
+    <Compile Include="frmTestMatch.Designer.cs">
+      <DependentUpon>frmTestMatch.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmQQuestions.cs">
+    <Compile Include="frmZ1H.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmQQuestions.Designer.cs">
-      <DependentUpon>frmQQuestions.cs</DependentUpon>
+    <Compile Include="frmZ1H.Designer.cs">
+      <DependentUpon>frmZ1H.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmWackamole.cs">
+    <Compile Include="frmZ3B.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmWackamole.Designer.cs">
-      <DependentUpon>frmWackamole.cs</DependentUpon>
+    <Compile Include="frmZ3B.Designer.cs">
+      <DependentUpon>frmZ3B.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmQReorder.cs">
+    <Compile Include="frmZ3E.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmQReorder.Designer.cs">
-      <DependentUpon>frmQReorder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmQCrossword.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmQCrossword.Designer.cs">
-      <DependentUpon>frmQCrossword.cs</DependentUpon>
+    <Compile Include="frmZ3E.Designer.cs">
+      <DependentUpon>frmZ3E.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -91,6 +85,18 @@
     </Compile>
     <Compile Include="frmTitle.Designer.cs">
       <DependentUpon>frmTitle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmZ1M.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmZ1M.Designer.cs">
+      <DependentUpon>frmZ1M.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmZ2E.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmZ2E.Designer.cs">
+      <DependentUpon>frmZ2E.cs</DependentUpon>
     </Compile>
     <Compile Include="LevelSelect.cs">
       <SubType>Form</SubType>
@@ -110,26 +116,31 @@
     <EmbeddedResource Include="Escape.resx">
       <DependentUpon>Escape.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formQMatch.resx">
-      <DependentUpon>formQMatch.cs</DependentUpon>
+    <EmbeddedResource Include="frmTestMatch.resx">
+      <DependentUpon>frmTestMatch.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmQQuestions.resx">
-      <DependentUpon>frmQQuestions.cs</DependentUpon>
+    <EmbeddedResource Include="frmZ1H.resx">
+      <DependentUpon>frmZ1H.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmWackamole.resx">
-      <DependentUpon>frmWackamole.cs</DependentUpon>
+    <EmbeddedResource Include="frmZ3B.resx">
+      <DependentUpon>frmZ3B.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmQReorder.resx">
-      <DependentUpon>frmQReorder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmQCrossword.resx">
-      <DependentUpon>frmQCrossword.cs</DependentUpon>
+    <EmbeddedResource Include="frmZ3E.resx">
+      <DependentUpon>frmZ3E.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTitle.resx">
       <DependentUpon>frmTitle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmZ1M.resx">
+      <DependentUpon>frmZ1M.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmZ2E.resx">
+      <DependentUpon>frmZ2E.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LevelSelect.resx">
       <DependentUpon>LevelSelect.cs</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿namespace Exodus_Challenge
 {
-    partial class frmQCrossword
+    partial class frmZ1M
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQCrossword));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmZ1M));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tbxJ9 = new System.Windows.Forms.TextBox();
             this.tbxB1 = new System.Windows.Forms.TextBox();

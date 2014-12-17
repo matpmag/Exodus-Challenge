@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace Exodus_Challenge
 {
-    public partial class frmQReorder : Form
+    public partial class frmZ3E : Form
     {
         #region Private Methods
 
@@ -168,7 +168,7 @@ namespace Exodus_Challenge
 
         #region Public Constructors
 
-        public frmQReorder()
+        public frmZ3E()
         {
             InitializeComponent();
             shuffle();

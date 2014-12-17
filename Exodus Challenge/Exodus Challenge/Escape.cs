@@ -7,7 +7,6 @@ namespace Exodus_Challenge
 {
     public partial class Escape : Form
     {
-
         #region Private Methods
 
         private void timerAdd_Tick(object sender, EventArgs e)

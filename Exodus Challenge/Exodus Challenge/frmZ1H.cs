@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace Exodus_Challenge
 {
-    public partial class frmQQuestions : Form
+    public partial class frmZ1H : Form
     {
         #region Private Fields
 
@@ -13,7 +13,7 @@ namespace Exodus_Challenge
 
         #region Public Constructors
 
-        public frmQQuestions()
+        public frmZ1H()
         {
             InitializeComponent();
         }
