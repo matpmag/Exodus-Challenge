@@ -209,111 +209,21 @@ namespace Exodus_Challenge
             e.Effect = DragDropEffects.Copy;
         }
 
-        private void btnA_DragDrop(object sender, DragEventArgs e)
-        {
-            swap(btnA);
-        }
-
-        private void btnA_MouseDown(object sender, MouseEventArgs e)
-        {
-            source(btnA);
-        }
-
-        private void btnB_DragDrop(object sender, DragEventArgs e)
-        {
-            swap(btnB);
-        }
-
-        private void btnB_MouseDown(object sender, MouseEventArgs e)
-        {
-            source(btnB);
-        }
-
-        private void btnC_DragDrop(object sender, DragEventArgs e)
-        {
-            swap(btnC);
-        }
-
-        private void btnC_MouseDown(object sender, MouseEventArgs e)
-        {
-            source(btnC);
-        }
-
-        private void btnD_DragDrop(object sender, DragEventArgs e)
-        {
-            swap(btnD);
-        }
-
-        private void btnD_MouseDown(object sender, MouseEventArgs e)
-        {
-            source(btnD);
-        }
-
-        private void btnE_DragDrop(object sender, DragEventArgs e)
-        {
-            swap(btnE);
-        }
-
-        private void btnE_MouseDown(object sender, MouseEventArgs e)
-        {
-            source(btnE);
-        }
-
-        private void btnF_DragDrop(object sender, DragEventArgs e)
-        {
-            swap(btnF);
-        }
-
-        private void btnF_MouseDown(object sender, MouseEventArgs e)
-        {
-            source(btnF);
-        }
-
-        private void btnG_DragDrop(object sender, DragEventArgs e)
-        {
-            swap(btnG);
-        }
-
-        private void btnG_MouseDown(object sender, MouseEventArgs e)
-        {
-            source(btnG);
-        }
-
-        private void btnH_DragDrop(object sender, DragEventArgs e)
-        {
-            swap(btnH);
-        }
-
-        private void btnH_MouseDown(object sender, MouseEventArgs e)
-        {
-            source(btnH);
-        }
-
-        private void btnI_DragDrop(object sender, DragEventArgs e)
-        {
-            swap(btnI);
-        }
-
-        private void btnI_MouseDown(object sender, MouseEventArgs e)
-        {
-            source(btnI);
-        }
-
-        private void btnJ_DragDrop(object sender, DragEventArgs e)
-        {
-            swap(btnJ);
-        }
-
-        private void btnJ_MouseDown(object sender, MouseEventArgs e)
-        {
-            source(btnJ);
-        }
-
         private void btnQuit_Click(object sender, EventArgs e)
         {
             this.Close();
             Form lvl = new LevelSelect();
             lvl.Show();
+        }
+
+        private void btn_MouseDown(object sender, MouseEventArgs e)
+        {
+            source(sender as Button);
+        }
+
+        private void btn_DragDrop(object sender, DragEventArgs e)
+        {
+            swap(sender as Button);
         }
     }
 }

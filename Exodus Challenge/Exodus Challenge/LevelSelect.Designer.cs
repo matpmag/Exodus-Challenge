@@ -32,7 +32,7 @@
             this.btnlvlQ1 = new System.Windows.Forms.Button();
             this.btnlvlQ2 = new System.Windows.Forms.Button();
             this.btnlvlQ3 = new System.Windows.Forms.Button();
-            this.btnlv4 = new System.Windows.Forms.Button();
+            this.btnlvlQ4 = new System.Windows.Forms.Button();
             this.btnlvlQ5 = new System.Windows.Forms.Button();
             this.btnlvlG1 = new System.Windows.Forms.Button();
             this.btnlvlG3 = new System.Windows.Forms.Button();
@@ -49,8 +49,14 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnQuit = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pbxQuail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxManna)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnlvlQ1
@@ -105,24 +111,25 @@
             this.btnlvlQ3.Size = new System.Drawing.Size(43, 41);
             this.btnlvlQ3.TabIndex = 2;
             this.btnlvlQ3.UseVisualStyleBackColor = false;
+            this.btnlvlQ3.Click += new System.EventHandler(this.btnlvlQ3_Click);
             // 
-            // btnlv4
+            // btnlvlQ4
             // 
-            this.btnlv4.BackColor = System.Drawing.Color.Transparent;
-            this.btnlv4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnlv4.BackgroundImage")));
-            this.btnlv4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnlv4.FlatAppearance.BorderSize = 0;
-            this.btnlv4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnlv4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnlv4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnlv4.ForeColor = System.Drawing.Color.Transparent;
-            this.btnlv4.Location = new System.Drawing.Point(733, 460);
-            this.btnlv4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnlv4.Name = "btnlv4";
-            this.btnlv4.Size = new System.Drawing.Size(43, 41);
-            this.btnlv4.TabIndex = 3;
-            this.btnlv4.UseVisualStyleBackColor = false;
-            this.btnlv4.Click += new System.EventHandler(this.btnlv4_Click);
+            this.btnlvlQ4.BackColor = System.Drawing.Color.Transparent;
+            this.btnlvlQ4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnlvlQ4.BackgroundImage")));
+            this.btnlvlQ4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnlvlQ4.FlatAppearance.BorderSize = 0;
+            this.btnlvlQ4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnlvlQ4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnlvlQ4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnlvlQ4.ForeColor = System.Drawing.Color.Transparent;
+            this.btnlvlQ4.Location = new System.Drawing.Point(733, 460);
+            this.btnlvlQ4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnlvlQ4.Name = "btnlvlQ4";
+            this.btnlvlQ4.Size = new System.Drawing.Size(43, 41);
+            this.btnlvlQ4.TabIndex = 3;
+            this.btnlvlQ4.UseVisualStyleBackColor = false;
+            this.btnlvlQ4.Click += new System.EventHandler(this.btnlvlQ4_Click);
             // 
             // btnlvlQ5
             // 
@@ -177,6 +184,7 @@
             this.btnlvlG3.Size = new System.Drawing.Size(67, 65);
             this.btnlvlG3.TabIndex = 6;
             this.btnlvlG3.UseVisualStyleBackColor = false;
+            this.btnlvlG3.Click += new System.EventHandler(this.btnlvlG3_Click);
             // 
             // btnlvlG2
             // 
@@ -195,6 +203,7 @@
             this.btnlvlG2.Size = new System.Drawing.Size(77, 78);
             this.btnlvlG2.TabIndex = 7;
             this.btnlvlG2.UseVisualStyleBackColor = false;
+            this.btnlvlG2.Click += new System.EventHandler(this.btnlvlG2_Click);
             // 
             // btnlvlG4
             // 
@@ -213,6 +222,7 @@
             this.btnlvlG4.Size = new System.Drawing.Size(69, 65);
             this.btnlvlG4.TabIndex = 8;
             this.btnlvlG4.UseVisualStyleBackColor = false;
+            this.btnlvlG4.Click += new System.EventHandler(this.btnlvlG4_Click);
             // 
             // btnlvl5
             // 
@@ -350,7 +360,7 @@
             this.btnQuit.FlatAppearance.BorderSize = 0;
             this.btnQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnQuit.ForeColor = System.Drawing.Color.Transparent;
-            this.btnQuit.Location = new System.Drawing.Point(1032, 12);
+            this.btnQuit.Location = new System.Drawing.Point(1032, 30);
             this.btnQuit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnQuit.Name = "btnQuit";
             this.btnQuit.Size = new System.Drawing.Size(56, 57);
@@ -360,14 +370,64 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(28, 27);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(13, 30);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(45, 28);
             this.button1.TabIndex = 20;
-            this.button1.Text = "button1";
+            this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(13, 68);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(88, 28);
+            this.button2.TabIndex = 21;
+            this.button2.Text = "Novice";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(13, 104);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(88, 28);
+            this.button3.TabIndex = 22;
+            this.button3.Text = "Apprentice";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(13, 140);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(88, 28);
+            this.button4.TabIndex = 23;
+            this.button4.Text = "Master";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.logOutToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1100, 28);
+            this.menuStrip1.TabIndex = 24;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
+            this.logOutToolStripMenuItem.Text = "Log Out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // LevelSelect
             // 
@@ -377,6 +437,9 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1100, 747);
             this.ControlBox = false;
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.btnSave);
@@ -393,12 +456,14 @@
             this.Controls.Add(this.btnlvlG3);
             this.Controls.Add(this.btnlvlG1);
             this.Controls.Add(this.btnlvlQ5);
-            this.Controls.Add(this.btnlv4);
+            this.Controls.Add(this.btnlvlQ4);
             this.Controls.Add(this.btnlvlQ3);
             this.Controls.Add(this.btnlvlQ2);
             this.Controls.Add(this.btnlvlQ1);
+            this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "LevelSelect";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -406,6 +471,8 @@
             this.Load += new System.EventHandler(this.LevelSelect_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxQuail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxManna)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -416,7 +483,7 @@
         private System.Windows.Forms.Button btnlvlQ1;
         private System.Windows.Forms.Button btnlvlQ2;
         private System.Windows.Forms.Button btnlvlQ3;
-        private System.Windows.Forms.Button btnlv4;
+        private System.Windows.Forms.Button btnlvlQ4;
         private System.Windows.Forms.Button btnlvlQ5;
         private System.Windows.Forms.Button btnlvlG1;
         private System.Windows.Forms.Button btnlvlG3;
@@ -433,5 +500,10 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnQuit;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
     }
 }

@@ -43,6 +43,7 @@ namespace Exodus_Challenge
 
         private void tbar2_Scroll(object sender, EventArgs e)
         {
+            label5.Text = tbar2.Value.ToString();
         }
 
         #endregion Private Methods

@@ -43,9 +43,9 @@ namespace Exodus_Challenge
         public static string[] allUserArray;
         public static DateTimePicker dateDOB;
         public static string path = "../../userdata/testUser.txt";
-        public static StreamWriter writeUserData;
         public static StreamReader readUserData;
         public static User user;
+        public static StreamWriter writeUserData;
 
         #endregion Public Fields
 
