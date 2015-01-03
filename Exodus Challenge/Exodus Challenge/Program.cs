@@ -15,7 +15,8 @@ namespace Exodus_Challenge
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmTitle());
+            Application.Run(new LevelSelect());
+            //new BinaryWorker().Setup();
         }
 
         #endregion Private Methods

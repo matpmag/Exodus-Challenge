@@ -100,7 +100,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.logAvatar.BackColor = System.Drawing.Color.Transparent;
             this.logAvatar.ErrorImage = ((System.Drawing.Image)(resources.GetObject("logAvatar.ErrorImage")));
-            this.logAvatar.Image = ((System.Drawing.Image)(resources.GetObject("logAvatar.Image")));
+            this.logAvatar.Image = global::Exodus_Challenge.Properties.Resources.Title;
             this.logAvatar.InitialImage = ((System.Drawing.Image)(resources.GetObject("logAvatar.InitialImage")));
             this.logAvatar.Location = new System.Drawing.Point(6, 46);
             this.logAvatar.Name = "logAvatar";
@@ -174,7 +174,7 @@
             this.panelDifficulty.Controls.Add(this.pbxDiff);
             this.panelDifficulty.Location = new System.Drawing.Point(8, 8);
             this.panelDifficulty.Name = "panelDifficulty";
-            this.panelDifficulty.Size = new System.Drawing.Size(339, 385);
+            this.panelDifficulty.Size = new System.Drawing.Size(339, 390);
             this.panelDifficulty.TabIndex = 7;
             this.panelDifficulty.Visible = false;
             // 
@@ -184,8 +184,9 @@
             this.btnHard.Name = "btnHard";
             this.btnHard.Size = new System.Drawing.Size(100, 64);
             this.btnHard.TabIndex = 3;
-            this.btnHard.Text = "button3";
+            this.btnHard.Text = "Master";
             this.btnHard.UseVisualStyleBackColor = true;
+            this.btnHard.Click += new System.EventHandler(this.btnHard_Click);
             this.btnHard.MouseEnter += new System.EventHandler(this.btnHard_MouseEnter);
             // 
             // btnMedium
@@ -194,8 +195,9 @@
             this.btnMedium.Name = "btnMedium";
             this.btnMedium.Size = new System.Drawing.Size(100, 64);
             this.btnMedium.TabIndex = 2;
-            this.btnMedium.Text = "button2";
+            this.btnMedium.Text = "Apprentice";
             this.btnMedium.UseVisualStyleBackColor = true;
+            this.btnMedium.Click += new System.EventHandler(this.btnMedium_Click);
             this.btnMedium.MouseEnter += new System.EventHandler(this.btnMedium_MouseEnter);
             // 
             // btnEasy
@@ -204,12 +206,14 @@
             this.btnEasy.Name = "btnEasy";
             this.btnEasy.Size = new System.Drawing.Size(100, 64);
             this.btnEasy.TabIndex = 1;
-            this.btnEasy.Text = "button1";
+            this.btnEasy.Text = "Novice";
             this.btnEasy.UseVisualStyleBackColor = true;
+            this.btnEasy.Click += new System.EventHandler(this.btnEasy_Click);
             this.btnEasy.MouseEnter += new System.EventHandler(this.btnEasy_MouseEnter);
             // 
             // pbxDiff
             // 
+            this.pbxDiff.Image = global::Exodus_Challenge.Properties.Resources.scarabMin;
             this.pbxDiff.Location = new System.Drawing.Point(12, 13);
             this.pbxDiff.Name = "pbxDiff";
             this.pbxDiff.Size = new System.Drawing.Size(312, 283);
@@ -224,7 +228,7 @@
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(349, 36);
             this.btnRegister.TabIndex = 6;
-            this.btnRegister.Text = "Register";
+            this.btnRegister.Text = "Set Difficulty";
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 

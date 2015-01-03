@@ -6,272 +6,346 @@ using System.Windows.Forms;
 
 namespace Exodus_Challenge
 {
-    internal enum accountError
-    {
-        userBlank,
-        userAlphaNum,
-        userConflict,
-        passBlank,
-        passLength,
-        passNoUpper,
-        passNoDigit,
-        passNoSymbol,
-        passMismatch,
-        mailBlank,
-        mailInvalid,
-        age
-    }
+	namespace LoginSystem
+	{
+		public enum difficulty
+		{
+			novice,
+			apprentice,
+			master
+		}
 
-    public struct User
-    {
-        #region Public Fields
+		internal enum accountError
+		{
+			userBlank,
+			userAlphaNum,
+			userConflict,
+			passBlank,
+			passLength,
+			passNoUpper,
+			passNoDigit,
+			passNoSymbol,
+			passMismatch,
+			mailBlank,
+			mailInvalid,
+			age
+		}
 
-        public string avatar;
-        public string email;
-        public string password;
-        public int scoreManna;
-        public int scoreQuail;
-        public string username;
+		public struct User
+		{
+			public string userAvatar;
+			public difficulty? userDifficulty;
+			public string userEmail;
+			public int userID;
+			public string userPassword;
+			public int userScoreManna;
+			public int userScoreQuail;
+			public string userUsername;
+			public int userZoneUnlock;
+		}
 
-        #endregion Public Fields
-    }
+		public class LoginOrRegister
+		{
+			public static bool login(string paramUsername, string paramPassword)
+			{
+				bool success = false;
+				string[] userRecord;
+				string[] loginAs = new string[8];
+				difficulty? userDifficultyFromFile = null;
+				if (UserDatabaseAccess.userCheck(paramUsername, paramPassword, out userRecord))
+				{
+					for (int i = 0; i < userRecord.Length - 1; i++)
+					{
+						loginAs[i] = userRecord[i];
+					}
+					switch (userRecord[8])
+					{
+						case "novice":
+							userDifficultyFromFile = difficulty.novice;
+							break;
 
-    public static class loginSystem
-    {
-        #region Public Fields
+						case "apprentice":
+							userDifficultyFromFile = difficulty.apprentice;
+							break;
 
-        public static string[] allUserArray;
-        public static DateTimePicker dateDOB;
-        public static string path = "../../userdata/testUser.txt";
-        public static StreamReader readUserData;
-        public static User user;
-        public static StreamWriter writeUserData;
+						case "master":
+							userDifficultyFromFile = difficulty.master;
+							break;
+					}
+					UserDatabaseAccess.setUser(loginAs, userDifficultyFromFile);
+					success = true;
+				}
+				return success;
+			}
 
-        #endregion Public Fields
+			public static void register(string[] registerAs, difficulty regDifficulty)
+			{
+				string[] fullCredentials = new string[registerAs.Length + 1];
+				fullCredentials[0] = UserDatabaseAccess.uniqueID.ToString();
+				for (int i = 1; i < registerAs.Length; i++)
+				{
+					fullCredentials[i] = registerAs[i - 1];
+				}
+				if (RegistrationErrorControl.validRegister(registerAs, false))
+				{
+					UserDatabaseAccess.credentialsAdd(fullCredentials, regDifficulty);
+					UserDatabaseAccess.setUser(fullCredentials, regDifficulty);
+					UserDatabaseAccess.sendMail();
+				}
+			}
 
-        #region Public Methods
+			public static bool userCheck(string username, out string avatar)
+			{
+				UserDatabaseAccess.credentialsLookup();
+				foreach (string record in UserDatabaseAccess.allUserArray)
+				{
+					string trim = record.Trim();
+					string[] trimArray = trim.Split(',');
+					if (trimArray[1] == username)
+					{
+						avatar = trimArray[7];
+						return true;
+					}
+				}
+				avatar = null;
+				return false;
+			}
+		}
 
-        public static bool login(string paramUsername, string paramPassword)
-        {
-            bool success = false;
-            string[] loginAs;
-            if (userCheck(paramUsername, paramPassword, out loginAs))
-            {
-                setUser(loginAs);
-                success = true;
-            }
-            return success;
-        }
+		public class RegistrationErrorControl
+		{
+			public static DateTimePicker dateDOB;
 
-        public static void register(string[] registerAs)
-        {
-            if (validRegister(registerAs))
-            {
-                credentialsAdd(registerAs);
-                setUser(registerAs);
-                sendMail();
-            }
-        }
+			public static bool validRegister(string[] input, bool showFeedback)
+			{
+				accountError? error;
 
-        public static bool userCheck(string username, out string avatar)
-        {
-            credentialsLookup();
-            foreach (string record in allUserArray)
-            {
-                string trim = record.Trim();
-                string[] trimArray = trim.Split(',');
-                if (trimArray[0] == username)
-                {
-                    avatar = trimArray[6];
-                    return true;
-                }
-            }
-            avatar = null;
-            return false;
-        }
+				int age = DateTime.Now.Year - dateDOB.Value.Year;
+				if (dateDOB.Value.Month < DateTime.Now.Month ||
+				   (dateDOB.Value.Month == DateTime.Now.Month &&
+					dateDOB.Value.Day > DateTime.Now.Day))
+					age++;
+				if (input[0] == "") error = accountError.userBlank;
+				else if (!input[0].All(char.IsLetterOrDigit))
+					error = accountError.userAlphaNum;
+				else if (UserDatabaseAccess.userCheck(input[0]))
+					error = accountError.userConflict;
+				else if (input[2] == "")
+					error = accountError.passBlank;
+				else if (input[2].Length < 8)
+					error = accountError.passLength;
+				else if (!input[2].Any(char.IsDigit))
+					error = accountError.passNoDigit;
+				else if (!input[2].Any(char.IsUpper))
+					error = accountError.passNoUpper;
+				else if (!input[2].Any(c => !char.IsLetterOrDigit(c)))
+					error = accountError.passNoSymbol;
+				else if (input[2] != input[3])
+					error = accountError.passMismatch;
+				else if (!UserDatabaseAccess.validEmail(input[1]))
+					error = accountError.mailInvalid;
+				else if (age < 13)
+					error = accountError.age;
+				else error = null;
+				return feedback(error, showFeedback);
+			}
 
-        #endregion Public Methods
+			private static bool feedback(accountError? error, bool showFeedback)
+			{
+				string errorMessageContent;
+				string errorMessageDiscription;
+				switch (error)
+				{
+					case accountError.userBlank:
+						errorMessageContent = "Username field cannot be left blank.";
+						errorMessageDiscription = "Blank Username";
+						break;
 
-        #region Private Methods
+					case accountError.userAlphaNum:
+						errorMessageContent = "Username must contain alphanumeric characters only (a-z, A-Z and 0-9).";
+						errorMessageDiscription = "Invalid Username";
+						break;
 
-        private static void credentialsAdd(string[] arrWrite)
-        {
-            writeUserData = new StreamWriter(path, true);
-            string dataToWrite = string.Join(",", arrWrite) + ";";
-            writeUserData.WriteLine(dataToWrite);
-            writeUserData.Close();
-        }
+					case accountError.userConflict:
+						errorMessageContent = "Username has already been taken. Please choose another. If you meant to login instead, please click login.";
+						errorMessageDiscription = "Username Already Exists";
+						break;
 
-        private static string[] credentialsLookup()
-        {
-            readUserData = new StreamReader(path);
-            string allUsers = readUserData.ReadToEnd();
-            allUserArray = allUsers.Split(';');
-            readUserData.Close();
-            return allUserArray;
-        }
+					case accountError.passBlank:
+						errorMessageContent = "Password field cannot be left blank.";
+						errorMessageDiscription = "Blank Password Field";
+						break;
 
-        private static bool feedback(accountError? error)
-        {
-            switch (error)
-            {
-                case accountError.userBlank:
-                    MessageBox.Show("Username field cannot be left blank.", "Blank Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    break;
+					case accountError.passLength:
+						errorMessageContent = "Password must be at least eight characters long.";
+						errorMessageDiscription = "Password too short";
+						break;
 
-                case accountError.userAlphaNum:
-                    MessageBox.Show("Username must contain alphanumeric characters only (a-z, A-Z and 0-9).", "Invalid Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    break;
+					case accountError.passNoUpper:
+						errorMessageContent = "Ensure that your password contains at least one uppercase letter";
+						errorMessageDiscription = "Invalid Password";
+						break;
 
-                case accountError.userConflict:
-                    MessageBox.Show("Username has already been taken. Please choose another. If you meant to login instead, please click login.", "Username Already Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    break;
+					case accountError.passNoDigit:
+						errorMessageContent = "Ensure that your password contains at least one number";
+						errorMessageDiscription = "Invalid Password";
+						break;
 
-                case accountError.passBlank:
-                    MessageBox.Show("Password field cannot be left blank.", "Blank Password Field", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    break;
+					// case accountError.passNoSymbol: errorMessageContent = "Ensure that your
+					// password contains at least one special character"; errorMessageDiscription =
+					// "Invalid Password" break;
 
-                case accountError.passLength:
-                    MessageBox.Show("Password must be at least eight characters long.", "Password too short", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    break;
+					case accountError.passMismatch:
+						errorMessageContent = "Passwords do not match.";
+						errorMessageDiscription = "Password Mismatch";
+						break;
 
-                case accountError.passNoUpper:
-                    MessageBox.Show("Ensure that your password contains at least one uppercase letter", "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    break;
+					case accountError.mailBlank:
+						errorMessageContent = "Email field cannot be left blank.";
+						errorMessageDiscription = "Blank Email Field";
+						break;
 
-                case accountError.passNoDigit:
-                    MessageBox.Show("Ensure that your password contains at least one number", "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    break;
+					case accountError.mailInvalid:
+						errorMessageContent = "Please enter a valid email address to continue.";
+						errorMessageDiscription = "Invalid Email";
+						break;
 
-                case accountError.passNoSymbol:
-                    MessageBox.Show("Ensure that your password contains at least one special character", "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    break;
+					case accountError.age:
+						errorMessageContent = "Children age 13 or younger require permission from their parent/guardian to signup";
+						errorMessageDiscription = "Too young!";
+						break;
 
-                case accountError.passMismatch:
-                    MessageBox.Show("Passwords do not match.", "Password Mismatch", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    break;
+					default:
+						return true;
+				}
+				if (showFeedback)
+				{
+					MessageBox.Show(errorMessageContent, errorMessageDiscription, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				}
+				return false;
+			}
+		}
+		public class UserDatabaseAccess
+		{
+			public static string[] allUserArray;
+			public static string pathProgressSerializer = "../../userdata/userScores.dat";
+			public static string pathUserData = "../../userdata/testUser.txt";
+			public static BinaryReader readUserBinary;
+			public static StreamReader readUserData;
+			public static User user;
+			public static BinaryWriter writeUserBinary;
+			public static StreamWriter writeUserData;
 
-                case accountError.mailBlank:
-                    MessageBox.Show("Email field cannot be left blank.", "Blank Email Field", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    break;
+			public static int uniqueID
+			{
+				get
+				{
+					int UID;
+					using (StreamReader getUID = new StreamReader("../../userdata/UniqueID.txt"))
+					{
+						UID = getUID.Read();
+						UID++;
+					}
+					using (StreamWriter setUID = new StreamWriter("../../userdata/UniqueID.txt"))
+					{
+						setUID.Write(UID);
+					}
+					return UID;
+				}
+			}
 
-                case accountError.mailInvalid:
-                    MessageBox.Show("Please enter a valid email address to continue.", "Invalid Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    break;
+			private static void binaryWrite(string[] arrWrite)
+			{
+			}
 
-                case accountError.age:
-                    MessageBox.Show("Children age 13 or younger require permission from their parent/guardian to signup", "Too young!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    break;
+			internal static void credentialsAdd(string[] arrWrite, difficulty regDifficulty)
+			{
+				writeUserData = new StreamWriter(pathUserData, true);
+				string dataToWrite = string.Join(",", arrWrite) + "," + regDifficulty.ToString() + ";";
+				writeUserData.WriteLine(dataToWrite);
+				writeUserData.Close();
+			}
 
-                default:
-                    return true;
-            }
-            return false;
-        }
+			internal static string[] credentialsLookup()
+			{
+				readUserData = new StreamReader(pathUserData);
+				string allUsers = readUserData.ReadToEnd();
+				allUserArray = allUsers.Split(';');
+				readUserData.Close();
+				return allUserArray;
+			}
 
-        private static void sendMail()
-        {
-            MailMessage mail = new MailMessage();
-            SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+			internal static void sendMail()
+			{
+				MailMessage mail = new MailMessage();
+				SmtpClient smtp = new SmtpClient("smtp.gmail.com");
 
-            mail.From = new MailAddress("exoduschallenge@gmail.com");
-            mail.To.Add(user.email);
-            mail.Subject = "Welcome to the EXODUS CHALLENGE";
-            mail.Body = "Welcome " + user.username + ", to an adventure of monumental proportions. Join us on a journey as we hear Moses' story - from the Egypt to the Promised Land";
+				mail.From = new MailAddress("exoduschallenge@gmail.com");
+				mail.To.Add(user.userEmail);
+				mail.Subject = "Welcome to the EXODUS CHALLENGE";
+				mail.Body = "Welcome " + user.userUsername + ", to an adventure of monumental proportions. Join us on a journey as we hear Moses' story - from the Egypt to the Promised Land";
 
-            smtp.Port = 587;
-            smtp.Credentials = new System.Net.NetworkCredential("exoduschallenge", "ggsssd123");
-            smtp.EnableSsl = true;
+				smtp.Port = 587;
+				smtp.Credentials = new System.Net.NetworkCredential("exoduschallenge", "ggsssd123");
+				smtp.EnableSsl = true;
 
-            smtp.Send(mail);
-        }
+				smtp.Send(mail);
+			}
 
-        private static void setUser(string[] userArray)
-        {
-            user = new User()
-            {
-                username = userArray[0],
-                email = userArray[1],
-                password = userArray[2],
-                scoreManna = int.Parse(userArray[4]),
-                scoreQuail = int.Parse(userArray[5]),
-                avatar = userArray[6]
-            };
-        }
+			internal static void setUser(string[] userArray, difficulty? regDifficulty)
+			{
+				user = new User()
+				{
+					userID = int.Parse(userArray[0]),
+					userUsername = userArray[1],
+					userEmail = userArray[2],
+					userPassword = userArray[3],
+					userScoreManna = int.Parse(userArray[5]),
+					userScoreQuail = int.Parse(userArray[6]),
+					userAvatar = userArray[7],
+					userDifficulty = regDifficulty
+				};
+			}
 
-        private static bool userCheck(string username)
-        {
-            credentialsLookup();
-            foreach (string record in allUserArray)
-            {
-                string trim = record.Trim();
-                string[] trimArray = trim.Split(',');
-                if (trimArray[0] == username)
-                    return true;
-            }
-            return false;
-        }
+			internal static bool userCheck(string username)
+			{
+				credentialsLookup();
+				foreach (string record in allUserArray)
+				{
+					string trim = record.Trim();
+					string[] trimArray = trim.Split(',');
+					if (trimArray[0] == username)
+						return true;
+				}
+				return false;
+			}
 
-        private static bool userCheck(string username, string password, out string[] arrayOut)
-        {
-            credentialsLookup();
-            string[] notFound = { "" };
-            foreach (string record in allUserArray)
-            {
-                string recordTester = record.Trim();
-                string[] tempUser = recordTester.Split(',');
-                try
-                {
-                    if (tempUser[0] == username && tempUser[2] == password)
-                    {
-                        arrayOut = tempUser;
-                        return true;
-                    }
-                }
-                catch { }
-            }
-            arrayOut = null;
-            return false;
-        }
+			internal static bool userCheck(string username, string password, out string[] arrayOut)
+			{
+				credentialsLookup();
+				foreach (string record in allUserArray)
+				{
+					string recordTester = record.Trim();
+					string[] tempUser = recordTester.Split(',');
+					try
+					{
+						if (tempUser[1] == username && tempUser[3] == password)
+						{
+							arrayOut = tempUser;
+							return true;
+						}
+					}
+					catch {  }
+				}
+				arrayOut = null;
+				return false;
+			}
 
-        private static bool validEmail(string email)
-        {
-            try { return new System.Net.Mail.MailAddress(email).Address == email; }
-            catch { return false; }
-        }
-
-        private static bool validRegister(string[] input)
-        {
-            accountError? error;
-
-            int age = DateTime.Now.Year - dateDOB.Value.Year;
-            if (dateDOB.Value.Month < DateTime.Now.Month || (dateDOB.Value.Month == DateTime.Now.Month && dateDOB.Value.Day > DateTime.Now.Day)) age++;
-
-            if (input[0] == "") error = accountError.userBlank;
-            else if (!input[0].All(char.IsLetterOrDigit))
-                error = accountError.userAlphaNum;
-            else if (userCheck(input[0]))
-                error = accountError.userConflict;
-            else if (input[2] == "")
-                error = accountError.passBlank;
-            else if (input[2].Length < 8)
-                error = accountError.passLength;
-            else if (!input[2].Any(char.IsDigit))
-                error = accountError.passNoDigit;
-            else if (!input[2].Any(char.IsUpper))
-                error = accountError.passNoUpper;
-            else if (!input[2].Any(c => !char.IsLetterOrDigit(c)))
-                error = accountError.passNoSymbol;
-            else if (input[2] != input[3])
-                error = accountError.passMismatch;
-            else if (!validEmail(input[1]))
-                error = accountError.mailInvalid;
-            else if (age < 13)
-                error = accountError.age;
-            else error = null;
-            return feedback(error);
-        }
-
-        #endregion Private Methods
-    }
+			internal static bool validEmail(string email)
+			{
+				try { return new System.Net.Mail.MailAddress(email).Address == email; }
+				catch { return false; }
+			}
+		}
+	}
 }

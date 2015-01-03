@@ -1,10 +1,26 @@
 ﻿using System.Windows.Forms;
+using Exodus_Challenge.LoginSystem;
 
 namespace Exodus_Challenge
 {
     public partial class LevelSelect : Form
     {
-        difficulty diff = difficulty.apprentice;
+        #region Private Fields
+
+        private difficulty? diff = UserDatabaseAccess.user.userDifficulty;
+
+        #endregion Private Fields
+
+        #region Private Methods
+
+        private void updateLabels()
+        {
+            lblMannaScore.Text = UserDatabaseAccess.user.userScoreManna.ToString();
+            lblQuailScore.Text = UserDatabaseAccess.user.userScoreQuail.ToString();
+        }
+
+        #endregion Private Methods
+
         #region Public Constructors
 
         public LevelSelect()
@@ -14,11 +30,9 @@ namespace Exodus_Challenge
 
         #endregion Public Constructors
 
-        #region Private Methods
-
         private void btnlvlG1_Click(object sender, System.EventArgs e)
         {
-            if (loginSystem.user.scoreManna <= 50)
+            if (UserDatabaseAccess.user.userScoreManna <= 50)
                 MessageBox.Show("You must have 50+ manna");
             else
             {
@@ -30,19 +44,19 @@ namespace Exodus_Challenge
 
         private void btnlvlG2_Click(object sender, System.EventArgs e)
         {
-            if (loginSystem.user.scoreManna <= 50)
+            if (UserDatabaseAccess.user.userScoreManna <= 50)
                 MessageBox.Show("You must have 50+ manna");
             else
             {
-                //this.Close();
-                //Form frmGame2 = new frmZ2B();
-                //frmGame2.Show();
+                this.Close();
+                Form frmGame2 = new frmZ2B();
+                frmGame2.Show();
             }
         }
 
         private void btnlvlG3_Click(object sender, System.EventArgs e)
         {
-            if (loginSystem.user.scoreManna <= 50)
+            if (UserDatabaseAccess.user.userScoreManna <= 50)
                 MessageBox.Show("You must have 50+ manna");
             else
             {
@@ -54,7 +68,7 @@ namespace Exodus_Challenge
 
         private void btnlvlG4_Click(object sender, System.EventArgs e)
         {
-            if (loginSystem.user.scoreManna <= 50)
+            if (UserDatabaseAccess.user.userScoreManna <= 50)
                 MessageBox.Show("You must have 50+ manna");
             else
             {
@@ -64,14 +78,13 @@ namespace Exodus_Challenge
             }
         }
 
-
         private void btnlvlG6_Click(object sender, System.EventArgs e)
         {
-            if (loginSystem.user.scoreQuail <= 100)
+            if (UserDatabaseAccess.user.userScoreQuail <= 100)
                 MessageBox.Show("You must have 100+ quail");
             else
             {
-                loginSystem.user.scoreQuail -= 100;
+                UserDatabaseAccess.user.userScoreQuail -= 100;
                 MessageBox.Show("Level unlocked");
                 updateLabels();
             }
@@ -86,20 +99,22 @@ namespace Exodus_Challenge
                     Form q1e = new frmZ1E();
                     q1e.Show();
                     break;
+
                 case difficulty.apprentice:
                     this.Close();
                     Form q1m = new frmZ1M();
                     q1m.Show();
                     break;
+
                 case difficulty.master:
                     this.Close();
                     Form q1h = new frmZ1H();
                     q1h.Show();
                     break;
+
                 default:
                     break;
             }
-            
         }
 
         private void btnlvlQ2_Click(object sender, System.EventArgs e)
@@ -149,6 +164,7 @@ namespace Exodus_Challenge
                     break;
             }
         }
+
         private void btnlvlQ4_Click(object sender, System.EventArgs e)
         {
             /*switch (diff)
@@ -158,16 +174,19 @@ namespace Exodus_Challenge
                     Form q3e = new frmZ3E();
                     q3e.Show();
                     break;
+
                 case difficulty.apprentice:
                     this.Close();
                      Form q3m = new frmZ3M();
                      q3m.Show();
                     break;
+
                 case difficulty.master:
                     this.Close();
                     Form q3h = new frmZ3H();
                     q3h.Show();
                     break;
+
                 default:
                     break;
             }*/
@@ -178,51 +197,103 @@ namespace Exodus_Challenge
             Application.Exit();
         }
 
-        private void button1_Click(object sender, System.EventArgs e)
+        private void btnSave_Click(object sender, System.EventArgs e)
         {
-            loginSystem.user.scoreManna += 9000;
-            loginSystem.user.scoreQuail += 9000;
+            //save score and progress
+        }
+
+        private void btnSettingCheatsLevel_Click(object sender, System.EventArgs e)
+        {
+            //hiddenLevels = null;
+        }
+
+        private void btnSettingCheatsManna_Click(object sender, System.EventArgs e)
+        {
+            UserDatabaseAccess.user.userScoreManna += 99999;
             updateLabels();
         }
 
-        private void LevelSelect_Load(object sender, System.EventArgs e)
+        private void btnSettingCheatsQuail_Click(object sender, System.EventArgs e)
         {
-            lblMannaScore.Text = loginSystem.user.scoreManna.ToString();
-            lblQuailScore.Text = loginSystem.user.scoreQuail.ToString();
+            UserDatabaseAccess.user.userScoreQuail += 99999;
+            updateLabels();
         }
 
-        private void updateLabels()
-        {
-            lblMannaScore.Text = loginSystem.user.scoreManna.ToString();
-            lblQuailScore.Text = loginSystem.user.scoreQuail.ToString();
-        }
-
-        #endregion Private Methods
-
-        private void button2_Click(object sender, System.EventArgs e)
+        private void btnSettingDifficultyEasy_Click(object sender, System.EventArgs e)
         {
             diff = difficulty.novice;
         }
 
-        private void button3_Click(object sender, System.EventArgs e)
+        private void btnSettingDifficultyHard_Click(object sender, System.EventArgs e)
+        {
+            diff = difficulty.master;
+        }
+
+        private void btnSettingDifficultyMedium_Click(object sender, System.EventArgs e)
         {
             diff = difficulty.apprentice;
         }
 
-        private void button4_Click(object sender, System.EventArgs e)
+        private void LevelSelect_Load(object sender, System.EventArgs e)
         {
-            diff = difficulty.master;
+            lblMannaScore.Text = UserDatabaseAccess.user.userScoreManna.ToString();
+            lblQuailScore.Text = UserDatabaseAccess.user.userScoreQuail.ToString();
         }
 
         private void logOutToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             Application.Restart();
         }
-    }
-    enum difficulty
-    {
-        novice,
-        apprentice,
-        master
+
+        private void btnSettings_Click(object sender, System.EventArgs e)
+        {
+            tabControl.SelectedTab = tabSettings;
+        }
+
+        private void btnSettingDifficultyActivate_Click(object sender, System.EventArgs e)
+        {
+            if (btnSettingDifficultyEasy.Visible == false)
+            {
+                btnSettingDifficultyEasy.Visible = true;
+                btnSettingDifficultyMedium.Visible = true;
+                btnSettingDifficultyHard.Visible = true;
+            }
+            else
+            {
+                btnSettingDifficultyEasy.Visible = false;
+                btnSettingDifficultyMedium.Visible = false;
+                btnSettingDifficultyHard.Visible = false;
+            }
+        }
+
+        private void btnSettingAccountActivate_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void btnSettingCheatsActivate_Click(object sender, System.EventArgs e)
+        {
+            if (!UserDatabaseAccess.user.cheater)
+            {
+                
+                if (btnSettingDifficultyEasy.Visible == false)
+                {
+                    btnSettingDifficultyEasy.Visible = true;
+                    btnSettingDifficultyMedium.Visible = true;
+                    btnSettingDifficultyHard.Visible = true;
+                }
+                else
+                {
+                    btnSettingDifficultyEasy.Visible = false;
+                    btnSettingDifficultyMedium.Visible = false;
+                    btnSettingDifficultyHard.Visible = false;
+                }
+            }
+        }
+
+        private void btnSettingConsoleActivate_Click(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

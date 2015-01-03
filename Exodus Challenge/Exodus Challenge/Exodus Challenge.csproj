@@ -11,6 +11,21 @@
     <AssemblyName>Exodus Challenge</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +46,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Exodus_Challenge.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>pyramid.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -44,10 +65,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmZ1B.cs">
+    <Compile Include="BinaryWorker.cs">
+      <DependentUpon>loginSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zone 2\frmZ2B.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmZ1B.Designer.cs">
+    <Compile Include="Zone 2\frmZ2B.Designer.cs">
+      <DependentUpon>frmZ2B.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zone 1\frmZ1B.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zone 1\frmZ1B.Designer.cs">
       <DependentUpon>frmZ1B.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTestMatch.cs">
@@ -56,28 +86,29 @@
     <Compile Include="frmTestMatch.Designer.cs">
       <DependentUpon>frmTestMatch.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmZ1E.cs">
+    <Compile Include="Zone 1\frmZ1E.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmZ1E.Designer.cs">
+    <Compile Include="Zone 1\frmZ1E.Designer.cs">
       <DependentUpon>frmZ1E.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmZ1H.cs">
+    <Compile Include="Zone 1\frmZ1H.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmZ1H.Designer.cs">
+    <Compile Include="Zone 1\frmZ1H.Designer.cs">
       <DependentUpon>frmZ1H.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmZ3B.cs">
+    <Compile Include="Zone 2\SnakeSection.cs" />
+    <Compile Include="Zone 3\frmZ3B.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmZ3B.Designer.cs">
+    <Compile Include="Zone 3\frmZ3B.Designer.cs">
       <DependentUpon>frmZ3B.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmZ3E.cs">
+    <Compile Include="Zone 3\frmZ3E.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmZ3E.Designer.cs">
+    <Compile Include="Zone 3\frmZ3E.Designer.cs">
       <DependentUpon>frmZ3E.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
@@ -92,22 +123,22 @@
     <Compile Include="frmTitle.Designer.cs">
       <DependentUpon>frmTitle.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmZ1M.cs">
+    <Compile Include="Zone 1\frmZ1M.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmZ1M.Designer.cs">
+    <Compile Include="Zone 1\frmZ1M.Designer.cs">
       <DependentUpon>frmZ1M.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmZ2E.cs">
+    <Compile Include="Zone 2\frmZ2E.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmZ2E.Designer.cs">
+    <Compile Include="Zone 2\frmZ2E.Designer.cs">
       <DependentUpon>frmZ2E.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmZ4B.cs">
+    <Compile Include="Zone 4\frmZ4B.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmZ4B.Designer.cs">
+    <Compile Include="Zone 4\frmZ4B.Designer.cs">
       <DependentUpon>frmZ4B.cs</DependentUpon>
     </Compile>
     <Compile Include="LevelSelect.cs">
@@ -116,8 +147,9 @@
     <Compile Include="LevelSelect.Designer.cs">
       <DependentUpon>LevelSelect.cs</DependentUpon>
     </Compile>
-    <Compile Include="loginSystem.cs" />
-    <Compile Include="Obstacle.cs" />
+    <Compile Include="loginSystem.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -125,23 +157,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmZ1B.resx">
+    <EmbeddedResource Include="Zone 2\frmZ2B.resx">
+      <DependentUpon>frmZ2B.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zone 1\frmZ1B.resx">
       <DependentUpon>frmZ1B.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTestMatch.resx">
       <DependentUpon>frmTestMatch.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmZ1E.resx">
+    <EmbeddedResource Include="Zone 1\frmZ1E.resx">
       <DependentUpon>frmZ1E.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmZ1H.resx">
+    <EmbeddedResource Include="Zone 1\frmZ1H.resx">
       <DependentUpon>frmZ1H.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmZ3B.resx">
+    <EmbeddedResource Include="Zone 3\frmZ3B.resx">
       <DependentUpon>frmZ3B.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmZ3E.resx">
+    <EmbeddedResource Include="Zone 3\frmZ3E.resx">
       <DependentUpon>frmZ3E.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
@@ -150,14 +185,14 @@
     <EmbeddedResource Include="frmTitle.resx">
       <DependentUpon>frmTitle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmZ1M.resx">
+    <EmbeddedResource Include="Zone 1\frmZ1M.resx">
       <DependentUpon>frmZ1M.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmZ2E.resx">
+    <EmbeddedResource Include="Zone 2\frmZ2E.resx">
       <DependentUpon>frmZ2E.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmZ4B.resx">
+    <EmbeddedResource Include="Zone 4\frmZ4B.resx">
       <DependentUpon>frmZ4B.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LevelSelect.resx">
@@ -219,6 +254,67 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\stone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sandstoneBrickSmallest.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="pyramid.ico" />
+    <None Include="Resources\avatar1.png" />
+    <None Include="Resources\buttonBoss.png" />
+    <None Include="Resources\buttonQuiz.png" />
+    <None Include="Resources\chariots1.png" />
+    <None Include="Resources\correct.png" />
+    <None Include="Resources\crack.png" />
+    <None Include="Resources\ex1.png" />
+    <None Include="Resources\gif1.gif" />
+    <None Include="Resources\help.png" />
+    <None Include="Resources\hieroglyph3.jpg" />
+    <None Include="Resources\incorrect.png" />
+    <None Include="Resources\manna.png" />
+    <None Include="Resources\map1.png" />
+    <None Include="Resources\pan.png" />
+    <None Include="Resources\pan1.png" />
+    <None Include="Resources\pan2.png" />
+    <None Include="Resources\pan3.png" />
+    <None Include="Resources\pan4.png" />
+    <None Include="Resources\pan5.png" />
+    <None Include="Resources\play.png" />
+    <None Include="Resources\power.png" />
+    <None Include="Resources\pyramid1.png" />
+    <None Include="Resources\quail.png" />
+    <None Include="Resources\rock.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\scarabMax.png" />
+    <None Include="Resources\scarabMid.png" />
+    <None Include="Resources\scarabMin.png" />
+    <None Include="Resources\settings.png" />
+    <None Include="Resources\spout.png" />
+    <None Include="Resources\stone1.png" />
+    <None Include="Resources\Title1.png" />
+    <Content Include="userdata\testUser.txt" />
+    <None Include="userdata\userScores.bin" />
+    <Content Include="userdata\UniqueID.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
