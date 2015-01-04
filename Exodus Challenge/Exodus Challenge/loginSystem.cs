@@ -33,24 +33,25 @@ namespace Exodus_Challenge
 
 		public struct User
 		{
-			public string userAvatar;
+			public bool userIsCheater;
 			public difficulty? userDifficulty;
-			public string userEmail;
 			public int userID;
-			public string userPassword;
 			public int userScoreManna;
 			public int userScoreQuail;
-			public string userUsername;
 			public int userZoneUnlock;
+			public string userAvatar;
+			public string userEmail;
+			public string userPassword;
+			public string userUsername;
 		}
 
-		public class LoginOrRegister
+		public class AccountMainControls
 		{
-			public static bool login(string paramUsername, string paramPassword)
+			public static bool Login(string paramUsername, string paramPassword)
 			{
 				bool success = false;
 				string[] userRecord;
-				string[] loginAs = new string[8];
+				string[] loginAs = new string[6];
 				difficulty? userDifficultyFromFile = null;
 				if (UserDatabaseAccess.userCheck(paramUsername, paramPassword, out userRecord))
 				{
@@ -58,7 +59,7 @@ namespace Exodus_Challenge
 					{
 						loginAs[i] = userRecord[i];
 					}
-					switch (userRecord[8])
+					switch (userRecord[6])
 					{
 						case "novice":
 							userDifficultyFromFile = difficulty.novice;
@@ -73,12 +74,13 @@ namespace Exodus_Challenge
 							break;
 					}
 					UserDatabaseAccess.setUser(loginAs, userDifficultyFromFile);
+					BinaryWorker.ReadScore();
 					success = true;
 				}
 				return success;
 			}
 
-			public static void register(string[] registerAs, difficulty regDifficulty)
+			public static void Register(string[] registerAs, difficulty regDifficulty)
 			{
 				string[] fullCredentials = new string[registerAs.Length + 1];
 				fullCredentials[0] = UserDatabaseAccess.uniqueID.ToString();
@@ -86,7 +88,7 @@ namespace Exodus_Challenge
 				{
 					fullCredentials[i] = registerAs[i - 1];
 				}
-				if (RegistrationErrorControl.validRegister(registerAs, false))
+				if (RegistrationErrorControl.validRegister(registerAs, registerAs[2], false))
 				{
 					UserDatabaseAccess.credentialsAdd(fullCredentials, regDifficulty);
 					UserDatabaseAccess.setUser(fullCredentials, regDifficulty);
@@ -94,7 +96,64 @@ namespace Exodus_Challenge
 				}
 			}
 
-			public static bool userCheck(string username, out string avatar)
+			public static void Save()
+			{
+				byte cheat = 0;
+				if (UserDatabaseAccess.user.userIsCheater)
+					cheat = 1;
+
+				string[] output = new string[]
+				{
+					UserDatabaseAccess.user.userID.ToString(),
+					UserDatabaseAccess.user.userUsername,
+					UserDatabaseAccess.user.userEmail,
+					UserDatabaseAccess.user.userPassword,
+					UserDatabaseAccess.user.userAvatar,
+					cheat.ToString(),
+					UserDatabaseAccess.user.userDifficulty.Value.ToString()
+				};
+				UserDatabaseAccess.credentialsLookup();
+				for (int i = 0; i < UserDatabaseAccess.allUserArray.Length; i++)
+				{
+					string trim = UserDatabaseAccess.allUserArray[i].Trim();
+					string[] trimArray = trim.Split(',');
+					if (trimArray[1] == UserDatabaseAccess.user.userUsername)
+					{
+						UserDatabaseAccess.allUserArray[i] = string.Join(",",output);
+					}
+				}
+				BinaryWorker.WriteScore();
+				UserDatabaseAccess.overwriteUsers();
+			}
+
+			public static void Reset()
+			{
+
+				string[] output = new string[]
+				{
+					UserDatabaseAccess.user.userID.ToString(),
+					UserDatabaseAccess.user.userUsername,
+					UserDatabaseAccess.user.userEmail,
+					UserDatabaseAccess.user.userPassword,
+					UserDatabaseAccess.user.userAvatar,
+					0.ToString(),
+					UserDatabaseAccess.user.userDifficulty.Value.ToString()
+				};
+				UserDatabaseAccess.credentialsLookup();
+				for ( int i = 0; i < UserDatabaseAccess.allUserArray.Length; i++ )
+				{
+					string trim = UserDatabaseAccess.allUserArray[i].Trim();
+					string[] trimArray = trim.Split( ',' );
+					if ( trimArray[1] == UserDatabaseAccess.user.userUsername )
+					{
+						UserDatabaseAccess.allUserArray[i] = string.Join( ",", output );
+					}
+				}
+				BinaryWorker.ResetScore();
+				UserDatabaseAccess.overwriteUsers();
+			}
+
+			public static bool UserCheck(string username, out string avatar)
 			{
 				UserDatabaseAccess.credentialsLookup();
 				foreach (string record in UserDatabaseAccess.allUserArray)
@@ -116,7 +175,7 @@ namespace Exodus_Challenge
 		{
 			public static DateTimePicker dateDOB;
 
-			public static bool validRegister(string[] input, bool showFeedback)
+			public static bool validRegister(string[] input, string confirm, bool showFeedback)
 			{
 				accountError? error;
 
@@ -140,7 +199,7 @@ namespace Exodus_Challenge
 					error = accountError.passNoUpper;
 				else if (!input[2].Any(c => !char.IsLetterOrDigit(c)))
 					error = accountError.passNoSymbol;
-				else if (input[2] != input[3])
+				else if (input[2] != confirm)
 					error = accountError.passMismatch;
 				else if (!UserDatabaseAccess.validEmail(input[1]))
 					error = accountError.mailInvalid;
@@ -191,10 +250,6 @@ namespace Exodus_Challenge
 						errorMessageDiscription = "Invalid Password";
 						break;
 
-					// case accountError.passNoSymbol: errorMessageContent = "Ensure that your
-					// password contains at least one special character"; errorMessageDiscription =
-					// "Invalid Password" break;
-
 					case accountError.passMismatch:
 						errorMessageContent = "Passwords do not match.";
 						errorMessageDiscription = "Password Mismatch";
@@ -229,7 +284,8 @@ namespace Exodus_Challenge
 		{
 			public static string[] allUserArray;
 			public static string pathProgressSerializer = "../../userdata/userScores.dat";
-			public static string pathUserData = "../../userdata/testUser.txt";
+			public static string pathUserData = "../../userdata/UserData.txt";
+			public static string pathUserDataBackup = "../../userdata/UserDataBackup.txt";
 			public static BinaryReader readUserBinary;
 			public static StreamReader readUserData;
 			public static User user;
@@ -252,10 +308,6 @@ namespace Exodus_Challenge
 					}
 					return UID;
 				}
-			}
-
-			private static void binaryWrite(string[] arrWrite)
-			{
 			}
 
 			internal static void credentialsAdd(string[] arrWrite, difficulty regDifficulty)
@@ -300,9 +352,7 @@ namespace Exodus_Challenge
 					userUsername = userArray[1],
 					userEmail = userArray[2],
 					userPassword = userArray[3],
-					userScoreManna = int.Parse(userArray[5]),
-					userScoreQuail = int.Parse(userArray[6]),
-					userAvatar = userArray[7],
+					userAvatar = userArray[4],
 					userDifficulty = regDifficulty
 				};
 			}
@@ -345,6 +395,16 @@ namespace Exodus_Challenge
 			{
 				try { return new System.Net.Mail.MailAddress(email).Address == email; }
 				catch { return false; }
+			}
+
+			internal static void overwriteUsers()
+			{
+				File.Copy(pathUserData, pathUserDataBackup, true);
+				using (writeUserData = new StreamWriter(pathUserData, false))
+				{
+					string dataToWrite = string.Join(",", allUserArray) + ";";
+					writeUserData.WriteLine(dataToWrite);
+				}
 			}
 		}
 	}

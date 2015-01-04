@@ -13,10 +13,10 @@ namespace Exodus_Challenge
         private static StreamWriter FileWriter;
         private static StreamReader FileReader;
         private static FileStream inFile;
-        private static string pathProgressTemporaryFile = "../../userData/progressTempFile.temp";
-        private static string pathProgressOutputFile = "../../userData/outputbin.bin";
+        private static string pathProgressTemporaryFile = "../../userdata/progressTempFile.temp";
+        private static string pathProgressOutputFile = "../../userdata/outputbin.bin";
 
-        public void aaatesteraaa()
+        public static void WriteScore()
         {
             int[] progress = new int[]
             {
@@ -25,25 +25,39 @@ namespace Exodus_Challenge
                 UserDatabaseAccess.user.userScoreManna,
                 UserDatabaseAccess.user.userScoreQuail
             };
+            WriteBinary( progress );
         }
 
-        public void Setup()
+        public static void ResetScore()
         {
-            File.Delete(pathProgressTemporaryFile);
-            File.Delete(pathProgressOutputFile);
-            int[] user1Score = new int[] { 999991, 54, 300, 100 };
-            int[] user2Score = new int[] { 2, 32, 600, 110 };
-            int[] user3Score = new int[] { 12, 332, 4600, 5110 };
-            WriteBinary(user1Score);
-            WriteBinary(user2Score);
-            WriteBinary(user3Score);
-            int[] userScore;
-            ReadBinary(12, out userScore);
+            int[] progress = new int[]
+            {
+                UserDatabaseAccess.user.userID,
+                0,
+                0,
+                0
+            };
+            WriteBinary( progress );
         }
+
+        public static void ReadScore()
+        {
+            int[] progress = new int[4];
+            ReadBinary(UserDatabaseAccess.user.userID, out progress);
+            UserDatabaseAccess.user.userID = progress[0];
+            UserDatabaseAccess.user.userZoneUnlock = progress[1];
+            UserDatabaseAccess.user.userScoreManna = progress[2];
+            UserDatabaseAccess.user.userScoreQuail = progress[3];
+        }
+
 
         static void WriteBinary(int[] input)
         {
+            #region Remove Any Past Info
+            File.Delete(pathProgressTemporaryFile);
             byteList.Clear();
+            #endregion
+
             #region Prepare Scores For Conversion
             string progressToWrite = string.Format("{0,8:D8}{1,8:D8}{2,8:D8}{3,8:D8}", input[0], input[1], input[2], input[3]);
 
@@ -88,8 +102,8 @@ namespace Exodus_Challenge
         static void ReadBinary(int userID, out int[] userProgress)
         {
             userProgress = new int[4];
-            int numberOfRecords = File.ReadAllLines("../../outputbin.bin").Length;
-            using (FileReader = new StreamReader("../../outputbin.bin"))
+            int numberOfRecords = File.ReadAllLines(pathProgressOutputFile).Length;
+            using (FileReader = new StreamReader(pathProgressOutputFile))
             {
                 for (int i = 0; i < numberOfRecords; i++)
                 {

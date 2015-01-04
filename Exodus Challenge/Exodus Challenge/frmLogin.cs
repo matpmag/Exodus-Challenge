@@ -27,7 +27,6 @@ namespace Exodus_Challenge
         }
 
         #endregion Constructors
-
         #region Methods
 
         private static string avatarTranslate(int avatarNumber)
@@ -68,7 +67,7 @@ namespace Exodus_Challenge
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (LoginOrRegister.login(logUsername.Text, logPassword.Text))
+            if (AccountMainControls.Login(logUsername.Text, logPassword.Text))
             {
                 changingForm = true;
                 this.Close();
@@ -98,22 +97,20 @@ namespace Exodus_Challenge
                 regUsername.Text,
                 regEmail.Text,
                 regPassword.Text,
-                regConfirm.Text,
-                0.ToString(),
-                0.ToString(),
-                avatarTranslate((int)regDBGAvatar.Value)
+                avatarTranslate((int)regDBGAvatar.Value),
+                0.ToString()
             };
-            if (!diffSet && RegistrationErrorControl.validRegister(output, true))
+            if (!diffSet && RegistrationErrorControl.validRegister(output, regConfirm.Text, true))
             {
                 panelDifficulty.Visible = true;
                 btnRegister.Text = "Register";
             }
-            else LoginOrRegister.register(output, regDifficulty);
+            else AccountMainControls.Register(output, regDifficulty);
         }
 
         private void bypass_Click(object sender, EventArgs e)
         {
-            if (LoginOrRegister.login("admin", "Admin123"))
+            if (AccountMainControls.Login("admin", "Admin123"))
             {
                 changingForm = true;
                 this.Close();
@@ -160,7 +157,7 @@ namespace Exodus_Challenge
         {
             if (logUsername.Text == "Username") logUsername.ForeColor = Color.Silver;
             else logUsername.ForeColor = Color.Black;
-            if (LoginOrRegister.userCheck(logUsername.Text, out loginAvatarPath))
+            if (AccountMainControls.UserCheck(logUsername.Text, out loginAvatarPath))
                 logAvatar.ImageLocation = loginAvatarPath;
         }
 

@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using Exodus_Challenge.LoginSystem;
 
 namespace Exodus_Challenge
@@ -78,118 +79,19 @@ namespace Exodus_Challenge
             }
         }
 
-        private void btnlvlG6_Click(object sender, System.EventArgs e)
-        {
-            if (UserDatabaseAccess.user.userScoreQuail <= 100)
-                MessageBox.Show("You must have 100+ quail");
-            else
-            {
-                UserDatabaseAccess.user.userScoreQuail -= 100;
-                MessageBox.Show("Level unlocked");
-                updateLabels();
-            }
-        }
 
         private void btnlvlQ1_Click(object sender, System.EventArgs e)
         {
-            switch (diff)
-            {
-                case difficulty.novice:
-                    this.Close();
-                    Form q1e = new frmZ1E();
-                    q1e.Show();
-                    break;
-
-                case difficulty.apprentice:
-                    this.Close();
-                    Form q1m = new frmZ1M();
-                    q1m.Show();
-                    break;
-
-                case difficulty.master:
-                    this.Close();
-                    Form q1h = new frmZ1H();
-                    q1h.Show();
-                    break;
-
-                default:
-                    break;
-            }
         }
 
         private void btnlvlQ2_Click(object sender, System.EventArgs e)
         {
-            switch (diff)
-            {
-                case difficulty.novice:
-                    this.Close();
-                    Form q2e = new frmZ2E();
-                    q2e.Show();
-                    break;
-                //case difficulty.apprentice:
-                //    this.Close();
-                //     Form q2m = new frmZ2M();
-                //     q2m.Show();
-                //    break;
-                //case difficulty.master:
-                //    this.Close();
-                //    Form q2h = new frmZ2H();
-                //    q2h.Show();
-                //    break;
-                default:
-                    break;
-            }
+
         }
 
         private void btnlvlQ3_Click(object sender, System.EventArgs e)
         {
-            switch (diff)
-            {
-                case difficulty.novice:
-                    this.Close();
-                    Form q3e = new frmZ3E();
-                    q3e.Show();
-                    break;
-                //case difficulty.apprentice:
-                //    this.Close();
-                //     Form q3m = new frmZ3M();
-                //     q3m.Show();
-                //    break;
-                //case difficulty.master:
-                //    this.Close();
-                //    Form q3h = new frmZ3H();
-                //    q3h.Show();
-                //    break;
-                default:
-                    break;
-            }
-        }
 
-        private void btnlvlQ4_Click(object sender, System.EventArgs e)
-        {
-            /*switch (diff)
-            {
-                case difficulty.novice:
-                    this.Close();
-                    Form q3e = new frmZ3E();
-                    q3e.Show();
-                    break;
-
-                case difficulty.apprentice:
-                    this.Close();
-                     Form q3m = new frmZ3M();
-                     q3m.Show();
-                    break;
-
-                case difficulty.master:
-                    this.Close();
-                    Form q3h = new frmZ3H();
-                    q3h.Show();
-                    break;
-
-                default:
-                    break;
-            }*/
         }
 
         private void btnQuit_Click(object sender, System.EventArgs e)
@@ -199,7 +101,8 @@ namespace Exodus_Challenge
 
         private void btnSave_Click(object sender, System.EventArgs e)
         {
-            //save score and progress
+            AccountMainControls.Save();
+            MessageBox.Show("Saved!");
         }
 
         private void btnSettingCheatsLevel_Click(object sender, System.EventArgs e)
@@ -273,20 +176,32 @@ namespace Exodus_Challenge
 
         private void btnSettingCheatsActivate_Click(object sender, System.EventArgs e)
         {
-            if (!UserDatabaseAccess.user.cheater)
+            bool boolWantsToCheat = false;
+            if (!UserDatabaseAccess.user.userIsCheater)
             {
-                
-                if (btnSettingDifficultyEasy.Visible == false)
+                DialogResult dialogResult = MessageBox.Show("Enabling this option will prevent your scores from being" +
+                                " saved or added to the leaderboards, are you sure you wish to accept?", "Enabling Cheats",
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                if (dialogResult == DialogResult.Yes)
+                    boolWantsToCheat = true;
+            }
+            if (boolWantsToCheat || UserDatabaseAccess.user.userIsCheater)
+            {
+                UserDatabaseAccess.user.userIsCheater = true;
+
+                if (btnSettingConsoleActivate.Visible == false)
                 {
-                    btnSettingDifficultyEasy.Visible = true;
-                    btnSettingDifficultyMedium.Visible = true;
-                    btnSettingDifficultyHard.Visible = true;
+                    btnSettingCheatsLevel.Visible = true;
+                    btnSettingCheatsManna.Visible = true;
+                    btnSettingCheatsQuail.Visible = true;
+                    btnSettingConsoleActivate.Visible = true;
                 }
                 else
                 {
-                    btnSettingDifficultyEasy.Visible = false;
-                    btnSettingDifficultyMedium.Visible = false;
-                    btnSettingDifficultyHard.Visible = false;
+                    btnSettingCheatsLevel.Visible = false;
+                    btnSettingCheatsManna.Visible = false;
+                    btnSettingCheatsQuail.Visible = false;
+                    btnSettingConsoleActivate.Visible = false;
                 }
             }
         }
@@ -294,6 +209,295 @@ namespace Exodus_Challenge
         private void btnSettingConsoleActivate_Click(object sender, System.EventArgs e)
         {
 
+        }
+
+        private void btnZ1QA_Click( object sender, System.EventArgs e )
+        {
+            Form Z1A;
+            try
+            {
+                switch ( diff )
+                {
+                    case difficulty.novice:
+                        this.Close();
+                        Z1A = new frmZ1E();
+                        break;
+
+                    case difficulty.apprentice:
+                        this.Close();
+                        Z1A = new frmZ1M();
+                        break;
+
+                    case difficulty.master:
+                        this.Close();
+                        Z1A = new frmZ1H();
+                        break;
+
+                    default:
+                        throw new ArgumentException( "difficulty \"diff\" is invalid" );
+                }
+                Z1A.Show();
+            }
+            catch ( Exception ex )
+            {
+                string message = String.Format( "e.ToString(): {0}\ne.GetType().ToString(): {1} ex.ToString(): {2}, ex.GetType().ToString(): {3}, ex.Message: {4}", e.ToString(), e.GetType().ToString(), ex.ToString(), ex.GetType().ToString(), ex.Message );
+                MessageBox.Show( message );
+            }
+        }
+
+        private void btnZ1QB_Click( object sender, System.EventArgs e )
+        {
+            Form Z1B;
+            try
+            {
+                switch ( diff )
+                {
+                    case difficulty.novice:
+                        this.Close();
+                        Z1B = new frmZ1M();
+                        break;
+
+                    case difficulty.apprentice:
+                        this.Close();
+                        Z1B = new frmZ1H();
+                        break;
+
+                    case difficulty.master:
+                        //this.Close();
+                        //TODO: MAKE frmZ1X
+                        //Z1B = new frmZ1X();
+                        throw new NotImplementedException( "You Haven't Implemented Z1X yet" );
+
+                    default:
+                        throw new ArgumentException( "difficulty \"diff\" is invalid" );
+                }
+                Z1B.Show();
+            }
+            catch ( Exception ex)
+            {
+                string message = String.Format( "e.ToString(): {0}\ne.GetType().ToString(): {1} ex.ToString(): {2}, ex.GetType().ToString(): {3}, ex.Message: {4}", e.ToString(), e.GetType().ToString(), ex.ToString(), ex.GetType().ToString(), ex.Message );
+                MessageBox.Show(message);
+            }
+        }
+
+        private void btnZ2QA_Click( object sender, System.EventArgs e )
+        {
+            Form Z2A;
+            try
+            {
+                switch ( diff )
+                {
+                    case difficulty.novice:
+                        this.Close();
+                        Z2A = new frmZ2E();
+                        break;
+
+                    case difficulty.apprentice:
+                        //this.Close();
+                        //TODO: MAKE frmZ2M
+                        //Z2A = new frmZ2M();
+                        throw new NotImplementedException( "You Haven't Implemented Z2M yet" );
+
+                    case difficulty.master:
+                        //this.Close();
+                        //TODO: MAKE frmZ2H
+                        //Z2A = new frmZ2H();
+                        throw new NotImplementedException( "You Haven't Implemented Z2H yet" );
+
+                    default:
+                        throw new ArgumentException( "difficulty \"diff\" is invalid" );
+                }
+                Z2A.Show();
+            }
+            catch ( Exception ex )
+            {
+                string message = String.Format( "e.ToString(): {0}\ne.GetType().ToString(): {1} ex.ToString(): {2}, ex.GetType().ToString(): {3}, ex.Message: {4}", e.ToString(), e.GetType().ToString(), ex.ToString(), ex.GetType().ToString(), ex.Message );
+                MessageBox.Show( message );
+            }
+        }
+
+        private void btnZ2QB_Click( object sender, System.EventArgs e )
+        {
+            Form Z2B;
+            try
+            {
+                switch ( diff )
+                {
+                    case difficulty.novice:
+                        //this.Close();
+                        //TODO: MAKE frmZ2M
+                        //Z2B = new frmZ2M();
+                        throw new NotImplementedException( "You Haven't Implemented Z2M yet" );
+
+                    case difficulty.apprentice:
+                        //this.Close();
+                        //TODO: MAKE frmZ2H
+                        //Z2B = new frmZ2H();
+                        throw new NotImplementedException( "You Haven't Implemented Z2H yet" );
+
+                    case difficulty.master:
+                        //this.Close();
+                        //TODO: MAKE frmZ2X
+                        //Z2B = new frmZ2X();
+                        throw new NotImplementedException( "You Haven't Implemented Z2X yet" );
+
+                    default:
+                        throw new ArgumentException( "difficulty \"diff\" is invalid" );
+                }
+                Z2B.Show();
+            }
+            catch ( Exception ex )
+            {
+                string message = String.Format( "e.ToString(): {0}\ne.GetType().ToString(): {1} ex.ToString(): {2}, ex.GetType().ToString(): {3}, ex.Message: {4}", e.ToString(), e.GetType().ToString(), ex.ToString(), ex.GetType().ToString(), ex.Message );
+                MessageBox.Show( message );
+            }
+        }
+
+        private void btnZ3QA_Click( object sender, System.EventArgs e )
+        {
+            Form Z3A;
+            try
+            {
+                switch ( diff )
+                {
+                    case difficulty.novice:
+                        this.Close();
+                        Z3A = new frmZ3E();
+                        break;
+
+                    case difficulty.apprentice:
+                        //this.Close();
+                        //TODO: MAKE frmZ3M
+                        //Z3A = new frmZ3M();
+                        throw new NotImplementedException( "You Haven't Implemented Z3M yet" );
+
+                    case difficulty.master:
+                        //this.Close();
+                        //TODO: MAKE frmZ3H
+                        //Z3A = new frmZ3H();
+                        throw new NotImplementedException( "You Haven't Implemented Z3H yet" );
+
+                    default:
+                        throw new ArgumentException( "difficulty \"diff\" is invalid" );
+                }
+                Z3A.Show();
+            }
+            catch ( Exception ex )
+            {
+                string message = String.Format( "e.ToString(): {0}\ne.GetType().ToString(): {1} ex.ToString(): {2}, ex.GetType().ToString(): {3}, ex.Message: {4}", e.ToString(), e.GetType().ToString(), ex.ToString(), ex.GetType().ToString(), ex.Message );
+                MessageBox.Show( message );
+            }
+        }
+
+        private void btnZ3QB_Click( object sender, System.EventArgs e )
+        {
+            Form Z3B;
+            try
+            {
+                switch ( diff )
+                {
+                    case difficulty.novice:
+                        //this.Close();
+                        //TODO: MAKE frmZ3M
+                        //Z3B = new frmZ3M();
+                        throw new NotImplementedException( "You Haven't Implemented Z3M yet" );
+
+                    case difficulty.apprentice:
+                        //this.Close();
+                        //TODO: MAKE frmZ3H
+                        //Z3B = new frmZ3H();
+                        throw new NotImplementedException( "You Haven't Implemented Z3H yet" );
+
+                    case difficulty.master:
+                        //this.Close();
+                        //TODO: MAKE frmZ3X
+                        //Z3B = new frmZ3X();
+                        throw new NotImplementedException( "You Haven't Implemented Z3X yet" );
+
+                    default:
+                        throw new ArgumentException( "difficulty \"diff\" is invalid" );
+                }
+                Z3B.Show();
+            }
+            catch ( Exception ex )
+            {
+                string message = String.Format( "e.ToString(): {0}\ne.GetType().ToString(): {1} ex.ToString(): {2}, ex.GetType().ToString(): {3}, ex.Message: {4}", e.ToString(), e.GetType().ToString(), ex.ToString(), ex.GetType().ToString(), ex.Message );
+                MessageBox.Show( message );
+            }
+        }
+
+        private void btnZ4QA_Click( object sender, System.EventArgs e )
+        {
+            Form Z4A;
+            try
+            {
+                switch ( diff )
+                {
+                    case difficulty.novice:
+                        //this.Close();
+                        //TODO: MAKE frmZ4E
+                        //Z4A = new frmZ4E();
+                        throw new NotImplementedException( "You Haven't Implemented Z4E yet" );
+
+                    case difficulty.apprentice:
+                        //this.Close();
+                        //TODO: MAKE frmZ4M
+                        //Z4A = new frmZ4M();
+                        throw new NotImplementedException( "You Haven't Implemented Z4M yet" );
+
+                    case difficulty.master:
+                        //this.Close();
+                        //TODO: MAKE frmZ4H
+                        //Z4A = new frmZ4H();
+                        throw new NotImplementedException( "You Haven't Implemented Z4H yet" );
+
+                    default:
+                        throw new ArgumentException( "difficulty \"diff\" is invalid" );
+                }
+                Z4A.Show();
+            }
+            catch ( Exception ex )
+            {
+                string message = String.Format( "e.ToString(): {0}\ne.GetType().ToString(): {1} ex.ToString(): {2}, ex.GetType().ToString(): {3}, ex.Message: {4}", e.ToString(), e.GetType().ToString(), ex.ToString(), ex.GetType().ToString(), ex.Message );
+                MessageBox.Show( message );
+            }
+        }
+
+        private void btnZ4QB_Click( object sender, System.EventArgs e )
+        {
+            Form Z4B;
+            try
+            {
+                switch ( diff )
+                {
+                    case difficulty.novice:
+                        //this.Close();
+                        //TODO: MAKE frmZ4M
+                        //Z4B = new frmZ4M();
+                        throw new NotImplementedException( "You Haven't Implemented Z4M yet" );
+
+                    case difficulty.apprentice:
+                        //this.Close();
+                        //TODO: MAKE frmZ4H
+                        //Z4B = new frmZ4H();
+                        throw new NotImplementedException( "You Haven't Implemented Z4H yet" );
+
+                    case difficulty.master:
+                        //this.Close();
+                        //TODO: MAKE frmZ4X
+                        //Z4B = new frmZ4X();
+                        throw new NotImplementedException( "You Haven't Implemented Z4X yet" );
+
+                    default:
+                        throw new ArgumentException( "difficulty \"diff\" is invalid" );
+                }
+                Z4B.Show();
+            }
+            catch ( Exception ex )
+            {
+                string message = String.Format( "e.ToString(): {0}\ne.GetType().ToString(): {1} ex.ToString(): {2}, ex.GetType().ToString(): {3}, ex.Message: {4}", e.ToString(), e.GetType().ToString(), ex.ToString(), ex.GetType().ToString(), ex.Message );
+                MessageBox.Show( message );
+            }
         }
     }
 }

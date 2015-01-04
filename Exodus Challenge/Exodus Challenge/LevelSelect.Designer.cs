@@ -32,40 +32,28 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.tabConsole = new System.Windows.Forms.TabPage();
-            this.tbxConsoleOutput = new System.Windows.Forms.TextBox();
-            this.inpConsoleCommand = new System.Windows.Forms.TextBox();
-            this.button11 = new System.Windows.Forms.Button();
-            this.btnEnableConsole = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
             this.tabLevelSelect = new System.Windows.Forms.TabPage();
             this.tblScores = new System.Windows.Forms.TableLayoutPanel();
             this.lblMannaScore = new System.Windows.Forms.Label();
             this.pbxManna = new System.Windows.Forms.PictureBox();
             this.pbxQuail = new System.Windows.Forms.PictureBox();
             this.lblQuailScore = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.btnlvlQ5 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btnZ1QA = new System.Windows.Forms.Button();
+            this.btnZ4QA = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnQuit = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.btnlvlQ2 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.btnlvlQ3 = new System.Windows.Forms.Button();
-            this.btnlvlG6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.btnlvlQ4 = new System.Windows.Forms.Button();
+            this.btnZ3QB = new System.Windows.Forms.Button();
+            this.btnZ2QB = new System.Windows.Forms.Button();
+            this.btnZ2QA = new System.Windows.Forms.Button();
+            this.btnZ3QA = new System.Windows.Forms.Button();
+            this.btnZ1QB = new System.Windows.Forms.Button();
+            this.btnZ4QB = new System.Windows.Forms.Button();
             this.btnlvlG1 = new System.Windows.Forms.Button();
             this.btnlvlG3 = new System.Windows.Forms.Button();
             this.btnlvlG2 = new System.Windows.Forms.Button();
             this.btnlvlG4 = new System.Windows.Forms.Button();
-            this.btnlvl5 = new System.Windows.Forms.Button();
             this.tabSettings = new System.Windows.Forms.TabPage();
             this.btnSettingCheatsLevel = new System.Windows.Forms.Button();
             this.btnSettingCheatsQuail = new System.Windows.Forms.Button();
@@ -79,15 +67,23 @@
             this.btnSettingDifficultyActivate = new System.Windows.Forms.Button();
             this.btnSettingAccountActivate = new System.Windows.Forms.Button();
             this.tabAccount = new System.Windows.Forms.TabPage();
+            this.tabConsole = new System.Windows.Forms.TabPage();
+            this.tbxConsoleOutput = new System.Windows.Forms.TextBox();
+            this.inpConsoleCommand = new System.Windows.Forms.TextBox();
+            this.button11 = new System.Windows.Forms.Button();
+            this.btnEnableConsole = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl.SuspendLayout();
-            this.tabConsole.SuspendLayout();
             this.tabLevelSelect.SuspendLayout();
             this.tblScores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxManna)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxQuail)).BeginInit();
             this.tabSettings.SuspendLayout();
             this.tblSettings.SuspendLayout();
+            this.tabConsole.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -123,127 +119,28 @@
             this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl.TabIndex = 30;
             // 
-            // tabConsole
-            // 
-            this.tabConsole.BackColor = System.Drawing.SystemColors.Desktop;
-            this.tabConsole.Controls.Add(this.tbxConsoleOutput);
-            this.tabConsole.Controls.Add(this.inpConsoleCommand);
-            this.tabConsole.Location = new System.Drawing.Point(4, 25);
-            this.tabConsole.Margin = new System.Windows.Forms.Padding(0);
-            this.tabConsole.Name = "tabConsole";
-            this.tabConsole.Size = new System.Drawing.Size(1092, 690);
-            this.tabConsole.TabIndex = 2;
-            this.tabConsole.Text = "Console";
-            // 
-            // tbxConsoleOutput
-            // 
-            this.tbxConsoleOutput.BackColor = System.Drawing.SystemColors.Desktop;
-            this.tbxConsoleOutput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbxConsoleOutput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbxConsoleOutput.Font = new System.Drawing.Font("OCR A Extended", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxConsoleOutput.ForeColor = System.Drawing.Color.Green;
-            this.tbxConsoleOutput.Location = new System.Drawing.Point(0, 0);
-            this.tbxConsoleOutput.Multiline = true;
-            this.tbxConsoleOutput.Name = "tbxConsoleOutput";
-            this.tbxConsoleOutput.ReadOnly = true;
-            this.tbxConsoleOutput.Size = new System.Drawing.Size(1092, 652);
-            this.tbxConsoleOutput.TabIndex = 1;
-            this.tbxConsoleOutput.Text = "<Console Output Text>";
-            // 
-            // inpConsoleCommand
-            // 
-            this.inpConsoleCommand.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.inpConsoleCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inpConsoleCommand.Location = new System.Drawing.Point(0, 652);
-            this.inpConsoleCommand.Name = "inpConsoleCommand";
-            this.inpConsoleCommand.Size = new System.Drawing.Size(1092, 38);
-            this.inpConsoleCommand.TabIndex = 0;
-            // 
-            // button11
-            // 
-            this.button11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button11.Location = new System.Drawing.Point(20, 114);
-            this.button11.Margin = new System.Windows.Forms.Padding(20);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(404, 54);
-            this.button11.TabIndex = 1;
-            this.button11.Text = "button11";
-            this.button11.UseVisualStyleBackColor = true;
-            // 
-            // btnEnableConsole
-            // 
-            this.btnEnableConsole.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEnableConsole.Location = new System.Drawing.Point(20, 20);
-            this.btnEnableConsole.Margin = new System.Windows.Forms.Padding(20);
-            this.btnEnableConsole.Name = "btnEnableConsole";
-            this.btnEnableConsole.Size = new System.Drawing.Size(404, 54);
-            this.btnEnableConsole.TabIndex = 0;
-            this.btnEnableConsole.Text = "button10";
-            this.btnEnableConsole.UseVisualStyleBackColor = true;
-            // 
-            // button12
-            // 
-            this.button12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button12.Location = new System.Drawing.Point(20, 208);
-            this.button12.Margin = new System.Windows.Forms.Padding(20);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(404, 54);
-            this.button12.TabIndex = 2;
-            this.button12.Text = "button12";
-            this.button12.UseVisualStyleBackColor = true;
-            // 
-            // button13
-            // 
-            this.button13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button13.Location = new System.Drawing.Point(20, 302);
-            this.button13.Margin = new System.Windows.Forms.Padding(20);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(404, 54);
-            this.button13.TabIndex = 2;
-            this.button13.Text = "button13";
-            this.button13.UseVisualStyleBackColor = true;
-            // 
-            // button14
-            // 
-            this.button14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button14.Location = new System.Drawing.Point(20, 396);
-            this.button14.Margin = new System.Windows.Forms.Padding(20);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(404, 56);
-            this.button14.TabIndex = 2;
-            this.button14.Text = "button14";
-            this.button14.UseVisualStyleBackColor = true;
-            // 
             // tabLevelSelect
             // 
             this.tabLevelSelect.BackColor = System.Drawing.Color.Wheat;
             this.tabLevelSelect.BackgroundImage = global::Exodus_Challenge.Properties.Resources.map;
             this.tabLevelSelect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabLevelSelect.Controls.Add(this.tblScores);
-            this.tabLevelSelect.Controls.Add(this.button1);
-            this.tabLevelSelect.Controls.Add(this.button9);
-            this.tabLevelSelect.Controls.Add(this.btnlvlQ5);
-            this.tabLevelSelect.Controls.Add(this.button8);
+            this.tabLevelSelect.Controls.Add(this.btnZ1QA);
+            this.tabLevelSelect.Controls.Add(this.btnZ4QA);
             this.tabLevelSelect.Controls.Add(this.btnHelp);
             this.tabLevelSelect.Controls.Add(this.btnSettings);
             this.tabLevelSelect.Controls.Add(this.btnSave);
             this.tabLevelSelect.Controls.Add(this.btnQuit);
-            this.tabLevelSelect.Controls.Add(this.button7);
-            this.tabLevelSelect.Controls.Add(this.btnlvlQ2);
-            this.tabLevelSelect.Controls.Add(this.button6);
-            this.tabLevelSelect.Controls.Add(this.btnlvlQ3);
-            this.tabLevelSelect.Controls.Add(this.btnlvlG6);
-            this.tabLevelSelect.Controls.Add(this.button5);
-            this.tabLevelSelect.Controls.Add(this.btnlvlQ4);
+            this.tabLevelSelect.Controls.Add(this.btnZ3QB);
+            this.tabLevelSelect.Controls.Add(this.btnZ2QB);
+            this.tabLevelSelect.Controls.Add(this.btnZ2QA);
+            this.tabLevelSelect.Controls.Add(this.btnZ3QA);
+            this.tabLevelSelect.Controls.Add(this.btnZ1QB);
+            this.tabLevelSelect.Controls.Add(this.btnZ4QB);
             this.tabLevelSelect.Controls.Add(this.btnlvlG1);
             this.tabLevelSelect.Controls.Add(this.btnlvlG3);
             this.tabLevelSelect.Controls.Add(this.btnlvlG2);
             this.tabLevelSelect.Controls.Add(this.btnlvlG4);
-            this.tabLevelSelect.Controls.Add(this.btnlvl5);
             this.tabLevelSelect.Location = new System.Drawing.Point(4, 25);
             this.tabLevelSelect.Name = "tabLevelSelect";
             this.tabLevelSelect.Padding = new System.Windows.Forms.Padding(3);
@@ -326,73 +223,41 @@
             this.lblQuailScore.Text = "<QuailScore>";
             this.lblQuailScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // btnZ1QA
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.Transparent;
-            this.button1.Location = new System.Drawing.Point(222, 165);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(43, 41);
-            this.button1.TabIndex = 30;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnZ1QA.BackColor = System.Drawing.Color.Transparent;
+            this.btnZ1QA.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnZ1QA.BackgroundImage")));
+            this.btnZ1QA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnZ1QA.FlatAppearance.BorderSize = 0;
+            this.btnZ1QA.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnZ1QA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnZ1QA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnZ1QA.ForeColor = System.Drawing.Color.Transparent;
+            this.btnZ1QA.Location = new System.Drawing.Point(222, 165);
+            this.btnZ1QA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnZ1QA.Name = "btnZ1QA";
+            this.btnZ1QA.Size = new System.Drawing.Size(43, 41);
+            this.btnZ1QA.TabIndex = 30;
+            this.btnZ1QA.UseVisualStyleBackColor = false;
+            this.btnZ1QA.Click += new System.EventHandler(this.btnZ1QA_Click);
             // 
-            // button9
+            // btnZ4QA
             // 
-            this.button9.BackColor = System.Drawing.Color.Transparent;
-            this.button9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button9.BackgroundImage")));
-            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.ForeColor = System.Drawing.Color.Transparent;
-            this.button9.Location = new System.Drawing.Point(919, 220);
-            this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(43, 41);
-            this.button9.TabIndex = 29;
-            this.button9.UseVisualStyleBackColor = false;
-            // 
-            // btnlvlQ5
-            // 
-            this.btnlvlQ5.BackColor = System.Drawing.Color.Transparent;
-            this.btnlvlQ5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnlvlQ5.BackgroundImage")));
-            this.btnlvlQ5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnlvlQ5.FlatAppearance.BorderSize = 0;
-            this.btnlvlQ5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnlvlQ5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnlvlQ5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnlvlQ5.ForeColor = System.Drawing.Color.Transparent;
-            this.btnlvlQ5.Location = new System.Drawing.Point(945, 87);
-            this.btnlvlQ5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnlvlQ5.Name = "btnlvlQ5";
-            this.btnlvlQ5.Size = new System.Drawing.Size(43, 41);
-            this.btnlvlQ5.TabIndex = 4;
-            this.btnlvlQ5.UseVisualStyleBackColor = false;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.Transparent;
-            this.button8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button8.BackgroundImage")));
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.ForeColor = System.Drawing.Color.Transparent;
-            this.button8.Location = new System.Drawing.Point(721, 449);
-            this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(43, 41);
-            this.button8.TabIndex = 28;
-            this.button8.UseVisualStyleBackColor = false;
+            this.btnZ4QA.BackColor = System.Drawing.Color.Transparent;
+            this.btnZ4QA.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnZ4QA.BackgroundImage")));
+            this.btnZ4QA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnZ4QA.FlatAppearance.BorderSize = 0;
+            this.btnZ4QA.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnZ4QA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnZ4QA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnZ4QA.ForeColor = System.Drawing.Color.Transparent;
+            this.btnZ4QA.Location = new System.Drawing.Point(792, 333);
+            this.btnZ4QA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnZ4QA.Name = "btnZ4QA";
+            this.btnZ4QA.Size = new System.Drawing.Size(43, 41);
+            this.btnZ4QA.TabIndex = 28;
+            this.btnZ4QA.UseVisualStyleBackColor = false;
+            this.btnZ4QA.Click += new System.EventHandler(this.btnZ4QA_Click);
             // 
             // btnHelp
             // 
@@ -433,6 +298,7 @@
             this.btnSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSave.BackgroundImage")));
             this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.Transparent;
@@ -450,6 +316,8 @@
             this.btnQuit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnQuit.BackgroundImage")));
             this.btnQuit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnQuit.FlatAppearance.BorderSize = 0;
+            this.btnQuit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnQuit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnQuit.ForeColor = System.Drawing.Color.Transparent;
             this.btnQuit.Location = new System.Drawing.Point(1033, 1);
@@ -460,129 +328,113 @@
             this.btnQuit.UseVisualStyleBackColor = false;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
-            // button7
+            // btnZ3QB
             // 
-            this.button7.BackColor = System.Drawing.Color.Transparent;
-            this.button7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7.BackgroundImage")));
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.ForeColor = System.Drawing.Color.Transparent;
-            this.button7.Location = new System.Drawing.Point(605, 461);
-            this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(43, 41);
-            this.button7.TabIndex = 27;
-            this.button7.UseVisualStyleBackColor = false;
+            this.btnZ3QB.BackColor = System.Drawing.Color.Transparent;
+            this.btnZ3QB.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnZ3QB.BackgroundImage")));
+            this.btnZ3QB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnZ3QB.FlatAppearance.BorderSize = 0;
+            this.btnZ3QB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnZ3QB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnZ3QB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnZ3QB.ForeColor = System.Drawing.Color.Transparent;
+            this.btnZ3QB.Location = new System.Drawing.Point(660, 501);
+            this.btnZ3QB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnZ3QB.Name = "btnZ3QB";
+            this.btnZ3QB.Size = new System.Drawing.Size(43, 41);
+            this.btnZ3QB.TabIndex = 27;
+            this.btnZ3QB.UseVisualStyleBackColor = false;
+            this.btnZ3QB.Click += new System.EventHandler(this.btnZ3QB_Click);
             // 
-            // btnlvlQ2
+            // btnZ2QB
             // 
-            this.btnlvlQ2.BackColor = System.Drawing.Color.Transparent;
-            this.btnlvlQ2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnlvlQ2.BackgroundImage")));
-            this.btnlvlQ2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnlvlQ2.FlatAppearance.BorderSize = 0;
-            this.btnlvlQ2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnlvlQ2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnlvlQ2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnlvlQ2.ForeColor = System.Drawing.Color.Transparent;
-            this.btnlvlQ2.Location = new System.Drawing.Point(409, 351);
-            this.btnlvlQ2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnlvlQ2.Name = "btnlvlQ2";
-            this.btnlvlQ2.Size = new System.Drawing.Size(43, 41);
-            this.btnlvlQ2.TabIndex = 1;
-            this.btnlvlQ2.UseVisualStyleBackColor = false;
-            this.btnlvlQ2.Click += new System.EventHandler(this.btnlvlQ2_Click);
+            this.btnZ2QB.BackColor = System.Drawing.Color.Transparent;
+            this.btnZ2QB.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnZ2QB.BackgroundImage")));
+            this.btnZ2QB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnZ2QB.FlatAppearance.BorderSize = 0;
+            this.btnZ2QB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnZ2QB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnZ2QB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnZ2QB.ForeColor = System.Drawing.Color.Transparent;
+            this.btnZ2QB.Location = new System.Drawing.Point(411, 386);
+            this.btnZ2QB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnZ2QB.Name = "btnZ2QB";
+            this.btnZ2QB.Size = new System.Drawing.Size(43, 41);
+            this.btnZ2QB.TabIndex = 1;
+            this.btnZ2QB.UseVisualStyleBackColor = false;
+            this.btnZ2QB.Click += new System.EventHandler(this.btnZ2QB_Click);
             // 
-            // button6
+            // btnZ2QA
             // 
-            this.button6.BackColor = System.Drawing.Color.Transparent;
-            this.button6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button6.BackgroundImage")));
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.Color.Transparent;
-            this.button6.Location = new System.Drawing.Point(375, 297);
-            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(43, 41);
-            this.button6.TabIndex = 26;
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnZ2QA.BackColor = System.Drawing.Color.Transparent;
+            this.btnZ2QA.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnZ2QA.BackgroundImage")));
+            this.btnZ2QA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnZ2QA.FlatAppearance.BorderSize = 0;
+            this.btnZ2QA.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnZ2QA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnZ2QA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnZ2QA.ForeColor = System.Drawing.Color.Transparent;
+            this.btnZ2QA.Location = new System.Drawing.Point(369, 313);
+            this.btnZ2QA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnZ2QA.Name = "btnZ2QA";
+            this.btnZ2QA.Size = new System.Drawing.Size(43, 41);
+            this.btnZ2QA.TabIndex = 26;
+            this.btnZ2QA.UseVisualStyleBackColor = false;
+            this.btnZ2QA.Click += new System.EventHandler(this.btnZ2QA_Click);
             // 
-            // btnlvlQ3
+            // btnZ3QA
             // 
-            this.btnlvlQ3.BackColor = System.Drawing.Color.Transparent;
-            this.btnlvlQ3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnlvlQ3.BackgroundImage")));
-            this.btnlvlQ3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnlvlQ3.FlatAppearance.BorderSize = 0;
-            this.btnlvlQ3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnlvlQ3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnlvlQ3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnlvlQ3.ForeColor = System.Drawing.Color.Transparent;
-            this.btnlvlQ3.Location = new System.Drawing.Point(545, 389);
-            this.btnlvlQ3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnlvlQ3.Name = "btnlvlQ3";
-            this.btnlvlQ3.Size = new System.Drawing.Size(43, 41);
-            this.btnlvlQ3.TabIndex = 2;
-            this.btnlvlQ3.UseVisualStyleBackColor = false;
-            this.btnlvlQ3.Click += new System.EventHandler(this.btnlvlQ3_Click);
+            this.btnZ3QA.BackColor = System.Drawing.Color.Transparent;
+            this.btnZ3QA.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnZ3QA.BackgroundImage")));
+            this.btnZ3QA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnZ3QA.FlatAppearance.BorderSize = 0;
+            this.btnZ3QA.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnZ3QA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnZ3QA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnZ3QA.ForeColor = System.Drawing.Color.Transparent;
+            this.btnZ3QA.Location = new System.Drawing.Point(566, 487);
+            this.btnZ3QA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnZ3QA.Name = "btnZ3QA";
+            this.btnZ3QA.Size = new System.Drawing.Size(43, 41);
+            this.btnZ3QA.TabIndex = 2;
+            this.btnZ3QA.UseVisualStyleBackColor = false;
+            this.btnZ3QA.Click += new System.EventHandler(this.btnZ3QA_Click);
             // 
-            // btnlvlG6
+            // btnZ1QB
             // 
-            this.btnlvlG6.AutoSize = true;
-            this.btnlvlG6.BackColor = System.Drawing.Color.Transparent;
-            this.btnlvlG6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnlvlG6.BackgroundImage")));
-            this.btnlvlG6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnlvlG6.FlatAppearance.BorderSize = 0;
-            this.btnlvlG6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnlvlG6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnlvlG6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnlvlG6.ForeColor = System.Drawing.Color.Transparent;
-            this.btnlvlG6.Location = new System.Drawing.Point(945, 2);
-            this.btnlvlG6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnlvlG6.Name = "btnlvlG6";
-            this.btnlvlG6.Size = new System.Drawing.Size(67, 63);
-            this.btnlvlG6.TabIndex = 10;
-            this.btnlvlG6.UseVisualStyleBackColor = false;
-            this.btnlvlG6.Click += new System.EventHandler(this.btnlvlG6_Click);
+            this.btnZ1QB.BackColor = System.Drawing.Color.Transparent;
+            this.btnZ1QB.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnZ1QB.BackgroundImage")));
+            this.btnZ1QB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnZ1QB.FlatAppearance.BorderSize = 0;
+            this.btnZ1QB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnZ1QB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnZ1QB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnZ1QB.ForeColor = System.Drawing.Color.Transparent;
+            this.btnZ1QB.Location = new System.Drawing.Point(292, 182);
+            this.btnZ1QB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnZ1QB.Name = "btnZ1QB";
+            this.btnZ1QB.Size = new System.Drawing.Size(43, 41);
+            this.btnZ1QB.TabIndex = 25;
+            this.btnZ1QB.UseVisualStyleBackColor = false;
+            this.btnZ1QB.Click += new System.EventHandler(this.btnZ1QB_Click);
             // 
-            // button5
+            // btnZ4QB
             // 
-            this.button5.BackColor = System.Drawing.Color.Transparent;
-            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.ForeColor = System.Drawing.Color.Transparent;
-            this.button5.Location = new System.Drawing.Point(292, 182);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(43, 41);
-            this.button5.TabIndex = 25;
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // btnlvlQ4
-            // 
-            this.btnlvlQ4.BackColor = System.Drawing.Color.Transparent;
-            this.btnlvlQ4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnlvlQ4.BackgroundImage")));
-            this.btnlvlQ4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnlvlQ4.FlatAppearance.BorderSize = 0;
-            this.btnlvlQ4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnlvlQ4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnlvlQ4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnlvlQ4.ForeColor = System.Drawing.Color.Transparent;
-            this.btnlvlQ4.Location = new System.Drawing.Point(763, 377);
-            this.btnlvlQ4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnlvlQ4.Name = "btnlvlQ4";
-            this.btnlvlQ4.Size = new System.Drawing.Size(43, 41);
-            this.btnlvlQ4.TabIndex = 3;
-            this.btnlvlQ4.UseVisualStyleBackColor = false;
-            this.btnlvlQ4.Click += new System.EventHandler(this.btnlvlQ4_Click);
+            this.btnZ4QB.BackColor = System.Drawing.Color.Transparent;
+            this.btnZ4QB.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnZ4QB.BackgroundImage")));
+            this.btnZ4QB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnZ4QB.FlatAppearance.BorderSize = 0;
+            this.btnZ4QB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnZ4QB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnZ4QB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnZ4QB.ForeColor = System.Drawing.Color.Transparent;
+            this.btnZ4QB.Location = new System.Drawing.Point(855, 235);
+            this.btnZ4QB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnZ4QB.Name = "btnZ4QB";
+            this.btnZ4QB.Size = new System.Drawing.Size(43, 41);
+            this.btnZ4QB.TabIndex = 3;
+            this.btnZ4QB.UseVisualStyleBackColor = false;
+            this.btnZ4QB.Click += new System.EventHandler(this.btnZ4QB_Click);
             // 
             // btnlvlG1
             // 
@@ -595,7 +447,7 @@
             this.btnlvlG1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnlvlG1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlvlG1.ForeColor = System.Drawing.Color.Transparent;
-            this.btnlvlG1.Location = new System.Drawing.Point(124, 148);
+            this.btnlvlG1.Location = new System.Drawing.Point(341, 218);
             this.btnlvlG1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnlvlG1.Name = "btnlvlG1";
             this.btnlvlG1.Size = new System.Drawing.Size(71, 75);
@@ -614,7 +466,7 @@
             this.btnlvlG3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnlvlG3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlvlG3.ForeColor = System.Drawing.Color.Transparent;
-            this.btnlvlG3.Location = new System.Drawing.Point(472, 365);
+            this.btnlvlG3.Location = new System.Drawing.Point(721, 413);
             this.btnlvlG3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnlvlG3.Name = "btnlvlG3";
             this.btnlvlG3.Size = new System.Drawing.Size(67, 65);
@@ -633,7 +485,7 @@
             this.btnlvlG2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnlvlG2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlvlG2.ForeColor = System.Drawing.Color.Transparent;
-            this.btnlvlG2.Location = new System.Drawing.Point(341, 201);
+            this.btnlvlG2.Location = new System.Drawing.Point(460, 424);
             this.btnlvlG2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnlvlG2.Name = "btnlvlG2";
             this.btnlvlG2.Size = new System.Drawing.Size(77, 78);
@@ -652,31 +504,13 @@
             this.btnlvlG4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnlvlG4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlvlG4.ForeColor = System.Drawing.Color.Transparent;
-            this.btnlvlG4.Location = new System.Drawing.Point(666, 532);
+            this.btnlvlG4.Location = new System.Drawing.Point(913, 110);
             this.btnlvlG4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnlvlG4.Name = "btnlvlG4";
             this.btnlvlG4.Size = new System.Drawing.Size(69, 65);
             this.btnlvlG4.TabIndex = 8;
             this.btnlvlG4.UseVisualStyleBackColor = false;
             this.btnlvlG4.Click += new System.EventHandler(this.btnlvlG4_Click);
-            // 
-            // btnlvl5
-            // 
-            this.btnlvl5.AutoSize = true;
-            this.btnlvl5.BackColor = System.Drawing.Color.Transparent;
-            this.btnlvl5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnlvl5.BackgroundImage")));
-            this.btnlvl5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnlvl5.FlatAppearance.BorderSize = 0;
-            this.btnlvl5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnlvl5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnlvl5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnlvl5.ForeColor = System.Drawing.Color.Transparent;
-            this.btnlvl5.Location = new System.Drawing.Point(816, 297);
-            this.btnlvl5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnlvl5.Name = "btnlvl5";
-            this.btnlvl5.Size = new System.Drawing.Size(75, 79);
-            this.btnlvl5.TabIndex = 9;
-            this.btnlvl5.UseVisualStyleBackColor = false;
             // 
             // tabSettings
             // 
@@ -851,6 +685,101 @@
             this.tabAccount.Text = "Account";
             this.tabAccount.UseVisualStyleBackColor = true;
             // 
+            // tabConsole
+            // 
+            this.tabConsole.BackColor = System.Drawing.SystemColors.Desktop;
+            this.tabConsole.Controls.Add(this.tbxConsoleOutput);
+            this.tabConsole.Controls.Add(this.inpConsoleCommand);
+            this.tabConsole.Location = new System.Drawing.Point(4, 25);
+            this.tabConsole.Margin = new System.Windows.Forms.Padding(0);
+            this.tabConsole.Name = "tabConsole";
+            this.tabConsole.Size = new System.Drawing.Size(1092, 690);
+            this.tabConsole.TabIndex = 2;
+            this.tabConsole.Text = "Console";
+            // 
+            // tbxConsoleOutput
+            // 
+            this.tbxConsoleOutput.BackColor = System.Drawing.SystemColors.Desktop;
+            this.tbxConsoleOutput.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbxConsoleOutput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbxConsoleOutput.Font = new System.Drawing.Font("OCR A Extended", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxConsoleOutput.ForeColor = System.Drawing.Color.Green;
+            this.tbxConsoleOutput.Location = new System.Drawing.Point(0, 0);
+            this.tbxConsoleOutput.Multiline = true;
+            this.tbxConsoleOutput.Name = "tbxConsoleOutput";
+            this.tbxConsoleOutput.ReadOnly = true;
+            this.tbxConsoleOutput.Size = new System.Drawing.Size(1092, 652);
+            this.tbxConsoleOutput.TabIndex = 1;
+            this.tbxConsoleOutput.Text = "<Console Output Text>";
+            // 
+            // inpConsoleCommand
+            // 
+            this.inpConsoleCommand.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.inpConsoleCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inpConsoleCommand.Location = new System.Drawing.Point(0, 652);
+            this.inpConsoleCommand.Name = "inpConsoleCommand";
+            this.inpConsoleCommand.Size = new System.Drawing.Size(1092, 38);
+            this.inpConsoleCommand.TabIndex = 0;
+            // 
+            // button11
+            // 
+            this.button11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button11.Location = new System.Drawing.Point(20, 114);
+            this.button11.Margin = new System.Windows.Forms.Padding(20);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(404, 54);
+            this.button11.TabIndex = 1;
+            this.button11.Text = "button11";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // btnEnableConsole
+            // 
+            this.btnEnableConsole.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEnableConsole.Location = new System.Drawing.Point(20, 20);
+            this.btnEnableConsole.Margin = new System.Windows.Forms.Padding(20);
+            this.btnEnableConsole.Name = "btnEnableConsole";
+            this.btnEnableConsole.Size = new System.Drawing.Size(404, 54);
+            this.btnEnableConsole.TabIndex = 0;
+            this.btnEnableConsole.Text = "button10";
+            this.btnEnableConsole.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            this.button12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button12.Location = new System.Drawing.Point(20, 208);
+            this.button12.Margin = new System.Windows.Forms.Padding(20);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(404, 54);
+            this.button12.TabIndex = 2;
+            this.button12.Text = "button12";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
+            // button13
+            // 
+            this.button13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button13.Location = new System.Drawing.Point(20, 302);
+            this.button13.Margin = new System.Windows.Forms.Padding(20);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(404, 54);
+            this.button13.TabIndex = 2;
+            this.button13.Text = "button13";
+            this.button13.UseVisualStyleBackColor = true;
+            // 
+            // button14
+            // 
+            this.button14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button14.Location = new System.Drawing.Point(20, 396);
+            this.button14.Margin = new System.Windows.Forms.Padding(20);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(404, 56);
+            this.button14.TabIndex = 2;
+            this.button14.Text = "button14";
+            this.button14.UseVisualStyleBackColor = true;
+            // 
             // LevelSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -871,8 +800,6 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControl.ResumeLayout(false);
-            this.tabConsole.ResumeLayout(false);
-            this.tabConsole.PerformLayout();
             this.tabLevelSelect.ResumeLayout(false);
             this.tabLevelSelect.PerformLayout();
             this.tblScores.ResumeLayout(false);
@@ -882,6 +809,8 @@
             this.tabSettings.ResumeLayout(false);
             this.tblSettings.ResumeLayout(false);
             this.tblSettings.PerformLayout();
+            this.tabConsole.ResumeLayout(false);
+            this.tabConsole.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -889,16 +818,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnlvlQ2;
-        private System.Windows.Forms.Button btnlvlQ3;
-        private System.Windows.Forms.Button btnlvlQ4;
-        private System.Windows.Forms.Button btnlvlQ5;
+        private System.Windows.Forms.Button btnZ2QB;
+        private System.Windows.Forms.Button btnZ3QA;
+        private System.Windows.Forms.Button btnZ4QB;
         private System.Windows.Forms.Button btnlvlG1;
         private System.Windows.Forms.Button btnlvlG3;
         private System.Windows.Forms.Button btnlvlG2;
         private System.Windows.Forms.Button btnlvlG4;
-        private System.Windows.Forms.Button btnlvl5;
-        private System.Windows.Forms.Button btnlvlG6;
         private System.Windows.Forms.PictureBox pbxQuail;
         private System.Windows.Forms.PictureBox pbxManna;
         private System.Windows.Forms.Label lblQuailScore;
@@ -909,14 +835,13 @@
         private System.Windows.Forms.Button btnQuit;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btnZ1QB;
+        private System.Windows.Forms.Button btnZ2QA;
+        private System.Windows.Forms.Button btnZ3QB;
+        private System.Windows.Forms.Button btnZ4QA;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabLevelSelect;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnZ1QA;
         private System.Windows.Forms.TabPage tabConsole;
         private System.Windows.Forms.TextBox tbxConsoleOutput;
         private System.Windows.Forms.TextBox inpConsoleCommand;

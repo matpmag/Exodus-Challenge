@@ -1,5 +1,5 @@
-﻿1,matpmag,matpmag@gmail.com,Password1#,Password1#,0,0,../../../Media/Avatars/moses.png,master,1;
-0,admin,admintestexchal@gmail.com,Admin123,Admin123,0,0,../../../Media/Avatars/moses.png,novice,1;
-2,Simsy,sims@Yahoo.org,J@ckLamont1,J@ckLamont1,0,0,../../../Media/Avatars/moses.png,novice,0;
-14,testuser,altmatpmag@gmail.com,Pass101#,Pass101#,0,0,../../../Media/Avatars/moses.png,novice,0;
-87,usernametest101,emailtest@email.co.lel,Pass1011,Pass1011,0,0,../../../Media/Avatars/moses.png,novice,0;
+﻿1,matpmag,matpmag@gmail.com,Password1#,../../../Media/Avatars/moses.png,1,master;
+0,admin,admintestexchal@gmail.com,Admin123,../../../Media/Avatars/moses.png,1,novice;
+2,Simsy,sims@Yahoo.org,J@ckLamont1,../../../Media/Avatars/moses.png,0,novice;
+14,testuser,altmatpmag@gmail.com,Pass101#,../../../Media/Avatars/moses.png,0,novice;
+87,usernametest101,emailtest@email.co.lel,../../../Media/Avatars/moses.png,0,novice;

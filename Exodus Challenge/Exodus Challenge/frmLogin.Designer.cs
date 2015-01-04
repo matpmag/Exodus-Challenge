@@ -96,15 +96,14 @@
             // 
             // logAvatar
             // 
-            this.logAvatar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.logAvatar.BackColor = System.Drawing.Color.Transparent;
-            this.logAvatar.ErrorImage = ((System.Drawing.Image)(resources.GetObject("logAvatar.ErrorImage")));
+            this.logAvatar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.logAvatar.ErrorImage = global::Exodus_Challenge.Properties.Resources.Title;
             this.logAvatar.Image = global::Exodus_Challenge.Properties.Resources.Title;
             this.logAvatar.InitialImage = ((System.Drawing.Image)(resources.GetObject("logAvatar.InitialImage")));
-            this.logAvatar.Location = new System.Drawing.Point(6, 46);
+            this.logAvatar.Location = new System.Drawing.Point(3, 26);
             this.logAvatar.Name = "logAvatar";
-            this.logAvatar.Size = new System.Drawing.Size(341, 125);
+            this.logAvatar.Size = new System.Drawing.Size(349, 125);
             this.logAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logAvatar.TabIndex = 4;
             this.logAvatar.TabStop = false;
@@ -123,8 +122,8 @@
             // tabLogin
             // 
             this.tabLogin.BackgroundImage = global::Exodus_Challenge.Properties.Resources.sandstoneBrick;
-            this.tabLogin.Controls.Add(this.bypass);
             this.tabLogin.Controls.Add(this.logAvatar);
+            this.tabLogin.Controls.Add(this.bypass);
             this.tabLogin.Controls.Add(this.btnLogin);
             this.tabLogin.Controls.Add(this.logPassword);
             this.tabLogin.Controls.Add(this.logUsername);
@@ -139,9 +138,10 @@
             // bypass
             // 
             this.bypass.BackColor = System.Drawing.Color.Red;
-            this.bypass.Location = new System.Drawing.Point(8, 17);
+            this.bypass.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bypass.Location = new System.Drawing.Point(3, 3);
             this.bypass.Name = "bypass";
-            this.bypass.Size = new System.Drawing.Size(22, 23);
+            this.bypass.Size = new System.Drawing.Size(349, 23);
             this.bypass.TabIndex = 1;
             this.bypass.UseVisualStyleBackColor = false;
             this.bypass.Click += new System.EventHandler(this.bypass_Click);
