@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using Exodus_Challenge.LoginSystem;
 
 namespace Exodus_Challenge
 {
@@ -144,6 +145,13 @@ namespace Exodus_Challenge
 
         private void tickerMovement_Tick( object sender, EventArgs e )
         {
+            UserDatabaseAccess.user.userScoreManna -= 10;
+            if ( UserDatabaseAccess.user.userScoreManna <= 10 )
+            {
+                Form LevelSelectScreen = new LevelSelect();
+                LevelSelectScreen.Show();
+                this.Close();
+            }
             g.Clear( Color.ForestGreen );
             if ( collision() )
             {

@@ -69,12 +69,9 @@
     <Compile Include="BinaryWorker.cs">
       <DependentUpon>loginSystem.cs</DependentUpon>
     </Compile>
+    <Compile Include="VideoPlayer.Designer.cs" />
     <Compile Include="VideoPlayer.cs">
       <SubType>Form</SubType>
-      <DependentUpon>LevelSelect.cs</DependentUpon>
-    </Compile>
-    <Compile Include="VideoPlayer.Designer.cs">
-      <DependentUpon>VideoPlayer.cs</DependentUpon>
     </Compile>
     <Compile Include="Zone 2\frmZ2B.cs">
       <SubType>Form</SubType>

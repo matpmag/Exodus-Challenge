@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using Exodus_Challenge.LoginSystem;
 
 namespace Exodus_Challenge
 {
     public partial class frmZ1B : Form
     {
+        int attackersPos = 0;
         #region Private Methods
 
         #region Methods
@@ -64,12 +66,31 @@ namespace Exodus_Challenge
                 {
                     if ( obs.move( israeliteCurrent ) )
                     {
+                        if ( Z1BGameInfo.collision == true )
+                            attackersPos++;
                         obs.run = false;
                         this.Controls.Remove( obs.pbx );
                         obstacles.Remove( obs );
                         break;
                     }
                 }
+            }
+            switch ( attackersPos )
+            {
+                case 0:
+                    pictureBox1.Visible = true;
+                    break;
+                case 1:
+                    pictureBox2.Visible = true;
+                    break;
+                case 2:
+                    pictureBox3.Visible = true;
+                    break;
+                default:
+                    Form LevelSelectScreen = new LevelSelect();
+                    this.Close();
+                    LevelSelectScreen.Show();
+                    break;
             }
         }
 
@@ -129,7 +150,10 @@ namespace Exodus_Challenge
             israeliteCurrent.ImageLocation = "../../../Media/Images/gif.gif";
         }
     }
-
+    public struct Z1BGameInfo
+    {
+        public static bool? collision = null;
+    }
     internal class Obstacle
     {
         #region Public Fields
@@ -139,7 +163,6 @@ namespace Exodus_Challenge
         public PictureBox area;
         public PictureBox pbx;
         public bool run = true;
-
         #endregion Fields
 
         #endregion Public Fields
@@ -150,25 +173,28 @@ namespace Exodus_Challenge
 
         public bool move( PictureBox israeliteCurrent )
         {
-            bool? collision = null;
+            Z1BGameInfo.collision = null;
             pbx.Left -= 10;
             if ( pbx.Location.X + pbx.Width < israeliteCurrent.Location.X )
-                collision = false;
+                Z1BGameInfo.collision = false;
             if ( israeliteCurrent.Location.X + israeliteCurrent.Width < pbx.Location.X )
-                collision = false;
+                Z1BGameInfo.collision = false;
             if ( pbx.Location.Y + pbx.Height < israeliteCurrent.Location.Y )
-                collision = false;
+                Z1BGameInfo.collision = false;
             if ( israeliteCurrent.Location.Y + israeliteCurrent.Height < pbx.Location.Y )
-                collision = false;
+                Z1BGameInfo.collision = false;
 
-            if ( collision != false )
-                collision = true;
-            if ( collision == true )
+            if ( Z1BGameInfo.collision != false )
+                Z1BGameInfo.collision = true;
+
+            if ( Z1BGameInfo.collision == true )
+                return true;
+
+            if ( pbx.Left < 10 )
             {
+                UserDatabaseAccess.user.userScoreQuail += 5;
                 return true;
             }
-            if ( pbx.Left < 10 )
-                return true;
             return false;
         }
 

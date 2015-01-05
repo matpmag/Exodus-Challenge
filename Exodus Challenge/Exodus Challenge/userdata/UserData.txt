@@ -1,4 +1,4 @@
-﻿1,matpmag,matpmag@gmail.com,Password1#,../../../Media/Avatars/moses.png,1,master;
+1,matpmag,matpmag@gmail.com,Password1#,../../../Media/Avatars/moses.png,1,master;
 0,admin,admintestexchal@gmail.com,Admin123,../../../Media/Avatars/moses.png,1,novice;
 2,Simsy,sims@Yahoo.org,J@ckLamont1,../../../Media/Avatars/moses.png,0,novice;
 14,testuser,altmatpmag@gmail.com,Pass101#,../../../Media/Avatars/moses.png,0,novice;

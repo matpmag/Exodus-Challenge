@@ -17,8 +17,7 @@ namespace Exodus_Challenge
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault( false );
-            Application.Run( new frmZ2B() );
-            //new BinaryWorker().Setup();
+            Application.Run( new frmLogin() );
         }
 
         #endregion Methods
