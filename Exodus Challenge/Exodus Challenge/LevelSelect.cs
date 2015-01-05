@@ -6,217 +6,16 @@ namespace Exodus_Challenge
 {
     public partial class LevelSelect : Form
     {
-        #region Private Fields
+        #region Constructors
 
-        private difficulty? diff = UserDatabaseAccess.user.userDifficulty;
-
-        #endregion Private Fields
-
-        #region Private Methods
-
-        private void updateLabels()
-        {
-            lblMannaScore.Text = UserDatabaseAccess.user.userScoreManna.ToString();
-            lblQuailScore.Text = UserDatabaseAccess.user.userScoreQuail.ToString();
-        }
-
-        #endregion Private Methods
-
-        #region Public Constructors
-
-        public LevelSelect()
-        {
-            InitializeComponent();
-        }
-
-        #endregion Public Constructors
-
-        private void btnlvlG1_Click(object sender, System.EventArgs e)
-        {
-            if (UserDatabaseAccess.user.userScoreManna <= 50)
-                MessageBox.Show("You must have 50+ manna");
-            else
-            {
-                this.Close();
-                Form frmGame1 = new frmZ1B();
-                frmGame1.Show();
-            }
-        }
-
-        private void btnlvlG2_Click(object sender, System.EventArgs e)
-        {
-            if (UserDatabaseAccess.user.userScoreManna <= 50)
-                MessageBox.Show("You must have 50+ manna");
-            else
-            {
-                this.Close();
-                Form frmGame2 = new frmZ2B();
-                frmGame2.Show();
-            }
-        }
-
-        private void btnlvlG3_Click(object sender, System.EventArgs e)
-        {
-            if (UserDatabaseAccess.user.userScoreManna <= 50)
-                MessageBox.Show("You must have 50+ manna");
-            else
-            {
-                this.Close();
-                Form frmGame3 = new frmZ3B();
-                frmGame3.Show();
-            }
-        }
-
-        private void btnlvlG4_Click(object sender, System.EventArgs e)
-        {
-            if (UserDatabaseAccess.user.userScoreManna <= 50)
-                MessageBox.Show("You must have 50+ manna");
-            else
-            {
-                this.Close();
-                Form frmGame4 = new frmZ4B();
-                frmGame4.Show();
-            }
-        }
-
-
-        private void btnlvlQ1_Click(object sender, System.EventArgs e)
-        {
-        }
-
-        private void btnlvlQ2_Click(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void btnlvlQ3_Click(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void btnQuit_Click(object sender, System.EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void btnSave_Click(object sender, System.EventArgs e)
-        {
-            AccountMainControls.Save();
-            MessageBox.Show("Saved!");
-        }
-
-        private void btnSettingCheatsLevel_Click(object sender, System.EventArgs e)
-        {
-            //hiddenLevels = null;
-        }
-
-        private void btnSettingCheatsManna_Click(object sender, System.EventArgs e)
-        {
-            UserDatabaseAccess.user.userScoreManna += 99999;
-            updateLabels();
-        }
-
-        private void btnSettingCheatsQuail_Click(object sender, System.EventArgs e)
-        {
-            UserDatabaseAccess.user.userScoreQuail += 99999;
-            updateLabels();
-        }
-
-        private void btnSettingDifficultyEasy_Click(object sender, System.EventArgs e)
-        {
-            diff = difficulty.novice;
-        }
-
-        private void btnSettingDifficultyHard_Click(object sender, System.EventArgs e)
-        {
-            diff = difficulty.master;
-        }
-
-        private void btnSettingDifficultyMedium_Click(object sender, System.EventArgs e)
-        {
-            diff = difficulty.apprentice;
-        }
-
-        private void LevelSelect_Load(object sender, System.EventArgs e)
-        {
-            lblMannaScore.Text = UserDatabaseAccess.user.userScoreManna.ToString();
-            lblQuailScore.Text = UserDatabaseAccess.user.userScoreQuail.ToString();
-        }
-
-        private void logOutToolStripMenuItem_Click(object sender, System.EventArgs e)
-        {
-            Application.Restart();
-        }
-
-        private void btnSettings_Click(object sender, System.EventArgs e)
-        {
-            tabControl.SelectedTab = tabSettings;
-        }
-
-        private void btnSettingDifficultyActivate_Click(object sender, System.EventArgs e)
-        {
-            if (btnSettingDifficultyEasy.Visible == false)
-            {
-                btnSettingDifficultyEasy.Visible = true;
-                btnSettingDifficultyMedium.Visible = true;
-                btnSettingDifficultyHard.Visible = true;
-            }
-            else
-            {
-                btnSettingDifficultyEasy.Visible = false;
-                btnSettingDifficultyMedium.Visible = false;
-                btnSettingDifficultyHard.Visible = false;
-            }
-        }
-
-        private void btnSettingAccountActivate_Click(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void btnSettingCheatsActivate_Click(object sender, System.EventArgs e)
-        {
-            bool boolWantsToCheat = false;
-            if (!UserDatabaseAccess.user.userIsCheater)
-            {
-                DialogResult dialogResult = MessageBox.Show("Enabling this option will prevent your scores from being" +
-                                " saved or added to the leaderboards, are you sure you wish to accept?", "Enabling Cheats",
-                                MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
-                if (dialogResult == DialogResult.Yes)
-                    boolWantsToCheat = true;
-            }
-            if (boolWantsToCheat || UserDatabaseAccess.user.userIsCheater)
-            {
-                UserDatabaseAccess.user.userIsCheater = true;
-
-                if (btnSettingConsoleActivate.Visible == false)
-                {
-                    btnSettingCheatsLevel.Visible = true;
-                    btnSettingCheatsManna.Visible = true;
-                    btnSettingCheatsQuail.Visible = true;
-                    btnSettingConsoleActivate.Visible = true;
-                }
-                else
-                {
-                    btnSettingCheatsLevel.Visible = false;
-                    btnSettingCheatsManna.Visible = false;
-                    btnSettingCheatsQuail.Visible = false;
-                    btnSettingConsoleActivate.Visible = false;
-                }
-            }
-        }
-
-        private void btnSettingConsoleActivate_Click(object sender, System.EventArgs e)
-        {
-
-        }
+        #region Methods
 
         private void btnZ1QA_Click( object sender, System.EventArgs e )
         {
             Form Z1A;
             try
             {
-                switch ( diff )
+                switch ( UserDatabaseAccess.user.userDifficulty )
                 {
                     case difficulty.novice:
                         this.Close();
@@ -225,12 +24,12 @@ namespace Exodus_Challenge
 
                     case difficulty.apprentice:
                         this.Close();
-                        Z1A = new frmZ1M();
+                        Z1A = new frmZ1E();
                         break;
 
                     case difficulty.master:
                         this.Close();
-                        Z1A = new frmZ1H();
+                        Z1A = new frmZ1M();
                         break;
 
                     default:
@@ -250,7 +49,7 @@ namespace Exodus_Challenge
             Form Z1B;
             try
             {
-                switch ( diff )
+                switch ( UserDatabaseAccess.user.userDifficulty )
                 {
                     case difficulty.novice:
                         this.Close();
@@ -263,20 +62,19 @@ namespace Exodus_Challenge
                         break;
 
                     case difficulty.master:
-                        //this.Close();
-                        //TODO: MAKE frmZ1X
-                        //Z1B = new frmZ1X();
-                        throw new NotImplementedException( "You Haven't Implemented Z1X yet" );
+                        this.Close();
+                        Z1B = new frmZ1H();
+                        break;
 
                     default:
                         throw new ArgumentException( "difficulty \"diff\" is invalid" );
                 }
                 Z1B.Show();
             }
-            catch ( Exception ex)
+            catch ( Exception ex )
             {
                 string message = String.Format( "e.ToString(): {0}\ne.GetType().ToString(): {1} ex.ToString(): {2}, ex.GetType().ToString(): {3}, ex.Message: {4}", e.ToString(), e.GetType().ToString(), ex.ToString(), ex.GetType().ToString(), ex.Message );
-                MessageBox.Show(message);
+                MessageBox.Show( message );
             }
         }
 
@@ -285,7 +83,7 @@ namespace Exodus_Challenge
             Form Z2A;
             try
             {
-                switch ( diff )
+                switch ( UserDatabaseAccess.user.userDifficulty )
                 {
                     case difficulty.novice:
                         this.Close();
@@ -293,16 +91,15 @@ namespace Exodus_Challenge
                         break;
 
                     case difficulty.apprentice:
+                        this.Close();
+                        Z2A = new frmZ2E();
+                        break;
+
+                    case difficulty.master:
                         //this.Close();
                         //TODO: MAKE frmZ2M
                         //Z2A = new frmZ2M();
                         throw new NotImplementedException( "You Haven't Implemented Z2M yet" );
-
-                    case difficulty.master:
-                        //this.Close();
-                        //TODO: MAKE frmZ2H
-                        //Z2A = new frmZ2H();
-                        throw new NotImplementedException( "You Haven't Implemented Z2H yet" );
 
                     default:
                         throw new ArgumentException( "difficulty \"diff\" is invalid" );
@@ -321,7 +118,7 @@ namespace Exodus_Challenge
             Form Z2B;
             try
             {
-                switch ( diff )
+                switch ( UserDatabaseAccess.user.userDifficulty )
                 {
                     case difficulty.novice:
                         //this.Close();
@@ -337,9 +134,9 @@ namespace Exodus_Challenge
 
                     case difficulty.master:
                         //this.Close();
-                        //TODO: MAKE frmZ2X
-                        //Z2B = new frmZ2X();
-                        throw new NotImplementedException( "You Haven't Implemented Z2X yet" );
+                        //TODO: MAKE frmZ2H
+                        //Z2B = new frmZ2H();
+                        throw new NotImplementedException( "You Haven't Implemented Z2H yet" );
 
                     default:
                         throw new ArgumentException( "difficulty \"diff\" is invalid" );
@@ -358,7 +155,7 @@ namespace Exodus_Challenge
             Form Z3A;
             try
             {
-                switch ( diff )
+                switch ( UserDatabaseAccess.user.userDifficulty )
                 {
                     case difficulty.novice:
                         this.Close();
@@ -366,16 +163,15 @@ namespace Exodus_Challenge
                         break;
 
                     case difficulty.apprentice:
+                        this.Close();
+                        Z3A = new frmZ3E();
+                        break;
+
+                    case difficulty.master:
                         //this.Close();
                         //TODO: MAKE frmZ3M
                         //Z3A = new frmZ3M();
                         throw new NotImplementedException( "You Haven't Implemented Z3M yet" );
-
-                    case difficulty.master:
-                        //this.Close();
-                        //TODO: MAKE frmZ3H
-                        //Z3A = new frmZ3H();
-                        throw new NotImplementedException( "You Haven't Implemented Z3H yet" );
 
                     default:
                         throw new ArgumentException( "difficulty \"diff\" is invalid" );
@@ -394,7 +190,7 @@ namespace Exodus_Challenge
             Form Z3B;
             try
             {
-                switch ( diff )
+                switch ( UserDatabaseAccess.user.userDifficulty )
                 {
                     case difficulty.novice:
                         //this.Close();
@@ -404,15 +200,15 @@ namespace Exodus_Challenge
 
                     case difficulty.apprentice:
                         //this.Close();
-                        //TODO: MAKE frmZ3H
-                        //Z3B = new frmZ3H();
-                        throw new NotImplementedException( "You Haven't Implemented Z3H yet" );
+                        //TODO: MAKE frmZ3M
+                        //Z3B = new frmZ3M();
+                        throw new NotImplementedException( "You Haven't Implemented Z3M yet" );
 
                     case difficulty.master:
                         //this.Close();
-                        //TODO: MAKE frmZ3X
-                        //Z3B = new frmZ3X();
-                        throw new NotImplementedException( "You Haven't Implemented Z3X yet" );
+                        //TODO: MAKE frmZ3H
+                        //Z3B = new frmZ3H();
+                        throw new NotImplementedException( "You Haven't Implemented Z3H yet" );
 
                     default:
                         throw new ArgumentException( "difficulty \"diff\" is invalid" );
@@ -431,7 +227,7 @@ namespace Exodus_Challenge
             Form Z4A;
             try
             {
-                switch ( diff )
+                switch ( UserDatabaseAccess.user.userDifficulty )
                 {
                     case difficulty.novice:
                         //this.Close();
@@ -441,15 +237,15 @@ namespace Exodus_Challenge
 
                     case difficulty.apprentice:
                         //this.Close();
-                        //TODO: MAKE frmZ4M
-                        //Z4A = new frmZ4M();
-                        throw new NotImplementedException( "You Haven't Implemented Z4M yet" );
+                        //TODO: MAKE frmZ4E
+                        //Z4A = new frmZ4E();
+                        throw new NotImplementedException( "You Haven't Implemented Z4E yet" );
 
                     case difficulty.master:
                         //this.Close();
-                        //TODO: MAKE frmZ4H
-                        //Z4A = new frmZ4H();
-                        throw new NotImplementedException( "You Haven't Implemented Z4H yet" );
+                        //TODO: MAKE frmZ4M
+                        //Z4A = new frmZ4M();
+                        throw new NotImplementedException( "You Haven't Implemented Z4M yet" );
 
                     default:
                         throw new ArgumentException( "difficulty \"diff\" is invalid" );
@@ -468,7 +264,7 @@ namespace Exodus_Challenge
             Form Z4B;
             try
             {
-                switch ( diff )
+                switch ( UserDatabaseAccess.user.userDifficulty )
                 {
                     case difficulty.novice:
                         //this.Close();
@@ -484,9 +280,9 @@ namespace Exodus_Challenge
 
                     case difficulty.master:
                         //this.Close();
-                        //TODO: MAKE frmZ4X
-                        //Z4B = new frmZ4X();
-                        throw new NotImplementedException( "You Haven't Implemented Z4X yet" );
+                        //TODO: MAKE frmZ4H
+                        //Z4B = new frmZ4H();
+                        throw new NotImplementedException( "You Haven't Implemented Z4H yet" );
 
                     default:
                         throw new ArgumentException( "difficulty \"diff\" is invalid" );
@@ -498,6 +294,300 @@ namespace Exodus_Challenge
                 string message = String.Format( "e.ToString(): {0}\ne.GetType().ToString(): {1} ex.ToString(): {2}, ex.GetType().ToString(): {3}, ex.Message: {4}", e.ToString(), e.GetType().ToString(), ex.ToString(), ex.GetType().ToString(), ex.Message );
                 MessageBox.Show( message );
             }
+        }
+
+        private void LevelSelect_Load( object sender, System.EventArgs e )
+        {
+            lblMannaScore.Text = UserDatabaseAccess.user.userScoreManna.ToString();
+            lblQuailScore.Text = UserDatabaseAccess.user.userScoreQuail.ToString();
+        }
+
+        private void logOutToolStripMenuItem_Click( object sender, System.EventArgs e )
+        {
+            Application.Restart();
+        }
+
+        private void UnlockLevels()
+        {
+            Button[] levels = new Button[]
+            {
+                btnZ1QA,
+                btnZ1QB,
+                btnlvlG1,
+                btnZ2QA,
+                btnZ2QB,
+                btnlvlG2,
+                btnZ3QA,
+                btnZ3QB,
+                btnlvlG3,
+                btnZ4QA,
+                btnZ4QB,
+                btnlvlG4
+            };
+            foreach ( Button btn in levels )
+            {
+                btn.Visible = false;
+            }
+            if ( UserDatabaseAccess.user.userZoneUnlock == 0 )
+            {
+                btnWatch1.Visible = true;
+            }
+            if ( UserDatabaseAccess.user.userZoneUnlock > 0 )
+            {
+                btnWatch1.Visible = false;
+                levels[0].Visible = true;
+                levels[1].Visible = true;
+                levels[2].Visible = true;
+                btnWatch2.Visible = true;
+            }
+            if ( UserDatabaseAccess.user.userZoneUnlock > 1 )
+            {
+                btnWatch2.Visible = false;
+                levels[3].Visible = true;
+                levels[4].Visible = true;
+                levels[5].Visible = true;
+                btnWatch3.Visible = true;
+            }
+            if ( UserDatabaseAccess.user.userZoneUnlock > 2 )
+            {
+                btnWatch3.Visible = false;
+                levels[6].Visible = true;
+                levels[7].Visible = true;
+                levels[8].Visible = true;
+                btnWatch4.Visible = true;
+            }
+            if ( UserDatabaseAccess.user.userZoneUnlock > 3 )
+            {
+                btnWatch4.Visible = false;
+                levels[9].Visible = true;
+                levels[10].Visible = true;
+                levels[11].Visible = true;
+                btnWatch5.Visible = true;
+            }
+        }
+
+        #endregion Methods
+
+        #region Methods
+
+        private void updateLabels()
+        {
+            lblMannaScore.Text = UserDatabaseAccess.user.userScoreManna.ToString();
+            lblQuailScore.Text = UserDatabaseAccess.user.userScoreQuail.ToString();
+        }
+
+        #endregion Methods
+
+        #endregion Constructors
+
+        #region Fields
+
+        private string cutscene1 = @"\Media\Video\cutscene1.mp4";
+
+        private string cutscene2 = @"\Media\Video\cutscene2.mp4";
+
+        private string cutscene3 = @"\Media\Video\cutscene3.mp4";
+
+        private string cutscene4 = @"\Media\Video\cutscene4.mp4";
+
+        private string cutscene5 = @"\Media\Video\cutscene5.mp4";
+
+        #endregion Fields
+
+        #region Constructors
+
+        public LevelSelect()
+        {
+            InitializeComponent();
+            UnlockLevels();
+        }
+
+        #endregion Constructors
+
+        private void btnlvlG1_Click( object sender, System.EventArgs e )
+        {
+            if ( UserDatabaseAccess.user.userScoreManna <= 50 )
+                MessageBox.Show( "You must have 50+ manna" );
+            else
+            {
+                this.Close();
+                Form frmGame1 = new frmZ1B();
+                frmGame1.Show();
+            }
+        }
+
+        private void btnlvlG2_Click( object sender, System.EventArgs e )
+        {
+            if ( UserDatabaseAccess.user.userScoreManna <= 100 )
+                MessageBox.Show( "You must have 100+ manna" );
+            else
+            {
+                this.Close();
+                Form frmGame2 = new frmZ2B();
+                frmGame2.Show();
+            }
+        }
+
+        private void btnlvlG3_Click( object sender, System.EventArgs e )
+        {
+            if ( UserDatabaseAccess.user.userScoreManna <= 150 )
+                MessageBox.Show( "You must have 150+ manna" );
+            else
+            {
+                this.Close();
+                Form frmGame3 = new frmZ3B();
+                frmGame3.Show();
+            }
+        }
+
+        private void btnlvlG4_Click( object sender, System.EventArgs e )
+        {
+            if ( UserDatabaseAccess.user.userScoreManna <= 200 )
+                MessageBox.Show( "You must have 200+ manna" );
+            else
+            {
+                this.Close();
+                Form frmGame4 = new frmZ4B();
+                frmGame4.Show();
+            }
+        }
+
+        private void btnQuit_Click( object sender, System.EventArgs e )
+        {
+            Application.Exit();
+        }
+
+        private void btnSave_Click( object sender, System.EventArgs e )
+        {
+            AccountMainControls.Save();
+            MessageBox.Show( "Saved!" );
+        }
+
+        private void btnSettingAccountActivate_Click( object sender, System.EventArgs e )
+        {
+        }
+
+        private void btnSettingCheatsActivate_Click( object sender, System.EventArgs e )
+        {
+            bool boolWantsToCheat = false;
+            if ( !UserDatabaseAccess.user.userIsCheater )
+            {
+                DialogResult dialogResult = MessageBox.Show( "Enabling this option will prevent your scores from being" +
+                                " saved or added to the leaderboards, are you sure you wish to accept?", "Enabling Cheats",
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2 );
+                if ( dialogResult == DialogResult.Yes )
+                    boolWantsToCheat = true;
+            }
+            if ( boolWantsToCheat || UserDatabaseAccess.user.userIsCheater )
+            {
+                UserDatabaseAccess.user.userIsCheater = true;
+
+                if ( btnSettingConsoleActivate.Visible == false )
+                {
+                    btnSettingCheatsLevel.Visible = true;
+                    btnSettingCheatsManna.Visible = true;
+                    btnSettingCheatsQuail.Visible = true;
+                    btnSettingConsoleActivate.Visible = true;
+                }
+                else
+                {
+                    btnSettingCheatsLevel.Visible = false;
+                    btnSettingCheatsManna.Visible = false;
+                    btnSettingCheatsQuail.Visible = false;
+                    btnSettingConsoleActivate.Visible = false;
+                }
+            }
+        }
+
+        private void btnSettingCheatsLevel_Click( object sender, System.EventArgs e )
+        {
+            UserDatabaseAccess.user.userZoneUnlock = 4;
+        }
+
+        private void btnSettingCheatsManna_Click( object sender, System.EventArgs e )
+        {
+            UserDatabaseAccess.user.userScoreManna += 99999;
+            updateLabels();
+        }
+
+        private void btnSettingCheatsQuail_Click( object sender, System.EventArgs e )
+        {
+            UserDatabaseAccess.user.userScoreQuail += 99999;
+            updateLabels();
+        }
+
+        private void btnSettingConsoleActivate_Click( object sender, System.EventArgs e )
+        {
+        }
+
+        private void btnSettingDifficultyActivate_Click( object sender, System.EventArgs e )
+        {
+            if ( btnSettingDifficultyEasy.Visible == false )
+            {
+                btnSettingDifficultyEasy.Visible = true;
+                btnSettingDifficultyMedium.Visible = true;
+                btnSettingDifficultyHard.Visible = true;
+            }
+            else
+            {
+                btnSettingDifficultyEasy.Visible = false;
+                btnSettingDifficultyMedium.Visible = false;
+                btnSettingDifficultyHard.Visible = false;
+            }
+        }
+
+        private void btnSettingDifficultyEasy_Click( object sender, System.EventArgs e )
+        {
+            UserDatabaseAccess.user.userDifficulty = difficulty.novice;
+        }
+
+        private void btnSettingDifficultyHard_Click( object sender, System.EventArgs e )
+        {
+            UserDatabaseAccess.user.userDifficulty = difficulty.master;
+        }
+
+        private void btnSettingDifficultyMedium_Click( object sender, System.EventArgs e )
+        {
+            UserDatabaseAccess.user.userDifficulty = difficulty.apprentice;
+        }
+
+        private void btnSettings_Click( object sender, System.EventArgs e )
+        {
+            tabControl.SelectedTab = tabSettings;
+        }
+
+        private void btnWatch1_Click( object sender, EventArgs e )
+        {
+            UserDatabaseAccess.user.userZoneUnlock++;
+            AccountMainControls.PlayMovie( cutscene1 );
+            UnlockLevels();
+        }
+
+        private void btnWatch2_Click( object sender, EventArgs e )
+        {
+            UserDatabaseAccess.user.userZoneUnlock++;
+            AccountMainControls.PlayMovie( cutscene2 );
+            UnlockLevels();
+        }
+
+        private void btnWatch3_Click( object sender, EventArgs e )
+        {
+            UserDatabaseAccess.user.userZoneUnlock++;
+            AccountMainControls.PlayMovie( cutscene3 );
+            UnlockLevels();
+        }
+
+        private void btnWatch4_Click( object sender, EventArgs e )
+        {
+            UserDatabaseAccess.user.userZoneUnlock++;
+            AccountMainControls.PlayMovie( cutscene4 );
+            UnlockLevels();
+        }
+
+        private void btnWatch5_Click( object sender, EventArgs e )
+        {
+            AccountMainControls.PlayMovie( cutscene5 );
+            UnlockLevels();
         }
     }
 }

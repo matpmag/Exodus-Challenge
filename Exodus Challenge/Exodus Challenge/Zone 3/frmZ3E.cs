@@ -9,9 +9,11 @@ namespace Exodus_Challenge
     {
         #region Private Methods
 
+        #region Methods
+
         private void checkAns()
         {
-            if (btnA.Text == c1 &&
+            if ( btnA.Text == c1 &&
                btnB.Text == c2 &&
                btnC.Text == c3 &&
                btnD.Text == c4 &&
@@ -20,13 +22,14 @@ namespace Exodus_Challenge
                btnG.Text == c7 &&
                btnH.Text == c8 &&
                btnI.Text == c9 &&
-               btnJ.Text == c10)
-                MessageBox.Show("CONGRATULATIONS!!!"); ;
+               btnJ.Text == c10 )
+                MessageBox.Show( "CONGRATULATIONS!!!" );
+            ;
         }
 
-        private void setAns(Button btn, byte val)
+        private void setAns( Button btn, byte val )
         {
-            switch (val)
+            switch ( val )
             {
                 case 1:
                     btn.Text = c1;
@@ -73,30 +76,30 @@ namespace Exodus_Challenge
         private void shuffle()
         {
             poss = new byte[10];
-            for (int i = 0; i < poss.Length; i++)
+            for ( int i = 0; i < poss.Length; i++ )
             {
-                poss[i] = (byte)(i + 1);
+                poss[i] = (byte)( i + 1 );
             }
-            shuffled = RandomiseBytes(poss);
-            setAns(btnA, shuffled[0]);
-            setAns(btnB, shuffled[1]);
-            setAns(btnC, shuffled[2]);
-            setAns(btnD, shuffled[3]);
-            setAns(btnE, shuffled[4]);
-            setAns(btnF, shuffled[5]);
-            setAns(btnG, shuffled[6]);
-            setAns(btnH, shuffled[7]);
-            setAns(btnI, shuffled[8]);
-            setAns(btnJ, shuffled[9]);
+            shuffled = RandomiseBytes( poss );
+            setAns( btnA, shuffled[0] );
+            setAns( btnB, shuffled[1] );
+            setAns( btnC, shuffled[2] );
+            setAns( btnD, shuffled[3] );
+            setAns( btnE, shuffled[4] );
+            setAns( btnF, shuffled[5] );
+            setAns( btnG, shuffled[6] );
+            setAns( btnH, shuffled[7] );
+            setAns( btnI, shuffled[8] );
+            setAns( btnJ, shuffled[9] );
         }
 
-        private void source(Button original)
+        private void source( Button original )
         {
             from.btn = original;
-            original.DoDragDrop(original.Text, DragDropEffects.All);
+            original.DoDragDrop( original.Text, DragDropEffects.All );
         }
 
-        private void swap(Button reciver)
+        private void swap( Button reciver )
         {
             to.btn = reciver;
             from.txt = from.btn.Text;
@@ -106,16 +109,24 @@ namespace Exodus_Challenge
             checkAns();
         }
 
+        #endregion Methods
+
         #endregion Private Methods
 
         #region Private Structs
+
+        #region Structs
 
         private struct from
         {
             #region Public Fields
 
+            #region Fields
+
             public static Button btn;
             public static string txt;
+
+            #endregion Fields
 
             #endregion Public Fields
         };
@@ -124,15 +135,23 @@ namespace Exodus_Challenge
         {
             #region Public Fields
 
+            #region Fields
+
             public static Button btn;
             public static string txt;
+
+            #endregion Fields
 
             #endregion Public Fields
         };
 
+        #endregion Structs
+
         #endregion Private Structs
 
-        #region Public Fields
+
+
+        #region Fields
 
         public string c1 = "Keep God First";
 
@@ -154,19 +173,15 @@ namespace Exodus_Challenge
 
         public string c9 = "Don't lie";
 
-        #endregion Public Fields
-
-        #region Private Fields
-
         private static Random random = new Random();
 
         private byte[] poss;
 
         private byte[] shuffled;
 
-        #endregion Private Fields
+        #endregion Fields
 
-        #region Public Constructors
+        #region Constructors
 
         public frmZ3E()
         {
@@ -174,17 +189,15 @@ namespace Exodus_Challenge
             shuffle();
         }
 
-        #endregion Public Constructors
+        #endregion Constructors
 
-        #region Public Methods
-
-        public byte[] RandomiseBytes(byte[] input)
+        public byte[] RandomiseBytes( byte[] input )
         {
             List<KeyValuePair<int, byte>> list = new List<KeyValuePair<int, byte>>();
 
-            foreach (byte s in input)
+            foreach ( byte s in input )
             {
-                list.Add(new KeyValuePair<int, byte>(random.Next(), s));
+                list.Add( new KeyValuePair<int, byte>( random.Next(), s ) );
             }
 
             var sorted = from item in list
@@ -194,7 +207,7 @@ namespace Exodus_Challenge
             byte[] shuffle = new byte[input.Length];
 
             int i = 0;
-            foreach (KeyValuePair<int, byte> pair in sorted)
+            foreach ( KeyValuePair<int, byte> pair in sorted )
             {
                 shuffle[i] = pair.Value;
                 i++;
@@ -202,28 +215,26 @@ namespace Exodus_Challenge
             return shuffle;
         }
 
-        #endregion Public Methods
+        private void btn_DragDrop( object sender, DragEventArgs e )
+        {
+            swap( sender as Button );
+        }
 
-        private void btn_DragEnter(object sender, DragEventArgs e)
+        private void btn_DragEnter( object sender, DragEventArgs e )
         {
             e.Effect = DragDropEffects.Copy;
         }
 
-        private void btnQuit_Click(object sender, EventArgs e)
+        private void btn_MouseDown( object sender, MouseEventArgs e )
+        {
+            source( sender as Button );
+        }
+
+        private void btnQuit_Click( object sender, EventArgs e )
         {
             this.Close();
             Form lvl = new LevelSelect();
             lvl.Show();
-        }
-
-        private void btn_MouseDown(object sender, MouseEventArgs e)
-        {
-            source(sender as Button);
-        }
-
-        private void btn_DragDrop(object sender, DragEventArgs e)
-        {
-            swap(sender as Button);
         }
     }
 }

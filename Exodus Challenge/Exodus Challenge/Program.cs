@@ -7,6 +7,8 @@ namespace Exodus_Challenge
     {
         #region Private Methods
 
+        #region Methods
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -14,10 +16,12 @@ namespace Exodus_Challenge
         private static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LevelSelect());
+            Application.SetCompatibleTextRenderingDefault( false );
+            Application.Run( new frmZ2B() );
             //new BinaryWorker().Setup();
         }
+
+        #endregion Methods
 
         #endregion Private Methods
     }

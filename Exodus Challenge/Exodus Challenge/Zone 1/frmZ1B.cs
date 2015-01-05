@@ -5,53 +5,17 @@ using System.Windows.Forms;
 
 namespace Exodus_Challenge
 {
-    internal class Obstacle
-    {
-        #region Public Fields
-
-        public PictureBox area;
-        public PictureBox pbx;
-        public bool run = true;
-
-        #endregion Public Fields
-
-        #region Public Methods
-
-        public bool move(PictureBox israeliteCurrent)
-        {
-            bool? collision = null;
-            pbx.Left -= 10;
-            if (pbx.Location.X + pbx.Width < israeliteCurrent.Location.X)
-                collision = false;
-            if (israeliteCurrent.Location.X + israeliteCurrent.Width < pbx.Location.X)
-                collision = false;
-            if (pbx.Location.Y + pbx.Height < israeliteCurrent.Location.Y)
-                collision = false;
-            if (israeliteCurrent.Location.Y + israeliteCurrent.Height < pbx.Location.Y)
-                collision = false;
-
-            if (collision != false)
-                collision = true;
-            if (collision == true)
-            {
-                return true;
-            }
-            if (pbx.Left < 10)
-                return true;
-            return false;
-        }
-
-        #endregion Public Methods
-    }
     public partial class frmZ1B : Form
     {
         #region Private Methods
 
-        private void timerAdd_Tick(object sender, EventArgs e)
+        #region Methods
+
+        private void timerAdd_Tick( object sender, EventArgs e )
         {
             PictureBox nextObsArea = pictureBox2;
-            Point nextObsStart = new Point(0, 0);
-            switch (rand.Next(1, 4))
+            Point nextObsStart = new Point( 0, 0 );
+            switch ( rand.Next( 1, 4 ) )
             {
                 case 1:
                     nextObsArea = areaObsTop;
@@ -77,7 +41,7 @@ namespace Exodus_Challenge
                 Height = obsStartMid.Height,
                 Location = nextObsStart
             };
-            this.Controls.Add(pbxNew);
+            this.Controls.Add( pbxNew );
             pbxNew.BringToFront();
             pbxNew.Show();
             Obstacle obsNew = new Obstacle
@@ -85,33 +49,37 @@ namespace Exodus_Challenge
                 pbx = pbxNew,
                 area = nextObsArea
             };
-            obstacles.Add(obsNew);
-            if (!timerMove.Enabled)
+            obstacles.Add( obsNew );
+            if ( !timerMove.Enabled )
             {
                 timerMove.Start();
             }
         }
 
-        private void timerMove_Tick(object sender, EventArgs e)
+        private void timerMove_Tick( object sender, EventArgs e )
         {
-            foreach (Obstacle obs in obstacles)
+            foreach ( Obstacle obs in obstacles )
             {
-                if (obs.run)
+                if ( obs.run )
                 {
-                    if (obs.move(israeliteCurrent))
+                    if ( obs.move( israeliteCurrent ) )
                     {
                         obs.run = false;
-                        this.Controls.Remove(obs.pbx);
-                        obstacles.Remove(obs);
+                        this.Controls.Remove( obs.pbx );
+                        obstacles.Remove( obs );
                         break;
                     }
                 }
             }
         }
 
+        #endregion Methods
+
         #endregion Private Methods
 
-        #region Private Fields
+
+
+        #region Fields
 
         private PictureBox israeliteCurrent;
 
@@ -119,9 +87,9 @@ namespace Exodus_Challenge
 
         private Random rand = new Random();
 
-        #endregion Private Fields
+        #endregion Fields
 
-        #region Public Constructors
+        #region Constructors
 
         public frmZ1B()
         {
@@ -129,28 +97,28 @@ namespace Exodus_Challenge
             israeliteCurrent = pbxIsraelitesMid;
         }
 
-        #endregion Public Constructors
+        #endregion Constructors
 
-        private void Escape_KeyDown(object sender, KeyEventArgs e)
+        private void Escape_KeyDown( object sender, KeyEventArgs e )
         {
-            if (e.KeyCode == Keys.Up)
+            if ( e.KeyCode == Keys.Up )
             {
-                if (israeliteCurrent == pbxIsraelitesMid)
+                if ( israeliteCurrent == pbxIsraelitesMid )
                 {
                     israeliteCurrent = pbxIsraelitesTop;
                 }
-                else if (israeliteCurrent == pbxIsraelitesBot)
+                else if ( israeliteCurrent == pbxIsraelitesBot )
                 {
                     israeliteCurrent = pbxIsraelitesMid;
                 }
             }
-            else if (e.KeyCode == Keys.Down)
+            else if ( e.KeyCode == Keys.Down )
             {
-                if (israeliteCurrent == pbxIsraelitesTop)
+                if ( israeliteCurrent == pbxIsraelitesTop )
                 {
                     israeliteCurrent = pbxIsraelitesMid;
                 }
-                else if (israeliteCurrent == pbxIsraelitesMid)
+                else if ( israeliteCurrent == pbxIsraelitesMid )
                 {
                     israeliteCurrent = pbxIsraelitesBot;
                 }
@@ -160,5 +128,52 @@ namespace Exodus_Challenge
             pbxIsraelitesBot.ImageLocation = "";
             israeliteCurrent.ImageLocation = "../../../Media/Images/gif.gif";
         }
+    }
+
+    internal class Obstacle
+    {
+        #region Public Fields
+
+        #region Fields
+
+        public PictureBox area;
+        public PictureBox pbx;
+        public bool run = true;
+
+        #endregion Fields
+
+        #endregion Public Fields
+
+        #region Public Methods
+
+        #region Methods
+
+        public bool move( PictureBox israeliteCurrent )
+        {
+            bool? collision = null;
+            pbx.Left -= 10;
+            if ( pbx.Location.X + pbx.Width < israeliteCurrent.Location.X )
+                collision = false;
+            if ( israeliteCurrent.Location.X + israeliteCurrent.Width < pbx.Location.X )
+                collision = false;
+            if ( pbx.Location.Y + pbx.Height < israeliteCurrent.Location.Y )
+                collision = false;
+            if ( israeliteCurrent.Location.Y + israeliteCurrent.Height < pbx.Location.Y )
+                collision = false;
+
+            if ( collision != false )
+                collision = true;
+            if ( collision == true )
+            {
+                return true;
+            }
+            if ( pbx.Left < 10 )
+                return true;
+            return false;
+        }
+
+        #endregion Methods
+
+        #endregion Public Methods
     }
 }

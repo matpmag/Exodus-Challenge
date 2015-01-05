@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Exodus_Challenge
 {
     public partial class frmZ1E : Form
     {
+        #region Fields
 
         private Queue<byte> ansOrder = new Queue<byte>();
 
@@ -21,12 +17,16 @@ namespace Exodus_Challenge
 
         private Random random = new Random();
 
+        #endregion Fields
+
+        #region Constructors
+
         public frmZ1E()
         {
             InitializeComponent();
-            for (byte i = 1; i <= 6; i++)
+            for ( byte i = 1; i <= 6; i++ )
             {
-                ansPoss.Add(i);
+                ansPoss.Add( i );
             }
             pbxA.AllowDrop = true;
             pbxB.AllowDrop = true;
@@ -37,27 +37,26 @@ namespace Exodus_Challenge
             setupOriginalOrder();
         }
 
+        #endregion Constructors
 
-        private void setupOriginalOrder()
+        #region Methods
+
+        private void check()
         {
-            for (int i = 1; i <= 6; i++)
+            if ( pbxA.ImageLocation == "../../../Media/Images/Baby/slaves.png" &&
+                pbxB.ImageLocation == "../../../Media/Images/Baby/pharoh.png" &&
+                pbxC.ImageLocation == "../../../Media/Images/Baby/babys.png" &&
+                pbxD.ImageLocation == "../../../Media/Images/Baby/basket.png" &&
+                pbxE.ImageLocation == "../../../Media/Images/Baby/daughter.png" &&
+                pbxF.ImageLocation == "../../../Media/Images/Baby/nurse.png" )
             {
-                int randomIndex = random.Next(0, ansPoss.Count);
-                byte toUse = ansPoss.ElementAt(randomIndex);
-                ansPoss.Remove(toUse);
-                ansOrder.Enqueue(toUse);  
+                MessageBox.Show( "Correct" );
             }
-                pbxA.ImageLocation = path + imgLoc(ansOrder.Dequeue());
-                pbxB.ImageLocation = path + imgLoc(ansOrder.Dequeue());
-                pbxC.ImageLocation = path + imgLoc(ansOrder.Dequeue());
-                pbxD.ImageLocation = path + imgLoc(ansOrder.Dequeue());
-                pbxE.ImageLocation = path + imgLoc(ansOrder.Dequeue());
-                pbxF.ImageLocation = path + imgLoc(ansOrder.Dequeue());
         }
 
-        private string imgLoc(byte index)
+        private string imgLoc( byte index )
         {
-            switch (index)
+            switch ( index )
             {
                 case 1:
                     return "slaves.png";
@@ -82,38 +81,34 @@ namespace Exodus_Challenge
             }
         }
 
-        private struct from
+        private string matchCaptions( string imgLoc )
         {
-            #region Public Fields
+            switch ( imgLoc )
+            {
+                case "../../../Media/Images/Baby/slaves.png":
+                    return "<SlavesCaptionGoesHere>";
 
-            public static PictureBox pbx;
-            public static string img;
+                case "../../../Media/Images/Baby/pharoh.png":
+                    return "<PharohCaptionGoesHere>";
 
-            #endregion Public Fields
-        };
+                case "../../../Media/Images/Baby/babys.png":
+                    return "<BabysCaptionGoesHere>";
 
-        private struct to
-        {
-            #region Public Fields
+                case "../../../Media/Images/Baby/basket.png":
+                    return "<BasketCaptionGoesHere>";
 
-            public static PictureBox pbx;
-            public static string img;
+                case "../../../Media/Images/Baby/daughter.png":
+                    return "<DaughterCaptionGoesHere>";
 
-            #endregion Public Fields
-        };
+                case "../../../Media/Images/Baby/nurse.png":
+                    return "<NurseCaptionGoesHere>";
 
-        private void pbx_DragEnter(object sender, DragEventArgs e)
-        {
-            e.Effect = DragDropEffects.Copy;
+                default:
+                    throw new ArgumentException();
+            }
         }
 
-        private void pbx_MouseDown(object sender, MouseEventArgs e)
-        {
-            from.pbx = sender as PictureBox;
-            from.pbx.DoDragDrop(from.pbx.Image, DragDropEffects.Copy);
-        }
-
-        private void pbx_DragDrop(object sender, DragEventArgs e)
+        private void pbx_DragDrop( object sender, DragEventArgs e )
         {
             to.pbx = sender as PictureBox;
             from.img = from.pbx.ImageLocation;
@@ -124,49 +119,76 @@ namespace Exodus_Challenge
             check();
         }
 
-        private void check()
+        private void pbx_DragEnter( object sender, DragEventArgs e )
         {
-            if (pbxA.ImageLocation == "../../../Media/Images/Baby/slaves.png" &&
-                pbxB.ImageLocation == "../../../Media/Images/Baby/pharoh.png" &&
-                pbxC.ImageLocation == "../../../Media/Images/Baby/babys.png" &&
-                pbxD.ImageLocation == "../../../Media/Images/Baby/basket.png" &&
-                pbxE.ImageLocation == "../../../Media/Images/Baby/daughter.png" &&
-                pbxF.ImageLocation == "../../../Media/Images/Baby/nurse.png")
+            e.Effect = DragDropEffects.Copy;
+        }
+
+        private void pbx_MouseDown( object sender, MouseEventArgs e )
+        {
+            from.pbx = sender as PictureBox;
+            from.pbx.DoDragDrop( from.pbx.Image, DragDropEffects.Copy );
+        }
+
+        private void setupOriginalOrder()
+        {
+            for ( int i = 1; i <= 6; i++ )
             {
-                MessageBox.Show("Correct");
+                int randomIndex = random.Next( 0, ansPoss.Count );
+                byte toUse = ansPoss.ElementAt( randomIndex );
+                ansPoss.Remove( toUse );
+                ansOrder.Enqueue( toUse );
             }
+            pbxA.ImageLocation = path + imgLoc( ansOrder.Dequeue() );
+            pbxB.ImageLocation = path + imgLoc( ansOrder.Dequeue() );
+            pbxC.ImageLocation = path + imgLoc( ansOrder.Dequeue() );
+            pbxD.ImageLocation = path + imgLoc( ansOrder.Dequeue() );
+            pbxE.ImageLocation = path + imgLoc( ansOrder.Dequeue() );
+            pbxF.ImageLocation = path + imgLoc( ansOrder.Dequeue() );
         }
 
         private void updateCaptions()
         {
-            tbxA.Text = matchCaptions(pbxA.ImageLocation);
-            tbxB.Text = matchCaptions(pbxB.ImageLocation);
-            tbxC.Text = matchCaptions(pbxC.ImageLocation);
-            tbxD.Text = matchCaptions(pbxD.ImageLocation);
-            tbxE.Text = matchCaptions(pbxE.ImageLocation);
-            tbxF.Text = matchCaptions(pbxF.ImageLocation);
+            tbxA.Text = matchCaptions( pbxA.ImageLocation );
+            tbxB.Text = matchCaptions( pbxB.ImageLocation );
+            tbxC.Text = matchCaptions( pbxC.ImageLocation );
+            tbxD.Text = matchCaptions( pbxD.ImageLocation );
+            tbxE.Text = matchCaptions( pbxE.ImageLocation );
+            tbxF.Text = matchCaptions( pbxF.ImageLocation );
         }
 
-        string matchCaptions(string imgLoc)
+        #endregion Methods
+
+        #region Structs
+
+        private struct from
         {
+            #region Public Fields
 
-            switch (imgLoc)
-            {
-                case "../../../Media/Images/Baby/slaves.png":
-                    return "<SlavesCaptionGoesHere>";
-                case "../../../Media/Images/Baby/pharoh.png":
-                    return "<PharohCaptionGoesHere>";
-                case "../../../Media/Images/Baby/babys.png":
-                    return "<BabysCaptionGoesHere>";
-                case "../../../Media/Images/Baby/basket.png":
-                    return "<BasketCaptionGoesHere>";
-                case "../../../Media/Images/Baby/daughter.png":
-                    return "<DaughterCaptionGoesHere>";
-                case "../../../Media/Images/Baby/nurse.png":
-                    return "<NurseCaptionGoesHere>";
-                default:
-                    throw new ArgumentException();
-            }
-        }
+            #region Fields
+
+            public static string img;
+            public static PictureBox pbx;
+
+            #endregion Fields
+
+            #endregion Public Fields
+        };
+
+        private struct to
+        {
+            #region Public Fields
+
+            #region Fields
+
+            public static string img;
+            public static PictureBox pbx;
+
+            #endregion Fields
+
+            #endregion Public Fields
+        };
+
+        #endregion Structs
     }
 }

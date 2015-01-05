@@ -7,22 +7,30 @@ namespace Exodus_Challenge
     {
         #region Public Constructors
 
+        #region Constructors
+
         public frmTitle()
         {
             InitializeComponent();
         }
 
+        #endregion Constructors
+
         #endregion Public Constructors
 
         #region Private Methods
 
-        private void time2start_Tick(object sender, EventArgs e)
+        #region Methods
+
+        private void time2start_Tick( object sender, EventArgs e )
         {
             time2start.Stop();
             this.Hide();
             Form login = new frmLogin();
             login.Show();
         }
+
+        #endregion Methods
 
         #endregion Private Methods
     }

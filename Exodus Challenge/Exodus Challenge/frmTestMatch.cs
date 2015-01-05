@@ -15,18 +15,24 @@ namespace Exodus_Challenge
     {
         #region Private Methods
 
-        private void timeRedraw_Tick(object sender, EventArgs e)
+        #region Methods
+
+        private void timeRedraw_Tick( object sender, EventArgs e )
         {
-            if (start != null && !set)
+            if ( start != null && !set )
             {
-                end = new Point(Cursor.Position.X, Cursor.Position.Y);
+                end = new Point( Cursor.Position.X, Cursor.Position.Y );
             }
             this.Refresh();
         }
 
+        #endregion Methods
+
         #endregion Private Methods
 
-        #region Private Fields
+
+
+        #region Fields
 
         private Point begin;
 
@@ -34,35 +40,35 @@ namespace Exodus_Challenge
 
         private Point end;
 
-        private Pen pen = new Pen(Color.Black, 4);
+        private Pen pen = new Pen( Color.Black, 4 );
 
         private bool set = false;
 
         private from? start = null;
 
-        #endregion Private Fields
+        #endregion Fields
 
-        #region Public Constructors
+        #region Constructors
 
         public frmTestMatch()
         {
             InitializeComponent();
         }
 
-        #endregion Public Constructors
+        #endregion Constructors
 
-        private void boxClicked(PictureBox box)
+        private void boxClicked( PictureBox box )
         {
-            switch (clicks)
+            switch ( clicks )
             {
                 case 0:
                     set = false;
-                    begin = new Point(box.Location.X + box.Width / 2, box.Location.Y + box.Height / 2);
+                    begin = new Point( box.Location.X + box.Width / 2, box.Location.Y + box.Height / 2 );
                     start = from.pbx1;
                     break;
 
                 case 1:
-                    end = new Point(box.Location.X + box.Width / 2, box.Location.Y + box.Height / 2);
+                    end = new Point( box.Location.X + box.Width / 2, box.Location.Y + box.Height / 2 );
                     set = true;
                     break;
 
@@ -74,34 +80,34 @@ namespace Exodus_Challenge
             clicks++;
         }
 
-        private void formQMatch_MouseMove(object sender, MouseEventArgs e)
+        private void formQMatch_MouseMove( object sender, MouseEventArgs e )
         {
-            this.Cursor = new Cursor(Cursor.Current.Handle);
-            Cursor.Position = new Point(Cursor.Position.X, Cursor.Position.Y);
-            Cursor.Clip = new Rectangle(this.Location, this.Size);
+            this.Cursor = new Cursor( Cursor.Current.Handle );
+            Cursor.Position = new Point( Cursor.Position.X, Cursor.Position.Y );
+            Cursor.Clip = new Rectangle( this.Location, this.Size );
         }
 
-        private void formQMatch_Paint(object sender, PaintEventArgs e)
+        private void formQMatch_Paint( object sender, PaintEventArgs e )
         {
-            if (start != null)
+            if ( start != null )
             {
-                e.Graphics.DrawLine(pen, begin, end);
+                e.Graphics.DrawLine( pen, begin, end );
             }
         }
 
-        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        private void pictureBox1_MouseDown( object sender, MouseEventArgs e )
         {
-            boxClicked(pictureBox1);
+            boxClicked( pictureBox1 );
         }
 
-        private void pictureBox2_MouseDown(object sender, MouseEventArgs e)
+        private void pictureBox2_MouseDown( object sender, MouseEventArgs e )
         {
-            boxClicked(pictureBox2);
+            boxClicked( pictureBox2 );
         }
 
-        private void pictureBox3_MouseDown(object sender, MouseEventArgs e)
+        private void pictureBox3_MouseDown( object sender, MouseEventArgs e )
         {
-            boxClicked(pictureBox3);
+            boxClicked( pictureBox3 );
         }
     }
 }

@@ -6,39 +6,54 @@ namespace Exodus_Challenge
     {
         #region Private Methods
 
+        #region Methods
+
         private void checkAll()
         {
             bool count = false;
-            if (!checkAns(arrDn1, ansDn1)) count = true;
-            if (!checkAns(arrDn2, ansDn2)) count = true;
-            if (!checkAns(arrDn3, ansDn3)) count = true;
-            if (!checkAns(arrDn6, ansDn6)) count = true;
-            if (!checkAns(arrDn9, ansDn9)) count = true;
-            if (!checkAns(arrAc4, ansAc4)) count = true;
-            if (!checkAns(arrAc5, ansAc5)) count = true;
-            if (!checkAns(arrAc7, ansAc7)) count = true;
-            if (!checkAns(arrAc8, ansAc8)) count = true;
-            if (!checkAns(arrAc10, ansAc10)) count = true;
-            if (!checkAns(arrAc11, ansAc11)) count = true;
-            if (!checkAns(arrAc12, ansAc12)) count = true;
-            if (!count)
-                MessageBox.Show("Congratulations!!!");
+            if ( !checkAns( arrDn1, ansDn1 ) )
+                count = true;
+            if ( !checkAns( arrDn2, ansDn2 ) )
+                count = true;
+            if ( !checkAns( arrDn3, ansDn3 ) )
+                count = true;
+            if ( !checkAns( arrDn6, ansDn6 ) )
+                count = true;
+            if ( !checkAns( arrDn9, ansDn9 ) )
+                count = true;
+            if ( !checkAns( arrAc4, ansAc4 ) )
+                count = true;
+            if ( !checkAns( arrAc5, ansAc5 ) )
+                count = true;
+            if ( !checkAns( arrAc7, ansAc7 ) )
+                count = true;
+            if ( !checkAns( arrAc8, ansAc8 ) )
+                count = true;
+            if ( !checkAns( arrAc10, ansAc10 ) )
+                count = true;
+            if ( !checkAns( arrAc11, ansAc11 ) )
+                count = true;
+            if ( !checkAns( arrAc12, ansAc12 ) )
+                count = true;
+            if ( !count )
+                MessageBox.Show( "Congratulations!!!" );
         }
 
-        private bool checkAns(TextBox[] tbxArray, char[] ansArray)
+        private bool checkAns( TextBox[] tbxArray, char[] ansArray )
         {
             int count = 0;
-            for (int i = 0; i < tbxArray.Length; i++)
+            for ( int i = 0; i < tbxArray.Length; i++ )
             {
-                if (tbxArray[i].Text == ansArray[i].ToString())
+                if ( tbxArray[i].Text == ansArray[i].ToString() )
                     count++;
             }
-            if (count == tbxArray.Length)
+            if ( count == tbxArray.Length )
             {
                 ticker.Stop();
                 return true;
             }
-            else return false;
+            else
+                return false;
         }
 
         private void setupArrays()
@@ -111,20 +126,24 @@ namespace Exodus_Challenge
             tbxHints.Text = hints;
         }
 
-        private void tbx_TextChanged(object sender, System.EventArgs e)
+        private void tbx_TextChanged( object sender, System.EventArgs e )
         {
             checkAll();
         }
 
-        private void ticker_Tick(object sender, System.EventArgs e)
+        private void ticker_Tick( object sender, System.EventArgs e )
         {
             time += 0.1;
             lblTime.Text = time.ToString();
         }
 
+        #endregion Methods
+
         #endregion Private Methods
 
-        #region Private Fields
+
+
+        #region Fields
 
         private char[] ansAc10;
 
@@ -184,9 +203,9 @@ namespace Exodus_Challenge
 
         private double time = 0;
 
-        #endregion Private Fields
+        #endregion Fields
 
-        #region Public Constructors
+        #region Constructors
 
         public frmZ1M()
         {
@@ -195,9 +214,9 @@ namespace Exodus_Challenge
             setupArrays();
         }
 
-        #endregion Public Constructors
+        #endregion Constructors
 
-        private void btnQuit_Click(object sender, System.EventArgs e)
+        private void btnQuit_Click( object sender, System.EventArgs e )
         {
             this.Close();
             Form lvl = new LevelSelect();

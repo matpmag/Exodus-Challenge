@@ -1,31 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Exodus_Challenge
 {
     public partial class frmZ2E : Form
     {
-
         #region Private Methods
+
+        #region Methods
 
         private void next()
         {
-            if (ansOrder.Count > 0)
+            if ( ansOrder.Count > 0 )
             {
                 pbxCurrent.Image = pbxNext.Image;
                 correctAns = nextAns;
                 byte getNext = ansOrder.Dequeue();
                 nextAns = getNext;
-                pbxNext.ImageLocation = path + imgLoc(getNext);
+                pbxNext.ImageLocation = path + imgLoc( getNext );
             }
-            else if (!allAnswered)
+            else if ( !allAnswered )
             {
                 pbxCurrent.Image = pbxNext.Image;
                 correctAns = nextAns;
@@ -42,12 +38,12 @@ namespace Exodus_Challenge
 
         private void setupAnsOrder()
         {
-            for (int i = 1; i <= 10; i++)
+            for ( int i = 1; i <= 10; i++ )
             {
-                int randomIndex = random.Next(0, ansPoss.Count);
-                byte toUse = ansPoss.ElementAt(randomIndex);
-                ansPoss.Remove(toUse);
-                ansOrder.Enqueue(toUse);
+                int randomIndex = random.Next( 0, ansPoss.Count );
+                byte toUse = ansPoss.ElementAt( randomIndex );
+                ansPoss.Remove( toUse );
+                ansOrder.Enqueue( toUse );
             }
         }
 
@@ -55,15 +51,19 @@ namespace Exodus_Challenge
         {
             byte getFirst = ansOrder.Dequeue();
             correctAns = getFirst;
-            pbxCurrent.ImageLocation = path + imgLoc(getFirst);
+            pbxCurrent.ImageLocation = path + imgLoc( getFirst );
             byte getSecond = ansOrder.Dequeue();
             nextAns = getSecond;
-            pbxNext.ImageLocation = path + imgLoc(getSecond);
+            pbxNext.ImageLocation = path + imgLoc( getSecond );
         }
+
+        #endregion Methods
 
         #endregion Private Methods
 
-        #region Private Fields
+
+
+        #region Fields
 
         private bool allAnswered = false;
 
@@ -81,26 +81,26 @@ namespace Exodus_Challenge
 
         private int totalCorrect = 0;
 
-        #endregion Private Fields
+        #endregion Fields
 
-        #region Public Constructors
+        #region Constructors
 
         public frmZ2E()
         {
             InitializeComponent();
-            for (byte i = 1; i <= 10; i++)
+            for ( byte i = 1; i <= 10; i++ )
             {
-                ansPoss.Add(i);
+                ansPoss.Add( i );
             }
             setupAnsOrder();
             setupPbxFirst2();
         }
 
-        #endregion Public Constructors
+        #endregion Constructors
 
-        private string imgLoc(byte index)
+        private string imgLoc( byte index )
         {
-            switch (index)
+            switch ( index )
             {
                 case 1:
                     return "plague1.png";
@@ -137,11 +137,11 @@ namespace Exodus_Challenge
             }
         }
 
-        private void inpAns_KeyDown(object sender, KeyEventArgs e)
+        private void inpAns_KeyDown( object sender, KeyEventArgs e )
         {
-            if (e.KeyCode == Keys.Enter)
+            if ( e.KeyCode == Keys.Enter )
             {
-                if (inpAns.Text == correctAns.ToString())
+                if ( inpAns.Text == correctAns.ToString() )
                     totalCorrect++;
                 inpAns.Text = "";
                 label1.Text = totalCorrect.ToString();

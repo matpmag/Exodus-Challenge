@@ -75,6 +75,11 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
+            this.btnWatch1 = new System.Windows.Forms.Button();
+            this.btnWatch2 = new System.Windows.Forms.Button();
+            this.btnWatch3 = new System.Windows.Forms.Button();
+            this.btnWatch4 = new System.Windows.Forms.Button();
+            this.btnWatch5 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabLevelSelect.SuspendLayout();
@@ -124,6 +129,11 @@
             this.tabLevelSelect.BackColor = System.Drawing.Color.Wheat;
             this.tabLevelSelect.BackgroundImage = global::Exodus_Challenge.Properties.Resources.map;
             this.tabLevelSelect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabLevelSelect.Controls.Add(this.btnWatch5);
+            this.tabLevelSelect.Controls.Add(this.btnWatch4);
+            this.tabLevelSelect.Controls.Add(this.btnWatch3);
+            this.tabLevelSelect.Controls.Add(this.btnWatch2);
+            this.tabLevelSelect.Controls.Add(this.btnWatch1);
             this.tabLevelSelect.Controls.Add(this.tblScores);
             this.tabLevelSelect.Controls.Add(this.btnZ1QA);
             this.tabLevelSelect.Controls.Add(this.btnZ4QA);
@@ -780,6 +790,81 @@
             this.button14.Text = "button14";
             this.button14.UseVisualStyleBackColor = true;
             // 
+            // btnWatch1
+            // 
+            this.btnWatch1.BackColor = System.Drawing.Color.OliveDrab;
+            this.btnWatch1.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnWatch1.FlatAppearance.BorderSize = 3;
+            this.btnWatch1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWatch1.Image = global::Exodus_Challenge.Properties.Resources.play;
+            this.btnWatch1.Location = new System.Drawing.Point(138, 147);
+            this.btnWatch1.Name = "btnWatch1";
+            this.btnWatch1.Size = new System.Drawing.Size(78, 77);
+            this.btnWatch1.TabIndex = 31;
+            this.btnWatch1.UseVisualStyleBackColor = false;
+            this.btnWatch1.Visible = false;
+            this.btnWatch1.Click += new System.EventHandler(this.btnWatch1_Click);
+            // 
+            // btnWatch2
+            // 
+            this.btnWatch2.BackColor = System.Drawing.Color.OliveDrab;
+            this.btnWatch2.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnWatch2.FlatAppearance.BorderSize = 3;
+            this.btnWatch2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWatch2.Image = global::Exodus_Challenge.Properties.Resources.play;
+            this.btnWatch2.Location = new System.Drawing.Point(418, 295);
+            this.btnWatch2.Name = "btnWatch2";
+            this.btnWatch2.Size = new System.Drawing.Size(78, 77);
+            this.btnWatch2.TabIndex = 32;
+            this.btnWatch2.UseVisualStyleBackColor = false;
+            this.btnWatch2.Visible = false;
+            this.btnWatch2.Click += new System.EventHandler(this.btnWatch2_Click);
+            // 
+            // btnWatch3
+            // 
+            this.btnWatch3.BackColor = System.Drawing.Color.OliveDrab;
+            this.btnWatch3.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnWatch3.FlatAppearance.BorderSize = 3;
+            this.btnWatch3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWatch3.Image = global::Exodus_Challenge.Properties.Resources.play;
+            this.btnWatch3.Location = new System.Drawing.Point(543, 401);
+            this.btnWatch3.Name = "btnWatch3";
+            this.btnWatch3.Size = new System.Drawing.Size(78, 77);
+            this.btnWatch3.TabIndex = 33;
+            this.btnWatch3.UseVisualStyleBackColor = false;
+            this.btnWatch3.Visible = false;
+            this.btnWatch3.Click += new System.EventHandler(this.btnWatch3_Click);
+            // 
+            // btnWatch4
+            // 
+            this.btnWatch4.BackColor = System.Drawing.Color.OliveDrab;
+            this.btnWatch4.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnWatch4.FlatAppearance.BorderSize = 3;
+            this.btnWatch4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWatch4.Image = global::Exodus_Challenge.Properties.Resources.play;
+            this.btnWatch4.Location = new System.Drawing.Point(708, 277);
+            this.btnWatch4.Name = "btnWatch4";
+            this.btnWatch4.Size = new System.Drawing.Size(78, 77);
+            this.btnWatch4.TabIndex = 34;
+            this.btnWatch4.UseVisualStyleBackColor = false;
+            this.btnWatch4.Visible = false;
+            this.btnWatch4.Click += new System.EventHandler(this.btnWatch4_Click);
+            // 
+            // btnWatch5
+            // 
+            this.btnWatch5.BackColor = System.Drawing.Color.OliveDrab;
+            this.btnWatch5.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnWatch5.FlatAppearance.BorderSize = 3;
+            this.btnWatch5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWatch5.Image = global::Exodus_Challenge.Properties.Resources.play;
+            this.btnWatch5.Location = new System.Drawing.Point(988, 98);
+            this.btnWatch5.Name = "btnWatch5";
+            this.btnWatch5.Size = new System.Drawing.Size(78, 77);
+            this.btnWatch5.TabIndex = 35;
+            this.btnWatch5.UseVisualStyleBackColor = false;
+            this.btnWatch5.Visible = false;
+            this.btnWatch5.Click += new System.EventHandler(this.btnWatch5_Click);
+            // 
             // LevelSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -864,5 +949,10 @@
         private System.Windows.Forms.Button btnSettingDifficultyActivate;
         private System.Windows.Forms.TabPage tabAccount;
         private System.Windows.Forms.Button btnSettingConsoleActivate;
+        private System.Windows.Forms.Button btnWatch1;
+        private System.Windows.Forms.Button btnWatch5;
+        private System.Windows.Forms.Button btnWatch4;
+        private System.Windows.Forms.Button btnWatch3;
+        private System.Windows.Forms.Button btnWatch2;
     }
 }
