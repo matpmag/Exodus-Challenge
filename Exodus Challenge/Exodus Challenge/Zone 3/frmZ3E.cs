@@ -7,10 +7,6 @@ namespace Exodus_Challenge
 {
     public partial class frmZ3E : Form
     {
-        #region Private Methods
-
-        #region Methods
-
         private void checkAns()
         {
             if ( btnA.Text == c1 &&
@@ -109,49 +105,17 @@ namespace Exodus_Challenge
             checkAns();
         }
 
-        #endregion Methods
-
-        #endregion Private Methods
-
-        #region Private Structs
-
-        #region Structs
-
         private struct from
         {
-            #region Public Fields
-
-            #region Fields
-
             public static Button btn;
             public static string txt;
-
-            #endregion Fields
-
-            #endregion Public Fields
         };
 
         private struct to
         {
-            #region Public Fields
-
-            #region Fields
-
             public static Button btn;
             public static string txt;
-
-            #endregion Fields
-
-            #endregion Public Fields
         };
-
-        #endregion Structs
-
-        #endregion Private Structs
-
-
-
-        #region Fields
 
         public string c1 = "Keep God First";
 
@@ -179,17 +143,11 @@ namespace Exodus_Challenge
 
         private byte[] shuffled;
 
-        #endregion Fields
-
-        #region Constructors
-
         public frmZ3E()
         {
             InitializeComponent();
             shuffle();
         }
-
-        #endregion Constructors
 
         public byte[] RandomiseBytes( byte[] input )
         {

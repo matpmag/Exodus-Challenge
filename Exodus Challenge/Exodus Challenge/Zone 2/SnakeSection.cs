@@ -1,4 +1,7 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Exodus_Challenge
@@ -13,17 +16,12 @@ namespace Exodus_Challenge
 
     public struct SnakeGameInfo
     {
-        #region Fields
-
         public static Keys lastKey = Keys.Right;
-
-        #endregion Fields
+        public static IList<string> possibleImagePaths;
     }
 
     public class SnakeBody : SnakeSection
     {
-        #region Properties
-
         public override Direction NextMove
         {
             get
@@ -34,26 +32,14 @@ namespace Exodus_Challenge
             }
         }
 
-        #endregion Properties
-
-        #region Methods
-
         public override void SnakeSetup()
         {
-            X = 0;
-            Y = 0;
-            LastX = X;
-            LastY = Y;
-            //image = Image.FromFile();
+            imageDirectory = "../../../Media/Israelites";
         }
-
-        #endregion Methods
     }
 
     public class SnakeHead : SnakeSection
     {
-        #region Properties
-
         public override Direction NextMove
         {
             get
@@ -80,51 +66,45 @@ namespace Exodus_Challenge
             }
         }
 
-        #endregion Properties
-
-        #region Methods
-
         public override void SnakeSetup()
         {
-            X = 0;
-            Y = 0;
-            LastX = X;
-            LastY = Y;
             previous = this;
-            color = Color.Red;
+            imageDirectory = "../../../Media/Israelites/Moses";
         }
-
-        #endregion Methods
     }
 
     public abstract class SnakeSection
     {
-        #region Fields
-
         public Color color = Color.Red;
 
-        //TODO: get imagepath string from folder
+        //TODO: get image path string from folder
         public Image image;
 
+        public string imageDirectory;
         public string imagepath;
         public Direction LastMove;
-
         public SnakeSection previous;
-
         public Direction WillMove;
-
-        #endregion Fields
-
-        #region Constructors
+        private bool imageSet = false;
 
         public SnakeSection()
         {
             SnakeSetup();
+            X = 0;
+            Y = 0;
+            LastX = X;
+            LastY = Y;
+            SnakeGameInfo.possibleImagePaths = Directory.GetFiles( imageDirectory );
+            while ( !imageSet )
+            {
+                imagepath = SnakeGameInfo.possibleImagePaths[new Random().Next( 0, SnakeGameInfo.possibleImagePaths.Count )];
+                if ( !imagepath.EndsWith( ".db" ) )
+                {
+                    image = Image.FromFile( imagepath );
+                    imageSet = true;
+                }
+            }
         }
-
-        #endregion Constructors
-
-        #region Properties
 
         public int LastX
         {
@@ -155,12 +135,6 @@ namespace Exodus_Challenge
             set;
         }
 
-        #endregion Properties
-
-        #region Methods
-
         public abstract void SnakeSetup();
-
-        #endregion Methods
     }
 }

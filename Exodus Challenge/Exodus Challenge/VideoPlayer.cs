@@ -1,5 +1,4 @@
-﻿
-﻿using System;
+﻿﻿using System;
 using System.Windows.Forms;
 using Exodus_Challenge.LoginSystem;
 
@@ -7,16 +6,10 @@ namespace Exodus_Challenge
 {
     public partial class VideoPlayer : Form
     {
-        #region Constructors
-
         public VideoPlayer()
         {
             InitializeComponent();
         }
-
-        #endregion Constructors
-
-        #region Methods
 
         public void playVideo( string path )
         {
@@ -42,7 +35,5 @@ namespace Exodus_Challenge
                 this.Close();
             }
         }
-
-        #endregion Methods
     }
 }

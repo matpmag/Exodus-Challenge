@@ -4,10 +4,6 @@ namespace Exodus_Challenge
 {
     public partial class frmZ1M : Form
     {
-        #region Private Methods
-
-        #region Methods
-
         private void checkAll()
         {
             bool count = false;
@@ -137,14 +133,6 @@ namespace Exodus_Challenge
             lblTime.Text = time.ToString();
         }
 
-        #endregion Methods
-
-        #endregion Private Methods
-
-
-
-        #region Fields
-
         private char[] ansAc10;
 
         private char[] ansAc11;
@@ -203,18 +191,12 @@ namespace Exodus_Challenge
 
         private double time = 0;
 
-        #endregion Fields
-
-        #region Constructors
-
         public frmZ1M()
         {
             InitializeComponent();
             setupHints();
             setupArrays();
         }
-
-        #endregion Constructors
 
         private void btnQuit_Click( object sender, System.EventArgs e )
         {

@@ -13,10 +13,6 @@ namespace Exodus_Challenge
 
     public partial class frmTestMatch : Form
     {
-        #region Private Methods
-
-        #region Methods
-
         private void timeRedraw_Tick( object sender, EventArgs e )
         {
             if ( start != null && !set )
@@ -25,14 +21,6 @@ namespace Exodus_Challenge
             }
             this.Refresh();
         }
-
-        #endregion Methods
-
-        #endregion Private Methods
-
-
-
-        #region Fields
 
         private Point begin;
 
@@ -46,16 +34,10 @@ namespace Exodus_Challenge
 
         private from? start = null;
 
-        #endregion Fields
-
-        #region Constructors
-
         public frmTestMatch()
         {
             InitializeComponent();
         }
-
-        #endregion Constructors
 
         private void boxClicked( PictureBox box )
         {

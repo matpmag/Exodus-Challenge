@@ -6,13 +6,13 @@ using Exodus_Challenge.LoginSystem;
 
 namespace Exodus_Challenge
 {
+    public struct Z1BGameInfo
+    {
+        public static bool? collision = null;
+    }
+
     public partial class frmZ1B : Form
     {
-        int attackersPos = 0;
-        #region Private Methods
-
-        #region Methods
-
         private void timerAdd_Tick( object sender, EventArgs e )
         {
             PictureBox nextObsArea = pictureBox2;
@@ -80,12 +80,15 @@ namespace Exodus_Challenge
                 case 0:
                     pictureBox1.Visible = true;
                     break;
+
                 case 1:
                     pictureBox2.Visible = true;
                     break;
+
                 case 2:
                     pictureBox3.Visible = true;
                     break;
+
                 default:
                     Form LevelSelectScreen = new LevelSelect();
                     this.Close();
@@ -94,31 +97,18 @@ namespace Exodus_Challenge
             }
         }
 
-        #endregion Methods
-
-        #endregion Private Methods
-
-
-
-        #region Fields
-
+        private int attackersPos = 0;
         private PictureBox israeliteCurrent;
 
         private IList<Obstacle> obstacles = new List<Obstacle>();
 
         private Random rand = new Random();
 
-        #endregion Fields
-
-        #region Constructors
-
         public frmZ1B()
         {
             InitializeComponent();
             israeliteCurrent = pbxIsraelitesMid;
         }
-
-        #endregion Constructors
 
         private void Escape_KeyDown( object sender, KeyEventArgs e )
         {
@@ -150,26 +140,12 @@ namespace Exodus_Challenge
             israeliteCurrent.ImageLocation = "../../../Media/Images/gif.gif";
         }
     }
-    public struct Z1BGameInfo
-    {
-        public static bool? collision = null;
-    }
+
     internal class Obstacle
     {
-        #region Public Fields
-
-        #region Fields
-
         public PictureBox area;
         public PictureBox pbx;
         public bool run = true;
-        #endregion Fields
-
-        #endregion Public Fields
-
-        #region Public Methods
-
-        #region Methods
 
         public bool move( PictureBox israeliteCurrent )
         {
@@ -197,9 +173,5 @@ namespace Exodus_Challenge
             }
             return false;
         }
-
-        #endregion Methods
-
-        #endregion Public Methods
     }
 }

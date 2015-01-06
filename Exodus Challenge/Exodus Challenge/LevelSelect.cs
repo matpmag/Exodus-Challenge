@@ -6,10 +6,6 @@ namespace Exodus_Challenge
 {
     public partial class LevelSelect : Form
     {
-        #region Constructors
-
-        #region Methods
-
         private void btnZ1QA_Click( object sender, System.EventArgs e )
         {
             Form Z1A;
@@ -366,21 +362,11 @@ namespace Exodus_Challenge
             }
         }
 
-        #endregion Methods
-
-        #region Methods
-
         private void updateLabels()
         {
             lblMannaScore.Text = UserDatabaseAccess.user.userScoreManna.ToString();
             lblQuailScore.Text = UserDatabaseAccess.user.userScoreQuail.ToString();
         }
-
-        #endregion Methods
-
-        #endregion Constructors
-
-        #region Fields
 
         private string cutscene1 = @"\Media\Video\cutscene1.mp4";
 
@@ -392,17 +378,11 @@ namespace Exodus_Challenge
 
         private string cutscene5 = @"\Media\Video\cutscene5.mp4";
 
-        #endregion Fields
-
-        #region Constructors
-
         public LevelSelect()
         {
             InitializeComponent();
             UnlockLevels();
         }
-
-        #endregion Constructors
 
         private void btnlvlG1_Click( object sender, System.EventArgs e )
         {

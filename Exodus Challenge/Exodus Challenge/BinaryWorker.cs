@@ -7,8 +7,6 @@ namespace Exodus_Challenge
 {
     internal class BinaryWorker
     {
-        #region Fields
-
         private static byte[] binaryData;
         private static IList<Byte> byteList = new List<byte>();
         private static StreamReader FileReader;
@@ -17,10 +15,6 @@ namespace Exodus_Challenge
         private static IList<int> intList = new List<int>();
         private static string pathProgressOutputFile = "../../userdata/outputbin.bin";
         private static string pathProgressTemporaryFile = "../../userdata/progressTempFile.temp";
-
-        #endregion Fields
-
-        #region Methods
 
         public static void ReadScore()
         {
@@ -120,14 +114,8 @@ namespace Exodus_Challenge
 
         private static void WriteBinary( int[] input )
         {
-            #region Remove Any Past Info
-
             File.Delete( pathProgressTemporaryFile );
             byteList.Clear();
-
-            #endregion Remove Any Past Info
-
-            #region Prepare Scores For Conversion
 
             string progressToWrite = string.Format( "{0,8:D8}{1,8:D8}{2,8:D8}{3,8:D8}", input[0], input[1], input[2], input[3] );
 
@@ -136,20 +124,12 @@ namespace Exodus_Challenge
                 FileWriter.Write( progressToWrite );
             }
 
-            #endregion Prepare Scores For Conversion
-
-            #region Read From Temporary File, Then Delete
-
             using ( inFile = new FileStream( pathProgressTemporaryFile, FileMode.Open ) )
             {
                 binaryData = new byte[inFile.Length];
                 long bytesRead = inFile.Read( binaryData, 0, (int)inFile.Length );
             }
             File.Delete( pathProgressTemporaryFile );
-
-            #endregion Read From Temporary File, Then Delete
-
-            #region Convert To Binary
 
             foreach ( byte val in binaryData )
             {
@@ -161,10 +141,6 @@ namespace Exodus_Challenge
                 bitStringArray[i] = Convert.ToString( byteList[i], 2 ).PadLeft( 8, '0' );
             }
 
-            #endregion Convert To Binary
-
-            #region Write Bits To File
-
             string binaryToWrite = string.Join( "", bitStringArray );
             binaryToWrite = binaryToWrite.Replace( " ", "" );
 
@@ -172,10 +148,6 @@ namespace Exodus_Challenge
             {
                 FileWriter.WriteLine( binaryToWrite );
             }
-
-            #endregion Write Bits To File
         }
-
-        #endregion Methods
     }
 }

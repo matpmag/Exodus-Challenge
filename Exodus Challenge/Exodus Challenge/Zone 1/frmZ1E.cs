@@ -7,8 +7,6 @@ namespace Exodus_Challenge
 {
     public partial class frmZ1E : Form
     {
-        #region Fields
-
         private Queue<byte> ansOrder = new Queue<byte>();
 
         private List<byte> ansPoss = new List<byte>();
@@ -16,10 +14,6 @@ namespace Exodus_Challenge
         private string path = "../../../Media/Images/Baby/";
 
         private Random random = new Random();
-
-        #endregion Fields
-
-        #region Constructors
 
         public frmZ1E()
         {
@@ -36,10 +30,6 @@ namespace Exodus_Challenge
             pbxF.AllowDrop = true;
             setupOriginalOrder();
         }
-
-        #endregion Constructors
-
-        #region Methods
 
         private void check()
         {
@@ -157,38 +147,16 @@ namespace Exodus_Challenge
             tbxF.Text = matchCaptions( pbxF.ImageLocation );
         }
 
-        #endregion Methods
-
-        #region Structs
-
         private struct from
         {
-            #region Public Fields
-
-            #region Fields
-
             public static string img;
             public static PictureBox pbx;
-
-            #endregion Fields
-
-            #endregion Public Fields
         };
 
         private struct to
         {
-            #region Public Fields
-
-            #region Fields
-
             public static string img;
             public static PictureBox pbx;
-
-            #endregion Fields
-
-            #endregion Public Fields
         };
-
-        #endregion Structs
     }
 }

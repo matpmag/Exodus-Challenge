@@ -9,35 +9,102 @@ namespace Exodus_Challenge
 {
     public partial class frmZ2B : Form
     {
-        #region Fields
+        private void tickerMovement_Tick( object sender, EventArgs e )
+        {
+            g = pbxCanvas.CreateGraphics();
+            if ( false )
+            {
+                UserDatabaseAccess.user.userScoreManna -= 10;
+                if ( UserDatabaseAccess.user.userScoreManna <= 10 )
+                {
+                    Form LevelSelectScreen = new LevelSelect();
+                    LevelSelectScreen.Show();
+                    this.Close();
+                }
+            }
+            g.Clear( Color.ForestGreen );
+            if ( collision() )
+            {
+                tickerMovement.Stop();
+                MessageBox.Show( "Game Over" );
+            }
+            if ( consumedFood() )
+            {
+                foodGenNew();
+                nomnomnom = false;
+            }
+            else
+            {
+                foodPersist();
+            }
+            foreach ( SnakeSection part in snakeQueue )
+            {
+                Brush selBrush = new SolidBrush( part.color );
+                part.LastX = part.X;
+                part.LastY = part.Y;
+                //g.FillRectangle(selBrush, part.X, part.Y, 32, 32);
+                g.DrawImage( part.image, part.X, part.Y, 32, 32 );
+
+                switch ( part.NextMove )
+                {
+                    case Direction.up:
+                        part.Y -= 32;
+                        break;
+
+                    case Direction.down:
+                        part.Y += 32;
+                        break;
+
+                    case Direction.left:
+                        part.X -= 32;
+                        break;
+
+                    case Direction.right:
+                        part.X += 32;
+                        break;
+
+                    default:
+                        break;
+                }
+                //part.image = Image.FromFile( fullpath );
+                //string fullpath = Application.ExecutablePath.Substring( 0, Application.ExecutablePath.LastIndexOf( @"\" ) - 27 ) + part.imagepath;
+            }
+        }
 
         public static SnakeHead head;
+
         public static SnakeSection lastAdded;
+
         public static Queue<SnakeSection> snakeQueue = new Queue<SnakeSection>();
+
+        private bool debug = false;
+
         private int foodX;
+
         private int foodY;
+
         private Graphics g;
+
         private bool nomnomnom = false;
-
-        #endregion Fields
-
-        #region Constructors
 
         public frmZ2B()
         {
             InitializeComponent();
+            Application.DoEvents();
             g = pbxCanvas.CreateGraphics();
-            nomnomnom = true;
+            if ( UserDatabaseAccess.user.userUsername == "" || UserDatabaseAccess.user.userUsername == "admin" )
+            {
+                debug = true;
+            }
+            foodX = new Random().Next( 0, pbxCanvas.Width / 32 ) * 32;
+            foodY = new Random().Next( 0, pbxCanvas.Height / 32 ) * 32;
+            nomnomnom = false;
             head = new SnakeHead();
             snakeQueue.Enqueue( head );
             lastAdded = snakeQueue.ElementAt( snakeQueue.Count - 1 );
             lastAdded.SnakeSetup();
             foodGenNew();
         }
-
-        #endregion Constructors
-
-        #region Methods
 
         private void button1_Click( object sender, EventArgs e )
         {
@@ -103,7 +170,7 @@ namespace Exodus_Challenge
             {
                 case Keys.S:
                 case Keys.Down:
-                    if ( head.LastMove != Direction.up )
+                    if ( head.WillMove != Direction.up )
                     {
                         SnakeGameInfo.lastKey = Keys.Down;
                     }
@@ -111,7 +178,7 @@ namespace Exodus_Challenge
 
                 case Keys.A:
                 case Keys.Left:
-                    if ( head.LastMove != Direction.right )
+                    if ( head.WillMove != Direction.right )
                     {
                         SnakeGameInfo.lastKey = Keys.Left;
                     }
@@ -119,7 +186,7 @@ namespace Exodus_Challenge
 
                 case Keys.D:
                 case Keys.Right:
-                    if ( head.LastMove != Direction.left )
+                    if ( head.WillMove != Direction.left )
                     {
                         SnakeGameInfo.lastKey = Keys.Right;
                     }
@@ -127,7 +194,7 @@ namespace Exodus_Challenge
 
                 case Keys.W:
                 case Keys.Up:
-                    if ( head.LastMove != Direction.down )
+                    if ( head.WillMove != Direction.down )
                     {
                         SnakeGameInfo.lastKey = Keys.Up;
                     }
@@ -143,64 +210,12 @@ namespace Exodus_Challenge
             e.IsInputKey = true;
         }
 
-        private void tickerMovement_Tick( object sender, EventArgs e )
+        private void pbxCanvas_Paint( object sender, PaintEventArgs e )
         {
-            UserDatabaseAccess.user.userScoreManna -= 10;
-            if ( UserDatabaseAccess.user.userScoreManna <= 10 )
-            {
-                Form LevelSelectScreen = new LevelSelect();
-                LevelSelectScreen.Show();
-                this.Close();
-            }
-            g.Clear( Color.ForestGreen );
-            if ( collision() )
-            {
-                tickerMovement.Stop();
-                MessageBox.Show( "Game Over" );
-            }
-            if ( consumedFood() )
-            {
-                foodGenNew();
-                nomnomnom = false;
-            }
-            else
-            {
-                foodPersist();
-            }
-            foreach ( SnakeSection part in snakeQueue )
-            {
-                Brush selBrush = new SolidBrush( part.color );
-                part.LastX = part.X;
-                part.LastY = part.Y;
-
-                switch ( part.NextMove )
-                {
-                    case Direction.up:
-                        part.Y -= 32;
-                        break;
-
-                    case Direction.down:
-                        part.Y += 32;
-                        break;
-
-                    case Direction.left:
-                        part.X -= 32;
-                        break;
-
-                    case Direction.right:
-                        part.X += 32;
-                        break;
-
-                    default:
-                        break;
-                }
-                g.FillRectangle( selBrush, part.X, part.Y, 32, 32 );
-                string fullpath = Application.ExecutablePath.Substring( 0, Application.ExecutablePath.LastIndexOf( @"\" ) - 27 ) + part.image;
-                part.image = Image.FromFile( fullpath );
-                g.DrawImage( part.image, part.X, part.Y, 32, 32 );
-            }
+            g.Dispose();
+            g = pbxCanvas.CreateGraphics();
+            Pen pen = new Pen( Color.Red );
+            g.DrawRectangle( pen, 0, 0, 10, 10 );
         }
-
-        #endregion Methods
     }
 }

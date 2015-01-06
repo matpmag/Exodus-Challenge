@@ -7,10 +7,6 @@ namespace Exodus_Challenge
 {
     public partial class frmZ2E : Form
     {
-        #region Private Methods
-
-        #region Methods
-
         private void next()
         {
             if ( ansOrder.Count > 0 )
@@ -57,14 +53,6 @@ namespace Exodus_Challenge
             pbxNext.ImageLocation = path + imgLoc( getSecond );
         }
 
-        #endregion Methods
-
-        #endregion Private Methods
-
-
-
-        #region Fields
-
         private bool allAnswered = false;
 
         private Queue<byte> ansOrder = new Queue<byte>();
@@ -81,10 +69,6 @@ namespace Exodus_Challenge
 
         private int totalCorrect = 0;
 
-        #endregion Fields
-
-        #region Constructors
-
         public frmZ2E()
         {
             InitializeComponent();
@@ -95,8 +79,6 @@ namespace Exodus_Challenge
             setupAnsOrder();
             setupPbxFirst2();
         }
-
-        #endregion Constructors
 
         private string imgLoc( byte index )
         {

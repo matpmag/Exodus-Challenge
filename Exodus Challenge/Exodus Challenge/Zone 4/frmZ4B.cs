@@ -5,8 +5,6 @@ namespace Exodus_Challenge
 {
     public partial class frmZ4B : Form
     {
-        #region Fields
-
         public int Accuracy = 0;
 
         public int Correct = 0;
@@ -17,10 +15,6 @@ namespace Exodus_Challenge
 
         private Random random = new Random();
 
-        #endregion Fields
-
-        #region Constructors
-
         public frmZ4B()
         {
             InitializeComponent();
@@ -28,10 +22,6 @@ namespace Exodus_Challenge
             KeyPreview = true;
             timer1.Start();
         }
-
-        #endregion Constructors
-
-        #region Methods
 
         public void Update( bool correctKey )
         {
@@ -89,7 +79,5 @@ namespace Exodus_Challenge
             bk4.Image = bk5.Image;
             bk5.Image = bk1.Image;
         }
-
-        #endregion Methods
     }
 }

@@ -7,10 +7,6 @@ namespace Exodus_Challenge
 {
     public partial class frmLogin : Form
     {
-        #region Fields
-
-        #region Fields
-
         public bool changingForm = false;
 
         public string loginAvatarPath;
@@ -19,26 +15,10 @@ namespace Exodus_Challenge
 
         private difficulty regDifficulty;
 
-        #endregion Fields
-
-        #endregion Fields
-
-        #region Constructors
-
-        #region Constructors
-
         public frmLogin()
         {
             InitializeComponent();
         }
-
-        #endregion Constructors
-
-        #endregion Constructors
-
-        #region Methods
-
-        #region Methods
 
         private static string avatarTranslate( int avatarNumber )
         {
@@ -46,16 +26,22 @@ namespace Exodus_Challenge
             {
                 case 1:
                     return "../../../Media/Avatars/1.png";
+
                 case 2:
                     return "../../../Media/Avatars/2.png";
+
                 case 3:
                     return "../../../Media/Avatars/3.png";
+
                 case 4:
                     return "../../../Media/Avatars/4.png";
+
                 case 5:
                     return "../../../Media/Avatars/5.png";
+
                 case 6:
                     return "../../../Media/Avatars/6.png";
+
                 default:
                     return "";
             }
@@ -246,9 +232,5 @@ namespace Exodus_Challenge
             else
                 regUsername.ForeColor = Color.Black;
         }
-
-        #endregion Methods
-
-        #endregion Methods
     }
 }

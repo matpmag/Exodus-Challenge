@@ -6,32 +6,12 @@ namespace Exodus_Challenge
 {
     public partial class frmZ1H : Form
     {
-        #region Private Fields
-
-        #region Fields
-
         private int timeRemaining = 10;
-
-        #endregion Fields
-
-        #endregion Private Fields
-
-        #region Public Constructors
-
-        #region Constructors
 
         public frmZ1H()
         {
             InitializeComponent();
         }
-
-        #endregion Constructors
-
-        #endregion Public Constructors
-
-        #region Private Methods
-
-        #region Methods
 
         private void btnQuit_Click( object sender, EventArgs e )
         {
@@ -56,9 +36,5 @@ namespace Exodus_Challenge
         {
             label5.Text = tbar2.Value.ToString();
         }
-
-        #endregion Methods
-
-        #endregion Private Methods
     }
 }

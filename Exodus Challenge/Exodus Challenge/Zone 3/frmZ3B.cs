@@ -6,24 +6,12 @@ namespace Exodus_Challenge
 {
     public partial class frmZ3B : Form
     {
-        #region Private Fields
-
-        #region Fields
-
         private Random chanceSelect = new Random();
         private int clicksThisTick = 0;
         private int count = 0;
         private Random random = new Random();
 
-        #endregion Fields
-
-        #endregion Private Fields
-
         //private SoundPlayer sfx = new SoundPlayer();
-
-        #region Public Constructors
-
-        #region Constructors
 
         public frmZ3B()
         {
@@ -33,14 +21,6 @@ namespace Exodus_Challenge
             //MessageBox.Show(Path.GetFullPath(sfx.SoundLocation));
             SetStyle( ControlStyles.OptimizedDoubleBuffer, true );
         }
-
-        #endregion Constructors
-
-        #endregion Public Constructors
-
-        #region Private Methods
-
-        #region Methods
 
         private void btnQuit_Click( object sender, EventArgs e )
         {
@@ -113,9 +93,5 @@ namespace Exodus_Challenge
             pbxSpout.Visible = false;
             waitTicker.Stop();
         }
-
-        #endregion Methods
-
-        #endregion Private Methods
     }
 }

@@ -33,6 +33,11 @@
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabLevelSelect = new System.Windows.Forms.TabPage();
+            this.btnWatch5 = new System.Windows.Forms.Button();
+            this.btnWatch4 = new System.Windows.Forms.Button();
+            this.btnWatch3 = new System.Windows.Forms.Button();
+            this.btnWatch2 = new System.Windows.Forms.Button();
+            this.btnWatch1 = new System.Windows.Forms.Button();
             this.tblScores = new System.Windows.Forms.TableLayoutPanel();
             this.lblMannaScore = new System.Windows.Forms.Label();
             this.pbxManna = new System.Windows.Forms.PictureBox();
@@ -75,11 +80,6 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
-            this.btnWatch1 = new System.Windows.Forms.Button();
-            this.btnWatch2 = new System.Windows.Forms.Button();
-            this.btnWatch3 = new System.Windows.Forms.Button();
-            this.btnWatch4 = new System.Windows.Forms.Button();
-            this.btnWatch5 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabLevelSelect.SuspendLayout();
@@ -97,14 +97,15 @@
             this.logOutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1100, 28);
-            this.menuStrip1.TabIndex = 24;
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1238, 33);
+            this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(89, 29);
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
@@ -116,13 +117,14 @@
             this.tabControl.Controls.Add(this.tabAccount);
             this.tabControl.Controls.Add(this.tabConsole);
             this.tabControl.ItemSize = new System.Drawing.Size(83, 21);
-            this.tabControl.Location = new System.Drawing.Point(0, 28);
+            this.tabControl.Location = new System.Drawing.Point(0, 35);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.ShowToolTips = true;
-            this.tabControl.Size = new System.Drawing.Size(1100, 719);
+            this.tabControl.Size = new System.Drawing.Size(1238, 899);
             this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.tabControl.TabIndex = 30;
+            this.tabControl.TabIndex = 1;
             // 
             // tabLevelSelect
             // 
@@ -152,11 +154,92 @@
             this.tabLevelSelect.Controls.Add(this.btnlvlG2);
             this.tabLevelSelect.Controls.Add(this.btnlvlG4);
             this.tabLevelSelect.Location = new System.Drawing.Point(4, 25);
+            this.tabLevelSelect.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabLevelSelect.Name = "tabLevelSelect";
-            this.tabLevelSelect.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLevelSelect.Size = new System.Drawing.Size(1092, 690);
+            this.tabLevelSelect.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabLevelSelect.Size = new System.Drawing.Size(1230, 870);
             this.tabLevelSelect.TabIndex = 0;
             this.tabLevelSelect.Text = "Level  Select";
+            // 
+            // btnWatch5
+            // 
+            this.btnWatch5.BackColor = System.Drawing.Color.OliveDrab;
+            this.btnWatch5.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnWatch5.FlatAppearance.BorderSize = 3;
+            this.btnWatch5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWatch5.Image = global::Exodus_Challenge.Properties.Resources.play;
+            this.btnWatch5.Location = new System.Drawing.Point(1112, 122);
+            this.btnWatch5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnWatch5.Name = "btnWatch5";
+            this.btnWatch5.Size = new System.Drawing.Size(88, 96);
+            this.btnWatch5.TabIndex = 16;
+            this.btnWatch5.UseVisualStyleBackColor = false;
+            this.btnWatch5.Visible = false;
+            this.btnWatch5.Click += new System.EventHandler(this.btnWatch5_Click);
+            // 
+            // btnWatch4
+            // 
+            this.btnWatch4.BackColor = System.Drawing.Color.OliveDrab;
+            this.btnWatch4.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnWatch4.FlatAppearance.BorderSize = 3;
+            this.btnWatch4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWatch4.Image = global::Exodus_Challenge.Properties.Resources.play;
+            this.btnWatch4.Location = new System.Drawing.Point(796, 346);
+            this.btnWatch4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnWatch4.Name = "btnWatch4";
+            this.btnWatch4.Size = new System.Drawing.Size(88, 96);
+            this.btnWatch4.TabIndex = 12;
+            this.btnWatch4.UseVisualStyleBackColor = false;
+            this.btnWatch4.Visible = false;
+            this.btnWatch4.Click += new System.EventHandler(this.btnWatch4_Click);
+            // 
+            // btnWatch3
+            // 
+            this.btnWatch3.BackColor = System.Drawing.Color.OliveDrab;
+            this.btnWatch3.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnWatch3.FlatAppearance.BorderSize = 3;
+            this.btnWatch3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWatch3.Image = global::Exodus_Challenge.Properties.Resources.play;
+            this.btnWatch3.Location = new System.Drawing.Point(611, 501);
+            this.btnWatch3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnWatch3.Name = "btnWatch3";
+            this.btnWatch3.Size = new System.Drawing.Size(88, 96);
+            this.btnWatch3.TabIndex = 8;
+            this.btnWatch3.UseVisualStyleBackColor = false;
+            this.btnWatch3.Visible = false;
+            this.btnWatch3.Click += new System.EventHandler(this.btnWatch3_Click);
+            // 
+            // btnWatch2
+            // 
+            this.btnWatch2.BackColor = System.Drawing.Color.OliveDrab;
+            this.btnWatch2.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnWatch2.FlatAppearance.BorderSize = 3;
+            this.btnWatch2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWatch2.Image = global::Exodus_Challenge.Properties.Resources.play;
+            this.btnWatch2.Location = new System.Drawing.Point(470, 369);
+            this.btnWatch2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnWatch2.Name = "btnWatch2";
+            this.btnWatch2.Size = new System.Drawing.Size(88, 96);
+            this.btnWatch2.TabIndex = 5;
+            this.btnWatch2.UseVisualStyleBackColor = false;
+            this.btnWatch2.Visible = false;
+            this.btnWatch2.Click += new System.EventHandler(this.btnWatch2_Click);
+            // 
+            // btnWatch1
+            // 
+            this.btnWatch1.BackColor = System.Drawing.Color.OliveDrab;
+            this.btnWatch1.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnWatch1.FlatAppearance.BorderSize = 3;
+            this.btnWatch1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWatch1.Image = global::Exodus_Challenge.Properties.Resources.play;
+            this.btnWatch1.Location = new System.Drawing.Point(155, 184);
+            this.btnWatch1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnWatch1.Name = "btnWatch1";
+            this.btnWatch1.Size = new System.Drawing.Size(88, 96);
+            this.btnWatch1.TabIndex = 0;
+            this.btnWatch1.UseVisualStyleBackColor = false;
+            this.btnWatch1.Visible = false;
+            this.btnWatch1.Click += new System.EventHandler(this.btnWatch1_Click);
             // 
             // tblScores
             // 
@@ -169,13 +252,14 @@
             this.tblScores.Controls.Add(this.pbxManna, 0, 0);
             this.tblScores.Controls.Add(this.pbxQuail, 0, 1);
             this.tblScores.Controls.Add(this.lblQuailScore, 1, 1);
-            this.tblScores.Location = new System.Drawing.Point(9, 531);
+            this.tblScores.Location = new System.Drawing.Point(10, 664);
+            this.tblScores.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tblScores.Name = "tblScores";
             this.tblScores.RowCount = 2;
             this.tblScores.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblScores.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblScores.Size = new System.Drawing.Size(426, 151);
-            this.tblScores.TabIndex = 31;
+            this.tblScores.Size = new System.Drawing.Size(479, 189);
+            this.tblScores.TabIndex = 18;
             // 
             // lblMannaScore
             // 
@@ -185,10 +269,10 @@
             this.lblMannaScore.AutoSize = true;
             this.lblMannaScore.BackColor = System.Drawing.Color.Transparent;
             this.lblMannaScore.Font = new System.Drawing.Font("Papyrus", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMannaScore.Location = new System.Drawing.Point(83, 3);
+            this.lblMannaScore.Location = new System.Drawing.Point(93, 3);
             this.lblMannaScore.Name = "lblMannaScore";
-            this.lblMannaScore.Size = new System.Drawing.Size(337, 71);
-            this.lblMannaScore.TabIndex = 15;
+            this.lblMannaScore.Size = new System.Drawing.Size(380, 90);
+            this.lblMannaScore.TabIndex = 0;
             this.lblMannaScore.Text = "<MannaScore>";
             this.lblMannaScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -200,7 +284,7 @@
             this.pbxManna.Location = new System.Drawing.Point(6, 5);
             this.pbxManna.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbxManna.Name = "pbxManna";
-            this.pbxManna.Size = new System.Drawing.Size(68, 67);
+            this.pbxManna.Size = new System.Drawing.Size(78, 86);
             this.pbxManna.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxManna.TabIndex = 12;
             this.pbxManna.TabStop = false;
@@ -210,10 +294,10 @@
             this.pbxQuail.BackColor = System.Drawing.Color.Transparent;
             this.pbxQuail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbxQuail.Image = ((System.Drawing.Image)(resources.GetObject("pbxQuail.Image")));
-            this.pbxQuail.Location = new System.Drawing.Point(6, 79);
+            this.pbxQuail.Location = new System.Drawing.Point(6, 98);
             this.pbxQuail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbxQuail.Name = "pbxQuail";
-            this.pbxQuail.Size = new System.Drawing.Size(68, 67);
+            this.pbxQuail.Size = new System.Drawing.Size(78, 86);
             this.pbxQuail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxQuail.TabIndex = 11;
             this.pbxQuail.TabStop = false;
@@ -226,10 +310,10 @@
             this.lblQuailScore.AutoSize = true;
             this.lblQuailScore.BackColor = System.Drawing.Color.Transparent;
             this.lblQuailScore.Font = new System.Drawing.Font("Papyrus", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuailScore.Location = new System.Drawing.Point(83, 77);
+            this.lblQuailScore.Location = new System.Drawing.Point(93, 96);
             this.lblQuailScore.Name = "lblQuailScore";
-            this.lblQuailScore.Size = new System.Drawing.Size(337, 71);
-            this.lblQuailScore.TabIndex = 14;
+            this.lblQuailScore.Size = new System.Drawing.Size(380, 90);
+            this.lblQuailScore.TabIndex = 1;
             this.lblQuailScore.Text = "<QuailScore>";
             this.lblQuailScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -243,11 +327,11 @@
             this.btnZ1QA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnZ1QA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnZ1QA.ForeColor = System.Drawing.Color.Transparent;
-            this.btnZ1QA.Location = new System.Drawing.Point(222, 165);
+            this.btnZ1QA.Location = new System.Drawing.Point(250, 206);
             this.btnZ1QA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnZ1QA.Name = "btnZ1QA";
-            this.btnZ1QA.Size = new System.Drawing.Size(43, 41);
-            this.btnZ1QA.TabIndex = 30;
+            this.btnZ1QA.Size = new System.Drawing.Size(48, 51);
+            this.btnZ1QA.TabIndex = 1;
             this.btnZ1QA.UseVisualStyleBackColor = false;
             this.btnZ1QA.Click += new System.EventHandler(this.btnZ1QA_Click);
             // 
@@ -261,11 +345,11 @@
             this.btnZ4QA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnZ4QA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnZ4QA.ForeColor = System.Drawing.Color.Transparent;
-            this.btnZ4QA.Location = new System.Drawing.Point(792, 333);
+            this.btnZ4QA.Location = new System.Drawing.Point(891, 416);
             this.btnZ4QA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnZ4QA.Name = "btnZ4QA";
-            this.btnZ4QA.Size = new System.Drawing.Size(43, 41);
-            this.btnZ4QA.TabIndex = 28;
+            this.btnZ4QA.Size = new System.Drawing.Size(48, 51);
+            this.btnZ4QA.TabIndex = 13;
             this.btnZ4QA.UseVisualStyleBackColor = false;
             this.btnZ4QA.Click += new System.EventHandler(this.btnZ4QA_Click);
             // 
@@ -278,11 +362,11 @@
             this.btnHelp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHelp.ForeColor = System.Drawing.Color.Transparent;
-            this.btnHelp.Location = new System.Drawing.Point(1028, 562);
+            this.btnHelp.Location = new System.Drawing.Point(1156, 702);
             this.btnHelp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(56, 57);
-            this.btnHelp.TabIndex = 17;
+            this.btnHelp.Size = new System.Drawing.Size(63, 71);
+            this.btnHelp.TabIndex = 20;
             this.btnHelp.UseVisualStyleBackColor = false;
             // 
             // btnSettings
@@ -294,11 +378,11 @@
             this.btnSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSettings.ForeColor = System.Drawing.Color.Transparent;
-            this.btnSettings.Location = new System.Drawing.Point(1028, 625);
+            this.btnSettings.Location = new System.Drawing.Point(1156, 781);
             this.btnSettings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(56, 57);
-            this.btnSettings.TabIndex = 16;
+            this.btnSettings.Size = new System.Drawing.Size(63, 71);
+            this.btnSettings.TabIndex = 21;
             this.btnSettings.UseVisualStyleBackColor = false;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
@@ -312,11 +396,11 @@
             this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.Transparent;
-            this.btnSave.Location = new System.Drawing.Point(1028, 501);
+            this.btnSave.Location = new System.Drawing.Point(1156, 626);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(56, 57);
-            this.btnSave.TabIndex = 18;
+            this.btnSave.Size = new System.Drawing.Size(63, 71);
+            this.btnSave.TabIndex = 19;
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -330,11 +414,11 @@
             this.btnQuit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnQuit.ForeColor = System.Drawing.Color.Transparent;
-            this.btnQuit.Location = new System.Drawing.Point(1033, 1);
+            this.btnQuit.Location = new System.Drawing.Point(1162, 1);
             this.btnQuit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(56, 57);
-            this.btnQuit.TabIndex = 19;
+            this.btnQuit.Size = new System.Drawing.Size(63, 71);
+            this.btnQuit.TabIndex = 0;
             this.btnQuit.UseVisualStyleBackColor = false;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
@@ -348,11 +432,11 @@
             this.btnZ3QB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnZ3QB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnZ3QB.ForeColor = System.Drawing.Color.Transparent;
-            this.btnZ3QB.Location = new System.Drawing.Point(660, 501);
+            this.btnZ3QB.Location = new System.Drawing.Point(742, 626);
             this.btnZ3QB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnZ3QB.Name = "btnZ3QB";
-            this.btnZ3QB.Size = new System.Drawing.Size(43, 41);
-            this.btnZ3QB.TabIndex = 27;
+            this.btnZ3QB.Size = new System.Drawing.Size(48, 51);
+            this.btnZ3QB.TabIndex = 10;
             this.btnZ3QB.UseVisualStyleBackColor = false;
             this.btnZ3QB.Click += new System.EventHandler(this.btnZ3QB_Click);
             // 
@@ -366,11 +450,11 @@
             this.btnZ2QB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnZ2QB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnZ2QB.ForeColor = System.Drawing.Color.Transparent;
-            this.btnZ2QB.Location = new System.Drawing.Point(411, 386);
+            this.btnZ2QB.Location = new System.Drawing.Point(462, 482);
             this.btnZ2QB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnZ2QB.Name = "btnZ2QB";
-            this.btnZ2QB.Size = new System.Drawing.Size(43, 41);
-            this.btnZ2QB.TabIndex = 1;
+            this.btnZ2QB.Size = new System.Drawing.Size(48, 51);
+            this.btnZ2QB.TabIndex = 6;
             this.btnZ2QB.UseVisualStyleBackColor = false;
             this.btnZ2QB.Click += new System.EventHandler(this.btnZ2QB_Click);
             // 
@@ -384,11 +468,11 @@
             this.btnZ2QA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnZ2QA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnZ2QA.ForeColor = System.Drawing.Color.Transparent;
-            this.btnZ2QA.Location = new System.Drawing.Point(369, 313);
+            this.btnZ2QA.Location = new System.Drawing.Point(415, 391);
             this.btnZ2QA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnZ2QA.Name = "btnZ2QA";
-            this.btnZ2QA.Size = new System.Drawing.Size(43, 41);
-            this.btnZ2QA.TabIndex = 26;
+            this.btnZ2QA.Size = new System.Drawing.Size(48, 51);
+            this.btnZ2QA.TabIndex = 4;
             this.btnZ2QA.UseVisualStyleBackColor = false;
             this.btnZ2QA.Click += new System.EventHandler(this.btnZ2QA_Click);
             // 
@@ -402,11 +486,11 @@
             this.btnZ3QA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnZ3QA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnZ3QA.ForeColor = System.Drawing.Color.Transparent;
-            this.btnZ3QA.Location = new System.Drawing.Point(566, 487);
+            this.btnZ3QA.Location = new System.Drawing.Point(637, 609);
             this.btnZ3QA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnZ3QA.Name = "btnZ3QA";
-            this.btnZ3QA.Size = new System.Drawing.Size(43, 41);
-            this.btnZ3QA.TabIndex = 2;
+            this.btnZ3QA.Size = new System.Drawing.Size(48, 51);
+            this.btnZ3QA.TabIndex = 9;
             this.btnZ3QA.UseVisualStyleBackColor = false;
             this.btnZ3QA.Click += new System.EventHandler(this.btnZ3QA_Click);
             // 
@@ -420,11 +504,11 @@
             this.btnZ1QB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnZ1QB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnZ1QB.ForeColor = System.Drawing.Color.Transparent;
-            this.btnZ1QB.Location = new System.Drawing.Point(292, 182);
+            this.btnZ1QB.Location = new System.Drawing.Point(328, 228);
             this.btnZ1QB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnZ1QB.Name = "btnZ1QB";
-            this.btnZ1QB.Size = new System.Drawing.Size(43, 41);
-            this.btnZ1QB.TabIndex = 25;
+            this.btnZ1QB.Size = new System.Drawing.Size(48, 51);
+            this.btnZ1QB.TabIndex = 2;
             this.btnZ1QB.UseVisualStyleBackColor = false;
             this.btnZ1QB.Click += new System.EventHandler(this.btnZ1QB_Click);
             // 
@@ -438,11 +522,11 @@
             this.btnZ4QB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnZ4QB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnZ4QB.ForeColor = System.Drawing.Color.Transparent;
-            this.btnZ4QB.Location = new System.Drawing.Point(855, 235);
+            this.btnZ4QB.Location = new System.Drawing.Point(962, 294);
             this.btnZ4QB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnZ4QB.Name = "btnZ4QB";
-            this.btnZ4QB.Size = new System.Drawing.Size(43, 41);
-            this.btnZ4QB.TabIndex = 3;
+            this.btnZ4QB.Size = new System.Drawing.Size(48, 51);
+            this.btnZ4QB.TabIndex = 14;
             this.btnZ4QB.UseVisualStyleBackColor = false;
             this.btnZ4QB.Click += new System.EventHandler(this.btnZ4QB_Click);
             // 
@@ -457,11 +541,11 @@
             this.btnlvlG1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnlvlG1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlvlG1.ForeColor = System.Drawing.Color.Transparent;
-            this.btnlvlG1.Location = new System.Drawing.Point(341, 218);
+            this.btnlvlG1.Location = new System.Drawing.Point(384, 272);
             this.btnlvlG1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnlvlG1.Name = "btnlvlG1";
-            this.btnlvlG1.Size = new System.Drawing.Size(71, 75);
-            this.btnlvlG1.TabIndex = 5;
+            this.btnlvlG1.Size = new System.Drawing.Size(80, 94);
+            this.btnlvlG1.TabIndex = 3;
             this.btnlvlG1.UseVisualStyleBackColor = false;
             this.btnlvlG1.Click += new System.EventHandler(this.btnlvlG1_Click);
             // 
@@ -476,11 +560,11 @@
             this.btnlvlG3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnlvlG3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlvlG3.ForeColor = System.Drawing.Color.Transparent;
-            this.btnlvlG3.Location = new System.Drawing.Point(721, 413);
+            this.btnlvlG3.Location = new System.Drawing.Point(811, 516);
             this.btnlvlG3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnlvlG3.Name = "btnlvlG3";
-            this.btnlvlG3.Size = new System.Drawing.Size(67, 65);
-            this.btnlvlG3.TabIndex = 6;
+            this.btnlvlG3.Size = new System.Drawing.Size(75, 81);
+            this.btnlvlG3.TabIndex = 11;
             this.btnlvlG3.UseVisualStyleBackColor = false;
             this.btnlvlG3.Click += new System.EventHandler(this.btnlvlG3_Click);
             // 
@@ -495,10 +579,10 @@
             this.btnlvlG2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnlvlG2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlvlG2.ForeColor = System.Drawing.Color.Transparent;
-            this.btnlvlG2.Location = new System.Drawing.Point(460, 424);
+            this.btnlvlG2.Location = new System.Drawing.Point(518, 530);
             this.btnlvlG2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnlvlG2.Name = "btnlvlG2";
-            this.btnlvlG2.Size = new System.Drawing.Size(77, 78);
+            this.btnlvlG2.Size = new System.Drawing.Size(87, 98);
             this.btnlvlG2.TabIndex = 7;
             this.btnlvlG2.UseVisualStyleBackColor = false;
             this.btnlvlG2.Click += new System.EventHandler(this.btnlvlG2_Click);
@@ -514,11 +598,11 @@
             this.btnlvlG4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnlvlG4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlvlG4.ForeColor = System.Drawing.Color.Transparent;
-            this.btnlvlG4.Location = new System.Drawing.Point(913, 110);
+            this.btnlvlG4.Location = new System.Drawing.Point(1027, 138);
             this.btnlvlG4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnlvlG4.Name = "btnlvlG4";
-            this.btnlvlG4.Size = new System.Drawing.Size(69, 65);
-            this.btnlvlG4.TabIndex = 8;
+            this.btnlvlG4.Size = new System.Drawing.Size(78, 81);
+            this.btnlvlG4.TabIndex = 15;
             this.btnlvlG4.UseVisualStyleBackColor = false;
             this.btnlvlG4.Click += new System.EventHandler(this.btnlvlG4_Click);
             // 
@@ -533,18 +617,20 @@
             this.tabSettings.Controls.Add(this.btnSettingDifficultyEasy);
             this.tabSettings.Controls.Add(this.tblSettings);
             this.tabSettings.Location = new System.Drawing.Point(4, 25);
+            this.tabSettings.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabSettings.Name = "tabSettings";
-            this.tabSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSettings.Size = new System.Drawing.Size(1092, 690);
+            this.tabSettings.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabSettings.Size = new System.Drawing.Size(1230, 870);
             this.tabSettings.TabIndex = 1;
             this.tabSettings.Text = "Settings";
             this.tabSettings.UseVisualStyleBackColor = true;
             // 
             // btnSettingCheatsLevel
             // 
-            this.btnSettingCheatsLevel.Location = new System.Drawing.Point(699, 572);
+            this.btnSettingCheatsLevel.Location = new System.Drawing.Point(786, 715);
+            this.btnSettingCheatsLevel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSettingCheatsLevel.Name = "btnSettingCheatsLevel";
-            this.btnSettingCheatsLevel.Size = new System.Drawing.Size(237, 66);
+            this.btnSettingCheatsLevel.Size = new System.Drawing.Size(267, 82);
             this.btnSettingCheatsLevel.TabIndex = 7;
             this.btnSettingCheatsLevel.Text = "btnSettingCheatsLevel";
             this.btnSettingCheatsLevel.UseVisualStyleBackColor = true;
@@ -553,9 +639,10 @@
             // 
             // btnSettingCheatsQuail
             // 
-            this.btnSettingCheatsQuail.Location = new System.Drawing.Point(699, 500);
+            this.btnSettingCheatsQuail.Location = new System.Drawing.Point(786, 625);
+            this.btnSettingCheatsQuail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSettingCheatsQuail.Name = "btnSettingCheatsQuail";
-            this.btnSettingCheatsQuail.Size = new System.Drawing.Size(237, 66);
+            this.btnSettingCheatsQuail.Size = new System.Drawing.Size(267, 82);
             this.btnSettingCheatsQuail.TabIndex = 6;
             this.btnSettingCheatsQuail.Text = "btnSettingCheatsQuail";
             this.btnSettingCheatsQuail.UseVisualStyleBackColor = true;
@@ -564,9 +651,10 @@
             // 
             // btnSettingCheatsManna
             // 
-            this.btnSettingCheatsManna.Location = new System.Drawing.Point(699, 428);
+            this.btnSettingCheatsManna.Location = new System.Drawing.Point(786, 535);
+            this.btnSettingCheatsManna.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSettingCheatsManna.Name = "btnSettingCheatsManna";
-            this.btnSettingCheatsManna.Size = new System.Drawing.Size(237, 66);
+            this.btnSettingCheatsManna.Size = new System.Drawing.Size(267, 82);
             this.btnSettingCheatsManna.TabIndex = 5;
             this.btnSettingCheatsManna.Text = "btnSettingCheatsManna";
             this.btnSettingCheatsManna.UseVisualStyleBackColor = true;
@@ -575,9 +663,10 @@
             // 
             // btnSettingDifficultyHard
             // 
-            this.btnSettingDifficultyHard.Location = new System.Drawing.Point(699, 310);
+            this.btnSettingDifficultyHard.Location = new System.Drawing.Point(786, 388);
+            this.btnSettingDifficultyHard.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSettingDifficultyHard.Name = "btnSettingDifficultyHard";
-            this.btnSettingDifficultyHard.Size = new System.Drawing.Size(237, 66);
+            this.btnSettingDifficultyHard.Size = new System.Drawing.Size(267, 82);
             this.btnSettingDifficultyHard.TabIndex = 4;
             this.btnSettingDifficultyHard.Text = "btnSettingDifficultyHard";
             this.btnSettingDifficultyHard.UseVisualStyleBackColor = true;
@@ -586,9 +675,10 @@
             // 
             // btnSettingDifficultyMedium
             // 
-            this.btnSettingDifficultyMedium.Location = new System.Drawing.Point(699, 238);
+            this.btnSettingDifficultyMedium.Location = new System.Drawing.Point(786, 298);
+            this.btnSettingDifficultyMedium.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSettingDifficultyMedium.Name = "btnSettingDifficultyMedium";
-            this.btnSettingDifficultyMedium.Size = new System.Drawing.Size(237, 66);
+            this.btnSettingDifficultyMedium.Size = new System.Drawing.Size(267, 82);
             this.btnSettingDifficultyMedium.TabIndex = 3;
             this.btnSettingDifficultyMedium.Text = "btnSettingDifficultyMedium";
             this.btnSettingDifficultyMedium.UseVisualStyleBackColor = true;
@@ -597,9 +687,10 @@
             // 
             // btnSettingDifficultyEasy
             // 
-            this.btnSettingDifficultyEasy.Location = new System.Drawing.Point(699, 166);
+            this.btnSettingDifficultyEasy.Location = new System.Drawing.Point(786, 208);
+            this.btnSettingDifficultyEasy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSettingDifficultyEasy.Name = "btnSettingDifficultyEasy";
-            this.btnSettingDifficultyEasy.Size = new System.Drawing.Size(237, 66);
+            this.btnSettingDifficultyEasy.Size = new System.Drawing.Size(267, 82);
             this.btnSettingDifficultyEasy.TabIndex = 2;
             this.btnSettingDifficultyEasy.Text = "btnSettingDifficultyEasy";
             this.btnSettingDifficultyEasy.UseVisualStyleBackColor = true;
@@ -615,7 +706,7 @@
             this.tblSettings.Controls.Add(this.btnSettingCheatsActivate, 0, 2);
             this.tblSettings.Controls.Add(this.btnSettingDifficultyActivate, 0, 0);
             this.tblSettings.Controls.Add(this.btnSettingAccountActivate, 0, 1);
-            this.tblSettings.Location = new System.Drawing.Point(103, 166);
+            this.tblSettings.Location = new System.Drawing.Point(116, 208);
             this.tblSettings.Margin = new System.Windows.Forms.Padding(0);
             this.tblSettings.Name = "tblSettings";
             this.tblSettings.RowCount = 4;
@@ -623,8 +714,8 @@
             this.tblSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tblSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tblSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tblSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblSettings.Size = new System.Drawing.Size(438, 472);
+            this.tblSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tblSettings.Size = new System.Drawing.Size(493, 590);
             this.tblSettings.TabIndex = 1;
             // 
             // btnSettingConsoleActivate
@@ -632,10 +723,10 @@
             this.btnSettingConsoleActivate.AutoSize = true;
             this.btnSettingConsoleActivate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnSettingConsoleActivate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSettingConsoleActivate.Location = new System.Drawing.Point(20, 374);
-            this.btnSettingConsoleActivate.Margin = new System.Windows.Forms.Padding(20);
+            this.btnSettingConsoleActivate.Location = new System.Drawing.Point(22, 466);
+            this.btnSettingConsoleActivate.Margin = new System.Windows.Forms.Padding(22, 25, 22, 25);
             this.btnSettingConsoleActivate.Name = "btnSettingConsoleActivate";
-            this.btnSettingConsoleActivate.Size = new System.Drawing.Size(398, 78);
+            this.btnSettingConsoleActivate.Size = new System.Drawing.Size(449, 99);
             this.btnSettingConsoleActivate.TabIndex = 9;
             this.btnSettingConsoleActivate.Text = "btnSettingConsoleActivate";
             this.btnSettingConsoleActivate.UseVisualStyleBackColor = true;
@@ -647,10 +738,10 @@
             this.btnSettingCheatsActivate.AutoSize = true;
             this.btnSettingCheatsActivate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnSettingCheatsActivate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSettingCheatsActivate.Location = new System.Drawing.Point(20, 256);
-            this.btnSettingCheatsActivate.Margin = new System.Windows.Forms.Padding(20);
+            this.btnSettingCheatsActivate.Location = new System.Drawing.Point(22, 319);
+            this.btnSettingCheatsActivate.Margin = new System.Windows.Forms.Padding(22, 25, 22, 25);
             this.btnSettingCheatsActivate.Name = "btnSettingCheatsActivate";
-            this.btnSettingCheatsActivate.Size = new System.Drawing.Size(398, 78);
+            this.btnSettingCheatsActivate.Size = new System.Drawing.Size(449, 97);
             this.btnSettingCheatsActivate.TabIndex = 7;
             this.btnSettingCheatsActivate.Text = "btnSettingCheatsActivate";
             this.btnSettingCheatsActivate.UseVisualStyleBackColor = true;
@@ -661,10 +752,10 @@
             this.btnSettingDifficultyActivate.AutoSize = true;
             this.btnSettingDifficultyActivate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnSettingDifficultyActivate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSettingDifficultyActivate.Location = new System.Drawing.Point(20, 20);
-            this.btnSettingDifficultyActivate.Margin = new System.Windows.Forms.Padding(20);
+            this.btnSettingDifficultyActivate.Location = new System.Drawing.Point(22, 25);
+            this.btnSettingDifficultyActivate.Margin = new System.Windows.Forms.Padding(22, 25, 22, 25);
             this.btnSettingDifficultyActivate.Name = "btnSettingDifficultyActivate";
-            this.btnSettingDifficultyActivate.Size = new System.Drawing.Size(398, 78);
+            this.btnSettingDifficultyActivate.Size = new System.Drawing.Size(449, 97);
             this.btnSettingDifficultyActivate.TabIndex = 5;
             this.btnSettingDifficultyActivate.Text = "btnSettingDifficultyActivate";
             this.btnSettingDifficultyActivate.UseVisualStyleBackColor = true;
@@ -675,10 +766,10 @@
             this.btnSettingAccountActivate.AutoSize = true;
             this.btnSettingAccountActivate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnSettingAccountActivate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSettingAccountActivate.Location = new System.Drawing.Point(20, 138);
-            this.btnSettingAccountActivate.Margin = new System.Windows.Forms.Padding(20);
+            this.btnSettingAccountActivate.Location = new System.Drawing.Point(22, 172);
+            this.btnSettingAccountActivate.Margin = new System.Windows.Forms.Padding(22, 25, 22, 25);
             this.btnSettingAccountActivate.Name = "btnSettingAccountActivate";
-            this.btnSettingAccountActivate.Size = new System.Drawing.Size(398, 78);
+            this.btnSettingAccountActivate.Size = new System.Drawing.Size(449, 97);
             this.btnSettingAccountActivate.TabIndex = 8;
             this.btnSettingAccountActivate.Text = "btnSettingAccountActivate";
             this.btnSettingAccountActivate.UseVisualStyleBackColor = true;
@@ -688,9 +779,10 @@
             // 
             this.tabAccount.BackgroundImage = global::Exodus_Challenge.Properties.Resources.sandstoneBrickSmallest;
             this.tabAccount.Location = new System.Drawing.Point(4, 25);
+            this.tabAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabAccount.Name = "tabAccount";
-            this.tabAccount.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAccount.Size = new System.Drawing.Size(1092, 690);
+            this.tabAccount.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabAccount.Size = new System.Drawing.Size(1230, 870);
             this.tabAccount.TabIndex = 3;
             this.tabAccount.Text = "Account";
             this.tabAccount.UseVisualStyleBackColor = true;
@@ -703,7 +795,7 @@
             this.tabConsole.Location = new System.Drawing.Point(4, 25);
             this.tabConsole.Margin = new System.Windows.Forms.Padding(0);
             this.tabConsole.Name = "tabConsole";
-            this.tabConsole.Size = new System.Drawing.Size(1092, 690);
+            this.tabConsole.Size = new System.Drawing.Size(1230, 870);
             this.tabConsole.TabIndex = 2;
             this.tabConsole.Text = "Console";
             // 
@@ -715,10 +807,11 @@
             this.tbxConsoleOutput.Font = new System.Drawing.Font("OCR A Extended", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxConsoleOutput.ForeColor = System.Drawing.Color.Green;
             this.tbxConsoleOutput.Location = new System.Drawing.Point(0, 0);
+            this.tbxConsoleOutput.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxConsoleOutput.Multiline = true;
             this.tbxConsoleOutput.Name = "tbxConsoleOutput";
             this.tbxConsoleOutput.ReadOnly = true;
-            this.tbxConsoleOutput.Size = new System.Drawing.Size(1092, 652);
+            this.tbxConsoleOutput.Size = new System.Drawing.Size(1230, 826);
             this.tbxConsoleOutput.TabIndex = 1;
             this.tbxConsoleOutput.Text = "<Console Output Text>";
             // 
@@ -726,9 +819,10 @@
             // 
             this.inpConsoleCommand.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.inpConsoleCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inpConsoleCommand.Location = new System.Drawing.Point(0, 652);
+            this.inpConsoleCommand.Location = new System.Drawing.Point(0, 826);
+            this.inpConsoleCommand.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.inpConsoleCommand.Name = "inpConsoleCommand";
-            this.inpConsoleCommand.Size = new System.Drawing.Size(1092, 38);
+            this.inpConsoleCommand.Size = new System.Drawing.Size(1230, 44);
             this.inpConsoleCommand.TabIndex = 0;
             // 
             // button11
@@ -790,87 +884,12 @@
             this.button14.Text = "button14";
             this.button14.UseVisualStyleBackColor = true;
             // 
-            // btnWatch1
-            // 
-            this.btnWatch1.BackColor = System.Drawing.Color.OliveDrab;
-            this.btnWatch1.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnWatch1.FlatAppearance.BorderSize = 3;
-            this.btnWatch1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWatch1.Image = global::Exodus_Challenge.Properties.Resources.play;
-            this.btnWatch1.Location = new System.Drawing.Point(138, 147);
-            this.btnWatch1.Name = "btnWatch1";
-            this.btnWatch1.Size = new System.Drawing.Size(78, 77);
-            this.btnWatch1.TabIndex = 31;
-            this.btnWatch1.UseVisualStyleBackColor = false;
-            this.btnWatch1.Visible = false;
-            this.btnWatch1.Click += new System.EventHandler(this.btnWatch1_Click);
-            // 
-            // btnWatch2
-            // 
-            this.btnWatch2.BackColor = System.Drawing.Color.OliveDrab;
-            this.btnWatch2.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnWatch2.FlatAppearance.BorderSize = 3;
-            this.btnWatch2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWatch2.Image = global::Exodus_Challenge.Properties.Resources.play;
-            this.btnWatch2.Location = new System.Drawing.Point(418, 295);
-            this.btnWatch2.Name = "btnWatch2";
-            this.btnWatch2.Size = new System.Drawing.Size(78, 77);
-            this.btnWatch2.TabIndex = 32;
-            this.btnWatch2.UseVisualStyleBackColor = false;
-            this.btnWatch2.Visible = false;
-            this.btnWatch2.Click += new System.EventHandler(this.btnWatch2_Click);
-            // 
-            // btnWatch3
-            // 
-            this.btnWatch3.BackColor = System.Drawing.Color.OliveDrab;
-            this.btnWatch3.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnWatch3.FlatAppearance.BorderSize = 3;
-            this.btnWatch3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWatch3.Image = global::Exodus_Challenge.Properties.Resources.play;
-            this.btnWatch3.Location = new System.Drawing.Point(543, 401);
-            this.btnWatch3.Name = "btnWatch3";
-            this.btnWatch3.Size = new System.Drawing.Size(78, 77);
-            this.btnWatch3.TabIndex = 33;
-            this.btnWatch3.UseVisualStyleBackColor = false;
-            this.btnWatch3.Visible = false;
-            this.btnWatch3.Click += new System.EventHandler(this.btnWatch3_Click);
-            // 
-            // btnWatch4
-            // 
-            this.btnWatch4.BackColor = System.Drawing.Color.OliveDrab;
-            this.btnWatch4.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnWatch4.FlatAppearance.BorderSize = 3;
-            this.btnWatch4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWatch4.Image = global::Exodus_Challenge.Properties.Resources.play;
-            this.btnWatch4.Location = new System.Drawing.Point(708, 277);
-            this.btnWatch4.Name = "btnWatch4";
-            this.btnWatch4.Size = new System.Drawing.Size(78, 77);
-            this.btnWatch4.TabIndex = 34;
-            this.btnWatch4.UseVisualStyleBackColor = false;
-            this.btnWatch4.Visible = false;
-            this.btnWatch4.Click += new System.EventHandler(this.btnWatch4_Click);
-            // 
-            // btnWatch5
-            // 
-            this.btnWatch5.BackColor = System.Drawing.Color.OliveDrab;
-            this.btnWatch5.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnWatch5.FlatAppearance.BorderSize = 3;
-            this.btnWatch5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWatch5.Image = global::Exodus_Challenge.Properties.Resources.play;
-            this.btnWatch5.Location = new System.Drawing.Point(988, 98);
-            this.btnWatch5.Name = "btnWatch5";
-            this.btnWatch5.Size = new System.Drawing.Size(78, 77);
-            this.btnWatch5.TabIndex = 35;
-            this.btnWatch5.UseVisualStyleBackColor = false;
-            this.btnWatch5.Visible = false;
-            this.btnWatch5.Click += new System.EventHandler(this.btnWatch5_Click);
-            // 
             // LevelSelect
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1100, 747);
+            this.ClientSize = new System.Drawing.Size(1238, 934);
             this.ControlBox = false;
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.tabControl);
