@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -8,10 +9,10 @@ namespace Exodus_Challenge
 {
     public enum Direction
     {
-        up,
-        down,
-        left,
-        right
+        right = 1,
+        down = 2,
+        left = 3,
+        up = 0
     }
 
     public struct SnakeGameInfo
@@ -22,6 +23,14 @@ namespace Exodus_Challenge
 
     public class SnakeBody : SnakeSection
     {
+        public override string ImageDirectory
+        {
+            get
+            {
+                return "../../../Media/Israelites";
+            }
+        }
+
         public override Direction NextMove
         {
             get
@@ -31,15 +40,18 @@ namespace Exodus_Challenge
                 return this.WillMove;
             }
         }
-
-        public override void SnakeSetup()
-        {
-            imageDirectory = "../../../Media/Israelites";
-        }
     }
 
     public class SnakeHead : SnakeSection
     {
+        public override string ImageDirectory
+        {
+            get
+            {
+                return "../../../Media/Israelites/Moses";
+            }
+        }
+
         public override Direction NextMove
         {
             get
@@ -65,36 +77,34 @@ namespace Exodus_Challenge
                 }
             }
         }
-
-        public override void SnakeSetup()
-        {
-            previous = this;
-            imageDirectory = "../../../Media/Israelites/Moses";
-        }
     }
 
     public abstract class SnakeSection
     {
-        public Color color = Color.Red;
+        public int rotateSize;
 
-        //TODO: get image path string from folder
         public Image image;
 
-        public string imageDirectory;
+        private string imageDirectory;
+
+        public abstract string ImageDirectory
+        {
+            get;
+        }
+        
         public string imagepath;
         public Direction LastMove;
         public SnakeSection previous;
         public Direction WillMove;
-        private bool imageSet = false;
 
         public SnakeSection()
         {
-            SnakeSetup();
             X = 0;
             Y = 0;
             LastX = X;
             LastY = Y;
             SnakeGameInfo.possibleImagePaths = Directory.GetFiles( imageDirectory );
+            bool imageSet = false;
             while ( !imageSet )
             {
                 imagepath = SnakeGameInfo.possibleImagePaths[new Random().Next( 0, SnakeGameInfo.possibleImagePaths.Count )];
@@ -134,7 +144,5 @@ namespace Exodus_Challenge
             get;
             set;
         }
-
-        public abstract void SnakeSetup();
     }
 }

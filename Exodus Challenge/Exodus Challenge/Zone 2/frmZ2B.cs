@@ -12,16 +12,16 @@ namespace Exodus_Challenge
         private void tickerMovement_Tick( object sender, EventArgs e )
         {
             g = pbxCanvas.CreateGraphics();
-            if ( false )
-            {
-                UserDatabaseAccess.user.userScoreManna -= 10;
-                if ( UserDatabaseAccess.user.userScoreManna <= 10 )
-                {
-                    Form LevelSelectScreen = new LevelSelect();
-                    LevelSelectScreen.Show();
-                    this.Close();
-                }
-            }
+            //if ( false )
+            //{
+            //    UserDatabaseAccess.user.userScoreManna -= 10;
+            //    if ( UserDatabaseAccess.user.userScoreManna <= 10 )
+            //    {
+            //        Form LevelSelectScreen = new LevelSelect();
+            //        LevelSelectScreen.Show();
+            //        this.Close();
+            //    }
+            //}
             g.Clear( Color.ForestGreen );
             if ( collision() )
             {
@@ -39,12 +39,8 @@ namespace Exodus_Challenge
             }
             foreach ( SnakeSection part in snakeQueue )
             {
-                Brush selBrush = new SolidBrush( part.color );
                 part.LastX = part.X;
                 part.LastY = part.Y;
-                //g.FillRectangle(selBrush, part.X, part.Y, 32, 32);
-                g.DrawImage( part.image, part.X, part.Y, 32, 32 );
-
                 switch ( part.NextMove )
                 {
                     case Direction.up:
@@ -66,8 +62,22 @@ namespace Exodus_Challenge
                     default:
                         break;
                 }
-                //part.image = Image.FromFile( fullpath );
-                //string fullpath = Application.ExecutablePath.Substring( 0, Application.ExecutablePath.LastIndexOf( @"\" ) - 27 ) + part.imagepath;
+
+                g.DrawImage( part.image, part.X, part.Y, 32, 32 );
+                switch ( part.WillMove )
+                {
+                    case Direction.right:
+                        part.image.RotateFlip( RotateFlipType.Rotate90FlipNone );
+                        break;
+                    case Direction.down:
+                        break;
+                    case Direction.left:
+                        break;
+                    case Direction.up:
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 
@@ -100,9 +110,9 @@ namespace Exodus_Challenge
             foodY = new Random().Next( 0, pbxCanvas.Height / 32 ) * 32;
             nomnomnom = false;
             head = new SnakeHead();
+            head.previous = head;
             snakeQueue.Enqueue( head );
             lastAdded = snakeQueue.ElementAt( snakeQueue.Count - 1 );
-            lastAdded.SnakeSetup();
             foodGenNew();
         }
 
@@ -153,8 +163,24 @@ namespace Exodus_Challenge
         private void foodGenNew()
         {
             Brush selBrush = new SolidBrush( Color.Purple );
-            foodX = new Random().Next( 0, pbxCanvas.Width / 32 ) * 32;
-            foodY = new Random().Next( 0, pbxCanvas.Height / 32 ) * 32;
+            bool verifiedFoodGen = false;
+
+            while ( !verifiedFoodGen )
+            {
+
+                foodX = new Random().Next( 0, pbxCanvas.Width / 32 ) * 32;
+                foodY = new Random().Next( 0, pbxCanvas.Height / 32 ) * 32;
+                bool badGeneration = snakeQueue.Any( p => p.X == foodX && p.Y == foodY );
+                if ( badGeneration )
+                {
+                    foodX = new Random().Next( 0, pbxCanvas.Width / 32 ) * 32;
+                    foodY = new Random().Next( 0, pbxCanvas.Height / 32 ) * 32;
+                }
+                else
+                {
+                    verifiedFoodGen = true;
+                }
+            }
             g.FillRectangle( selBrush, foodX, foodY, 32, 32 );
         }
 

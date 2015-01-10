@@ -13,7 +13,7 @@ namespace Exodus_Challenge
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault( false );
-            Application.Run( new frmZ2B() );
+            Application.Run( new frmZ1H() );
         }
     }
 }

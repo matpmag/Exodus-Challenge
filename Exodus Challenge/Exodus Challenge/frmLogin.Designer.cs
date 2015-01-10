@@ -149,7 +149,7 @@
             // 
             // tabRegister
             // 
-            this.tabRegister.BackgroundImage = global::Exodus_Challenge.Properties.Resources.sandstoneBrickSmall;
+            this.tabRegister.BackgroundImage = global::Exodus_Challenge.Properties.Resources.sandstoneBrickSmallest;
             this.tabRegister.Controls.Add(this.panelDifficulty);
             this.tabRegister.Controls.Add(this.btnRegister);
             this.tabRegister.Controls.Add(this.regDOB);

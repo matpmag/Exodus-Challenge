@@ -118,9 +118,6 @@ namespace SnakeGameTester
     {
         #region Fields
 
-        public Color color = Color.Red;
-
-        //TODO: get imagepath string from folder
         public Image image;
 
         public string imagepath;

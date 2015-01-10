@@ -33,6 +33,7 @@
             this.tickerMovement = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCanvas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,12 +80,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.tickerMovement_Tick);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(86, 446);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "label1";
+            // 
             // frmZ2B
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1077, 484);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pbxCanvas);
@@ -97,6 +108,7 @@
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.frmZ2B_PreviewKeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pbxCanvas)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -106,5 +118,6 @@
         private System.Windows.Forms.Timer tickerMovement;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -11,6 +11,7 @@
     <AssemblyName>Exodus Challenge</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -37,6 +37,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>false</UseVSHostingProcess>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -51,7 +52,7 @@
     <StartupObject>Exodus_Challenge.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>pyramid.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\pyramid.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -72,6 +73,9 @@
     <Compile Include="VideoPlayer.Designer.cs" />
     <Compile Include="VideoPlayer.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VirticalProgressBar.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Zone 2\frmZ2B.cs">
       <SubType>Form</SubType>
@@ -225,6 +229,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Doc1.docx" />
+    <None Include="Resources\Israelites.docx" />
     <None Include="Resources\Title.png" />
   </ItemGroup>
   <ItemGroup>
@@ -303,6 +309,17 @@
     <None Include="Resources\spout.png" />
     <None Include="Resources\stone1.png" />
     <None Include="Resources\Title1.png" />
+    <None Include="Resources\pyramid.ico" />
+    <None Include="Resources\PapyrusGlow.png" />
+    <None Include="Resources\Scroll.png" />
+    <None Include="Resources\anubis.png" />
+    <None Include="Resources\egyptian_cross.png" />
+    <None Include="Resources\momie.png" />
+    <None Include="Resources\nefertiti.png" />
+    <None Include="Resources\pyramid2.png" />
+    <None Include="Resources\home.png" />
+    <None Include="Resources\retry.png" />
+    <None Include="Resources\help1.png" />
     <Content Include="userdata\testUser.txt" />
     <None Include="userdata\userScores.bin" />
     <Content Include="userdata\UniqueID.txt" />
