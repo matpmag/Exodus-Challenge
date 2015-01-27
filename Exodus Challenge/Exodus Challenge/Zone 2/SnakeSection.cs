@@ -19,18 +19,12 @@ namespace Exodus_Challenge
     {
         public static Keys lastKey = Keys.Right;
         public static IList<string> possibleImagePaths;
+        public static string bodyImageDir = "../../../Media/Israelites";
+        public static string headImageDir = "../../../Media/Israelites/Moses";
     }
 
     public class SnakeBody : SnakeSection
     {
-        public override string ImageDirectory
-        {
-            get
-            {
-                return "../../../Media/Israelites";
-            }
-        }
-
         public override Direction NextMove
         {
             get
@@ -44,14 +38,6 @@ namespace Exodus_Challenge
 
     public class SnakeHead : SnakeSection
     {
-        public override string ImageDirectory
-        {
-            get
-            {
-                return "../../../Media/Israelites/Moses";
-            }
-        }
-
         public override Direction NextMove
         {
             get
@@ -84,13 +70,6 @@ namespace Exodus_Challenge
         public int rotateSize;
 
         public Image image;
-
-        private string imageDirectory;
-
-        public abstract string ImageDirectory
-        {
-            get;
-        }
         
         public string imagepath;
         public Direction LastMove;
@@ -103,6 +82,8 @@ namespace Exodus_Challenge
             Y = 0;
             LastX = X;
             LastY = Y;
+            string imageDirectory = ( this.GetType().ToString() == "Exodus_Challenge.SnakeHead" ) ?
+                SnakeGameInfo.headImageDir : SnakeGameInfo.bodyImageDir;
             SnakeGameInfo.possibleImagePaths = Directory.GetFiles( imageDirectory );
             bool imageSet = false;
             while ( !imageSet )
@@ -114,6 +95,7 @@ namespace Exodus_Challenge
                     imageSet = true;
                 }
             }
+            image.RotateFlip( RotateFlipType.Rotate270FlipNone );
         }
 
         public int LastX

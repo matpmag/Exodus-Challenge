@@ -16,7 +16,9 @@ namespace SnakeGameTester
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            SnakeSection snakeparttest = new SnakeBody();
+            MessageBox.Show( snakeparttest.GetType().ToString() );
+            //Application.Run(new Form1());
         }
     }
 }

@@ -1,0 +1,18 @@
+#logo a {letter-spacing:-3px}
+
+#showMoreLink {  }
+#showMoreLinkArea { margin-top: 1em;margin-bottom:1em; }
+#moreOptions {display:none;}
+
+.aoption { width: 50px; border:1px solid black; font-size:14px;padding:1px;background-color:#EEE;}
+
+.col1 { width:135px; }
+.col2 { width:70px; }
+.col3 { }
+
+#tblOptions tr td { line-height: 16px;padding-bottom: 10px; }
+#tblOptions { margin-top: 10px; }
+#fileupfield {border:1px solid black; font-size:14px;padding:1px;background-color:#EEE;}
+
+#newpages { float: right; }
+#footer { height: 45px; }

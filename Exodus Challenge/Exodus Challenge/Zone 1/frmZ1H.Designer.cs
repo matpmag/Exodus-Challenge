@@ -42,7 +42,7 @@
             this.rbtnQ4d = new System.Windows.Forms.RadioButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tbarQ2 = new System.Windows.Forms.TrackBar();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblQ2Value = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tbxQ3 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -267,39 +267,39 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackgroundImage = global::Exodus_Challenge.Properties.Resources.Papyrus;
-            this.splitContainer1.Panel2.Controls.Add(this.label5);
+            this.splitContainer1.Panel2.Controls.Add(this.lblQ2Value);
             this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(20, 0, 20, 20);
             this.splitContainer1.Size = new System.Drawing.Size(403, 141);
-            this.splitContainer1.SplitterDistance = 74;
+            this.splitContainer1.SplitterDistance = 57;
             this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 17;
             // 
             // tbarQ2
             // 
             this.tbarQ2.AutoSize = false;
-            this.tbarQ2.BackColor = System.Drawing.Color.Wheat;
+            this.tbarQ2.BackColor = System.Drawing.SystemColors.Control;
             this.tbarQ2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbarQ2.LargeChange = 1;
             this.tbarQ2.Location = new System.Drawing.Point(20, 20);
             this.tbarQ2.Margin = new System.Windows.Forms.Padding(6);
             this.tbarQ2.Maximum = 7;
             this.tbarQ2.Name = "tbarQ2";
-            this.tbarQ2.Size = new System.Drawing.Size(363, 54);
+            this.tbarQ2.Size = new System.Drawing.Size(363, 37);
             this.tbarQ2.TabIndex = 18;
             this.tbarQ2.Scroll += new System.EventHandler(this.tbarQ2_Scroll);
             // 
-            // label5
+            // lblQ2Value
             // 
-            this.label5.BackColor = System.Drawing.Color.Wheat;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(20, 0);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(363, 46);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "<VALUE>";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblQ2Value.BackColor = System.Drawing.Color.Transparent;
+            this.lblQ2Value.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblQ2Value.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQ2Value.Location = new System.Drawing.Point(20, 0);
+            this.lblQ2Value.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblQ2Value.Name = "lblQ2Value";
+            this.lblQ2Value.Size = new System.Drawing.Size(363, 63);
+            this.lblQ2Value.TabIndex = 16;
+            this.lblQ2Value.Text = "One day";
+            this.lblQ2Value.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
@@ -541,6 +541,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "frmZ1H";
@@ -586,7 +587,7 @@
         private System.Windows.Forms.RadioButton rbtnQ4d;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TrackBar tbarQ2;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblQ2Value;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox tbxQ3;
         private System.Windows.Forms.Label label6;

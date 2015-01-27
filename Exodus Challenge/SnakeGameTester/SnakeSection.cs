@@ -42,6 +42,7 @@ namespace SnakeGameTester
 
         void getPossibleImages()
         {
+
             string[] possibleImages = Directory.GetFiles(@"../../../Media/Israelites");
             this.imagepath = possibleImages[new Random().Next(0, possibleImages.Length)];
         }

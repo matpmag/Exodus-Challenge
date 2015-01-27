@@ -47,7 +47,35 @@ namespace Exodus_Challenge
 
         private void tbarQ2_Scroll( object sender, EventArgs e )
         {
-            label5.Text = tbarQ2.Value.ToString();
+            switch ( (int)tbarQ2.Value )
+            {
+                case 0:
+                    lblQ2Value.Text = "One day";
+                    break;
+                case 1:
+                    lblQ2Value.Text = "Three days";
+                    break;
+                case 2:
+                    lblQ2Value.Text = "One week";
+                    break;
+                case 3:
+                    lblQ2Value.Text = "Two weeks";
+                    break;
+                case 4:
+                    lblQ2Value.Text = "One month";
+                    break;
+                case 5:
+                    lblQ2Value.Text = "Three months";
+                    break;
+                case 6:
+                    lblQ2Value.Text = "Six months";
+                    break;
+                case 7:
+                    lblQ2Value.Text = "One Year";
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void whatDoIDoToolStripMenuItem_Click( object sender, EventArgs e )
@@ -68,15 +96,16 @@ namespace Exodus_Challenge
         private void timerScoreDecrement_Tick( object sender, EventArgs e )
         {
             timeRemaining--;
-            updateScoreMultiplier();
+            if ( timeRemaining >= 0 )
+            {
+                updateScoreMultiplier();
+            }
         }
-
+        double proportionOfTimeRemaining;
         private void updateScoreMultiplier()
         {
-            //verticalProgressBar1.Value = timeRemaining;
-            //TODO: find why 1199/1200 = 0.0
-            double proportionOfTimeRemaining = timeRemaining/1200;
-            MessageBox.Show( proportionOfTimeRemaining.ToString() );
+            verticalProgressBar1.Value = timeRemaining;
+            proportionOfTimeRemaining = ( verticalProgressBar1.Value / (double)1200 );
             if ( proportionOfTimeRemaining >= 0.9 )
             {
                 scoreMultiplier = 50;

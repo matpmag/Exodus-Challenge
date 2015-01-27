@@ -12,15 +12,12 @@ namespace Exodus_Challenge
         private void tickerMovement_Tick( object sender, EventArgs e )
         {
             g = pbxCanvas.CreateGraphics();
-            //if ( false )
+            //UserDatabaseAccess.user.userScoreManna -= 10;
+            //if ( UserDatabaseAccess.user.userScoreManna <= 10 )
             //{
-            //    UserDatabaseAccess.user.userScoreManna -= 10;
-            //    if ( UserDatabaseAccess.user.userScoreManna <= 10 )
-            //    {
-            //        Form LevelSelectScreen = new LevelSelect();
-            //        LevelSelectScreen.Show();
-            //        this.Close();
-            //    }
+            //    Form LevelSelectScreen = new LevelSelect();
+            //    LevelSelectScreen.Show();
+            //    this.Close();
             //}
             g.Clear( Color.ForestGreen );
             if ( collision() )
@@ -62,22 +59,40 @@ namespace Exodus_Challenge
                     default:
                         break;
                 }
-
-                g.DrawImage( part.image, part.X, part.Y, 32, 32 );
-                switch ( part.WillMove )
+                switch ( part.LastMove )
                 {
                     case Direction.right:
-                        part.image.RotateFlip( RotateFlipType.Rotate90FlipNone );
                         break;
                     case Direction.down:
+                        part.image.RotateFlip( RotateFlipType.Rotate270FlipNone );
                         break;
                     case Direction.left:
+                        part.image.RotateFlip( RotateFlipType.Rotate180FlipNone );
                         break;
                     case Direction.up:
+                        part.image.RotateFlip( RotateFlipType.Rotate90FlipNone );
                         break;
                     default:
                         break;
                 }
+
+                switch ( part.WillMove )
+                {
+                    case Direction.right:
+                        break;
+                    case Direction.down:
+                        part.image.RotateFlip( RotateFlipType.Rotate90FlipNone );
+                        break;
+                    case Direction.left:
+                        part.image.RotateFlip( RotateFlipType.Rotate180FlipNone );
+                        break;
+                    case Direction.up:
+                        part.image.RotateFlip( RotateFlipType.Rotate270FlipNone );
+                        break;
+                    default:
+                        break;
+                }
+                g.DrawImage( part.image, part.X, part.Y, 32, 32 );
             }
         }
 
@@ -86,8 +101,6 @@ namespace Exodus_Challenge
         public static SnakeSection lastAdded;
 
         public static Queue<SnakeSection> snakeQueue = new Queue<SnakeSection>();
-
-        private bool debug = false;
 
         private int foodX;
 
@@ -102,10 +115,6 @@ namespace Exodus_Challenge
             InitializeComponent();
             Application.DoEvents();
             g = pbxCanvas.CreateGraphics();
-            if ( UserDatabaseAccess.user.userUsername == "" || UserDatabaseAccess.user.userUsername == "admin" )
-            {
-                debug = true;
-            }
             foodX = new Random().Next( 0, pbxCanvas.Width / 32 ) * 32;
             foodY = new Random().Next( 0, pbxCanvas.Height / 32 ) * 32;
             nomnomnom = false;
