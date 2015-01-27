@@ -79,7 +79,7 @@
     <Compile Include="VideoPlayer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VirticalProgressBar.cs">
+    <Compile Include="VerticalProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Zone 2\frmZ2M.cs">

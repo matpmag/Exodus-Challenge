@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Exodus_Challenge.LoginSystem;
+using Exodus_Challenge.CustomControls;
 
 namespace Exodus_Challenge
 {
@@ -44,47 +45,14 @@ namespace Exodus_Challenge
         {
             if ( cboxQ1.Text != "Judah" )
                 return false;
-            if ( .Value != 7 )
+            if ( verticalProgressBar1.Value != 7 )
                 return false;
-            if ( tbxQ3.Text.ToLower() != "jochebed" )
-                return false;
-            if ( !rbtnQ4c.Checked )
-                return false;
+            //if ( tbxQ3.Text.ToLower() != "jochebed" )
+            //    return false;
+            //if ( !rbtnQ4c.Checked )
+            //    return false;
             return true;
 
-        }
-
-        private void tbarQ2_Scroll( object sender, EventArgs e )
-        {
-            switch ( (int)tbarQ2.Value )
-            {
-                case 0:
-                    lblQ2Value.Text = "One day";
-                    break;
-                case 1:
-                    lblQ2Value.Text = "Three days";
-                    break;
-                case 2:
-                    lblQ2Value.Text = "One week";
-                    break;
-                case 3:
-                    lblQ2Value.Text = "Two weeks";
-                    break;
-                case 4:
-                    lblQ2Value.Text = "One month";
-                    break;
-                case 5:
-                    lblQ2Value.Text = "Three months";
-                    break;
-                case 6:
-                    lblQ2Value.Text = "Six months";
-                    break;
-                case 7:
-                    lblQ2Value.Text = "One Year";
-                    break;
-                default:
-                    break;
-            }
         }
 
         private void whatDoIDoToolStripMenuItem_Click( object sender, EventArgs e )

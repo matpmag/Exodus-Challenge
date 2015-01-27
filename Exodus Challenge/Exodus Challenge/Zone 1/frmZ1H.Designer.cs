@@ -61,7 +61,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblScoreMultiplier = new System.Windows.Forms.Label();
             this.timerScoreDecrement = new System.Windows.Forms.Timer(this.components);
-            this.verticalProgressBar1 = new VerticalProgressBar();
+            this.verticalProgressBar1 = new Exodus_Challenge.CustomControls.VerticalProgressBar();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -602,7 +602,7 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem whatDoIDoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem whereDoIFindTheAnswersToolStripMenuItem;
-        private VerticalProgressBar verticalProgressBar1;
+        private Exodus_Challenge.CustomControls.VerticalProgressBar verticalProgressBar1;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblScoreMultiplier;
