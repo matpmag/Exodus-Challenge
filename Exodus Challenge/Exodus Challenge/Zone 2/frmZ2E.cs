@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace Exodus_Challenge
 {
-    public partial class frmZ2E : Form
+    public partial class frmZ2E : Level
     {
         private void next()
         {

@@ -67,20 +67,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BinaryWorker.cs">
+    <Compile Include="Login\BinaryWorker.cs">
       <DependentUpon>loginSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Level Base Classes\Level.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="VideoPlayer.Designer.cs" />
-    <Compile Include="VideoPlayer.cs">
+    <Compile Include="Level Base Classes\StandardLevel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VerticalProgressBar.cs">
+    <Compile Include="Login\frmVideoPlayer.Designer.cs">
+      <DependentUpon>frmVideoPlayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\frmVideoPlayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\VerticalProgressBar.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Zone 2\frmZ2H.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zone 2\frmZ2H.Designer.cs">
+      <DependentUpon>frmZ2H.cs</DependentUpon>
     </Compile>
     <Compile Include="Zone 2\frmZ2M.cs">
       <SubType>Form</SubType>
@@ -100,10 +114,10 @@
     <Compile Include="Zone 1\frmZ1B.Designer.cs">
       <DependentUpon>frmZ1B.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTestMatch.cs">
+    <Compile Include="Tests\frmTestMatch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmTestMatch.Designer.cs">
+    <Compile Include="Tests\frmTestMatch.Designer.cs">
       <DependentUpon>frmTestMatch.cs</DependentUpon>
     </Compile>
     <Compile Include="Zone 1\frmZ1E.cs">
@@ -119,6 +133,18 @@
       <DependentUpon>frmZ1H.cs</DependentUpon>
     </Compile>
     <Compile Include="Zone 2\SnakeSection.cs" />
+    <Compile Include="Zone 3\frmZ3H.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zone 3\frmZ3H.Designer.cs">
+      <DependentUpon>frmZ3H.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zone 3\frmZ3M.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zone 3\frmZ3M.Designer.cs">
+      <DependentUpon>frmZ3M.cs</DependentUpon>
+    </Compile>
     <Compile Include="Zone 3\frmZ3B.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,16 +157,16 @@
     <Compile Include="Zone 3\frmZ3E.Designer.cs">
       <DependentUpon>frmZ3E.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLogin.cs">
+    <Compile Include="Login\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.Designer.cs">
+    <Compile Include="Login\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTitle.cs">
+    <Compile Include="Login\frmTitle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmTitle.Designer.cs">
+    <Compile Include="Login\frmTitle.Designer.cs">
       <DependentUpon>frmTitle.cs</DependentUpon>
     </Compile>
     <Compile Include="Zone 1\frmZ1M.cs">
@@ -155,25 +181,46 @@
     <Compile Include="Zone 2\frmZ2E.Designer.cs">
       <DependentUpon>frmZ2E.cs</DependentUpon>
     </Compile>
+    <Compile Include="Zone 4\frmZ4H.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zone 4\frmZ4H.Designer.cs">
+      <DependentUpon>frmZ4H.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zone 4\frmZ4M.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zone 4\frmZ4M.Designer.cs">
+      <DependentUpon>frmZ4M.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zone 4\frmZ4E.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zone 4\frmZ4E.Designer.cs">
+      <DependentUpon>frmZ4E.cs</DependentUpon>
+    </Compile>
     <Compile Include="Zone 4\frmZ4B.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Zone 4\frmZ4B.Designer.cs">
       <DependentUpon>frmZ4B.cs</DependentUpon>
     </Compile>
-    <Compile Include="LevelSelect.cs">
+    <Compile Include="Login\frmLevelSelect.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LevelSelect.Designer.cs">
-      <DependentUpon>LevelSelect.cs</DependentUpon>
+    <Compile Include="Login\frmLevelSelect.Designer.cs">
+      <DependentUpon>frmLevelSelect.cs</DependentUpon>
     </Compile>
-    <Compile Include="loginSystem.cs">
+    <Compile Include="Login\loginSystem.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="VideoPlayer.resx">
-      <DependentUpon>VideoPlayer.cs</DependentUpon>
+    <EmbeddedResource Include="Login\frmVideoPlayer.resx">
+      <DependentUpon>frmVideoPlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zone 2\frmZ2H.resx">
+      <DependentUpon>frmZ2H.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Zone 2\frmZ2M.resx">
       <DependentUpon>frmZ2M.cs</DependentUpon>
@@ -184,7 +231,7 @@
     <EmbeddedResource Include="Zone 1\frmZ1B.resx">
       <DependentUpon>frmZ1B.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmTestMatch.resx">
+    <EmbeddedResource Include="Tests\frmTestMatch.resx">
       <DependentUpon>frmTestMatch.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -194,16 +241,22 @@
     <EmbeddedResource Include="Zone 1\frmZ1H.resx">
       <DependentUpon>frmZ1H.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Zone 3\frmZ3H.resx">
+      <DependentUpon>frmZ3H.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zone 3\frmZ3M.resx">
+      <DependentUpon>frmZ3M.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Zone 3\frmZ3B.resx">
       <DependentUpon>frmZ3B.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Zone 3\frmZ3E.resx">
       <DependentUpon>frmZ3E.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
+    <EmbeddedResource Include="Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmTitle.resx">
+    <EmbeddedResource Include="Login\frmTitle.resx">
       <DependentUpon>frmTitle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Zone 1\frmZ1M.resx">
@@ -213,11 +266,20 @@
     <EmbeddedResource Include="Zone 2\frmZ2E.resx">
       <DependentUpon>frmZ2E.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Zone 4\frmZ4H.resx">
+      <DependentUpon>frmZ4H.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zone 4\frmZ4M.resx">
+      <DependentUpon>frmZ4M.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zone 4\frmZ4E.resx">
+      <DependentUpon>frmZ4E.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Zone 4\frmZ4B.resx">
       <DependentUpon>frmZ4B.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LevelSelect.resx">
-      <DependentUpon>LevelSelect.cs</DependentUpon>
+    <EmbeddedResource Include="Login\frmLevelSelect.resx">
+      <DependentUpon>frmLevelSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -233,6 +295,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="userdata\outputbin.bin" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -280,6 +343,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="pyramid.ico" />
+    <None Include="Resources\sand.jpg" />
+    <None Include="Resources\1.png" />
+    <None Include="Resources\2.png" />
+    <None Include="Resources\3.png" />
+    <Content Include="userdata\UserData.txt" />
     <None Include="Resources\buttonBoss.png" />
     <None Include="Resources\buttonQuiz.png" />
     <None Include="Resources\correct.png" />
@@ -314,8 +382,6 @@
     <None Include="Resources\retry.png" />
     <None Include="Resources\help.png" />
     <None Include="Resources\PharohThrone.png" />
-    <Content Include="userdata\testUser.txt" />
-    <None Include="userdata\userScores.bin" />
     <Content Include="userdata\UniqueID.txt" />
   </ItemGroup>
   <ItemGroup>

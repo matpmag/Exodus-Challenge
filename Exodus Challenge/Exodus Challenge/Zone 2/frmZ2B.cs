@@ -7,7 +7,7 @@ using Exodus_Challenge.LoginSystem;
 
 namespace Exodus_Challenge
 {
-    public partial class frmZ2B : Form
+    public partial class frmZ2B : Level
     {
         private void tickerMovement_Tick( object sender, EventArgs e )
         {

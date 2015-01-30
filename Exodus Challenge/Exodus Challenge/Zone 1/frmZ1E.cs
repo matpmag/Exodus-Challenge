@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace Exodus_Challenge
 {
-    public partial class frmZ1E : Form
+    public partial class frmZ1E : Level
     {
         private Queue<byte> ansOrder = new Queue<byte>();
 

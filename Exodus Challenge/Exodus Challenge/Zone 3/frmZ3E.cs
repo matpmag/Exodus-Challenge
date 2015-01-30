@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace Exodus_Challenge
 {
-    public partial class frmZ3E : Form
+    public partial class frmZ3E : Level
     {
         private void checkAns()
         {
@@ -191,7 +191,7 @@ namespace Exodus_Challenge
         private void btnQuit_Click( object sender, EventArgs e )
         {
             this.Close();
-            Form lvl = new LevelSelect();
+            Form lvl = new frmLevelSelect();
             lvl.Show();
         }
     }

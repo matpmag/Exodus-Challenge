@@ -4,7 +4,7 @@ using Exodus_Challenge.LoginSystem;
 
 namespace Exodus_Challenge
 {
-    public partial class frmZ1H : Form
+    public partial class frmZ1H : Level
     {
         internal int timeRemaining;
         private int scoreMultiplier = 50;
@@ -18,7 +18,7 @@ namespace Exodus_Challenge
         private void btnQuit_Click( object sender, EventArgs e )
         {
             this.Close();
-            Form lvl = new LevelSelect();
+            Form lvl = new frmLevelSelect();
             lvl.Show();
         }
 

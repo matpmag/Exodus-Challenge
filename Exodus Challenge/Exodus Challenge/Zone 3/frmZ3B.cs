@@ -4,7 +4,7 @@ using Exodus_Challenge.LoginSystem;
 
 namespace Exodus_Challenge
 {
-    public partial class frmZ3B : Form
+    public partial class frmZ3B : Level
     {
         private Random chanceSelect = new Random();
         private int clicksThisTick = 0;
@@ -25,7 +25,7 @@ namespace Exodus_Challenge
         private void btnQuit_Click( object sender, EventArgs e )
         {
             this.Close();
-            Form lvl = new LevelSelect();
+            Form lvl = new frmLevelSelect();
             lvl.Show();
         }
 
@@ -83,7 +83,7 @@ namespace Exodus_Challenge
             {
                 UserDatabaseAccess.user.userScoreQuail += count;
                 this.Close();
-                Form lvl = new LevelSelect();
+                Form lvl = new frmLevelSelect();
                 lvl.Show();
             }
         }

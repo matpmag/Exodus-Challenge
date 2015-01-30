@@ -37,25 +37,25 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.obsStartTop = new System.Windows.Forms.PictureBox();
             this.areaObsTop = new System.Windows.Forms.PictureBox();
-            this.obsStartMid = new System.Windows.Forms.PictureBox();
             this.pbxIsraelitesBot = new System.Windows.Forms.PictureBox();
             this.obsStartBot = new System.Windows.Forms.PictureBox();
             this.pbxIsraelitesTop = new System.Windows.Forms.PictureBox();
             this.pbxIsraelitesMid = new System.Windows.Forms.PictureBox();
             this.areaObsMid = new System.Windows.Forms.PictureBox();
             this.areaObsBot = new System.Windows.Forms.PictureBox();
+            this.obsStartMid = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obsStartTop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaObsTop)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.obsStartMid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxIsraelitesBot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obsStartBot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxIsraelitesTop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxIsraelitesMid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaObsMid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaObsBot)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obsStartMid)).BeginInit();
             this.SuspendLayout();
             // 
             // timerMove
@@ -103,10 +103,11 @@
             // 
             // obsStartTop
             // 
-            this.obsStartTop.Image = ((System.Drawing.Image)(resources.GetObject("obsStartTop.Image")));
-            this.obsStartTop.Location = new System.Drawing.Point(1311, 45);
+            this.obsStartTop.BackColor = System.Drawing.Color.Transparent;
+            this.obsStartTop.Image = global::Exodus_Challenge.Properties.Resources._1;
+            this.obsStartTop.Location = new System.Drawing.Point(1243, 45);
             this.obsStartTop.Name = "obsStartTop";
-            this.obsStartTop.Size = new System.Drawing.Size(26, 88);
+            this.obsStartTop.Size = new System.Drawing.Size(94, 88);
             this.obsStartTop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.obsStartTop.TabIndex = 5;
             this.obsStartTop.TabStop = false;
@@ -121,20 +122,9 @@
             this.areaObsTop.TabIndex = 3;
             this.areaObsTop.TabStop = false;
             // 
-            // obsStartMid
-            // 
-            this.obsStartMid.Image = ((System.Drawing.Image)(resources.GetObject("obsStartMid.Image")));
-            this.obsStartMid.Location = new System.Drawing.Point(1311, 234);
-            this.obsStartMid.Name = "obsStartMid";
-            this.obsStartMid.Size = new System.Drawing.Size(26, 88);
-            this.obsStartMid.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.obsStartMid.TabIndex = 4;
-            this.obsStartMid.TabStop = false;
-            this.obsStartMid.Visible = false;
-            // 
             // pbxIsraelitesBot
             // 
-            this.pbxIsraelitesBot.BackColor = System.Drawing.Color.Chocolate;
+            this.pbxIsraelitesBot.BackColor = System.Drawing.Color.Transparent;
             this.pbxIsraelitesBot.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pbxIsraelitesBot.Location = new System.Drawing.Point(232, 427);
             this.pbxIsraelitesBot.Name = "pbxIsraelitesBot";
@@ -144,10 +134,11 @@
             // 
             // obsStartBot
             // 
-            this.obsStartBot.Image = global::Exodus_Challenge.Properties.Resources.stone;
-            this.obsStartBot.Location = new System.Drawing.Point(1311, 427);
+            this.obsStartBot.BackColor = System.Drawing.Color.Transparent;
+            this.obsStartBot.Image = global::Exodus_Challenge.Properties.Resources._3;
+            this.obsStartBot.Location = new System.Drawing.Point(1243, 427);
             this.obsStartBot.Name = "obsStartBot";
-            this.obsStartBot.Size = new System.Drawing.Size(26, 88);
+            this.obsStartBot.Size = new System.Drawing.Size(94, 88);
             this.obsStartBot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.obsStartBot.TabIndex = 3;
             this.obsStartBot.TabStop = false;
@@ -155,7 +146,7 @@
             // 
             // pbxIsraelitesTop
             // 
-            this.pbxIsraelitesTop.BackColor = System.Drawing.Color.Chocolate;
+            this.pbxIsraelitesTop.BackColor = System.Drawing.Color.Transparent;
             this.pbxIsraelitesTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pbxIsraelitesTop.Location = new System.Drawing.Point(232, 45);
             this.pbxIsraelitesTop.Name = "pbxIsraelitesTop";
@@ -165,7 +156,7 @@
             // 
             // pbxIsraelitesMid
             // 
-            this.pbxIsraelitesMid.BackColor = System.Drawing.Color.Chocolate;
+            this.pbxIsraelitesMid.BackColor = System.Drawing.Color.Transparent;
             this.pbxIsraelitesMid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pbxIsraelitesMid.Location = new System.Drawing.Point(232, 234);
             this.pbxIsraelitesMid.Name = "pbxIsraelitesMid";
@@ -191,24 +182,38 @@
             this.areaObsBot.TabIndex = 4;
             this.areaObsBot.TabStop = false;
             // 
-            // Escape
+            // obsStartMid
+            // 
+            this.obsStartMid.BackColor = System.Drawing.Color.Transparent;
+            this.obsStartMid.Image = global::Exodus_Challenge.Properties.Resources._2;
+            this.obsStartMid.Location = new System.Drawing.Point(1243, 234);
+            this.obsStartMid.Name = "obsStartMid";
+            this.obsStartMid.Size = new System.Drawing.Size(94, 88);
+            this.obsStartMid.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.obsStartMid.TabIndex = 16;
+            this.obsStartMid.TabStop = false;
+            this.obsStartMid.Visible = false;
+            // 
+            // frmZ1B
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Exodus_Challenge.Properties.Resources.sand;
             this.ClientSize = new System.Drawing.Size(1349, 578);
+            this.Controls.Add(this.obsStartMid);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.obsStartTop);
             this.Controls.Add(this.areaObsTop);
-            this.Controls.Add(this.obsStartMid);
             this.Controls.Add(this.pbxIsraelitesBot);
             this.Controls.Add(this.obsStartBot);
             this.Controls.Add(this.pbxIsraelitesTop);
             this.Controls.Add(this.pbxIsraelitesMid);
             this.Controls.Add(this.areaObsMid);
             this.Controls.Add(this.areaObsBot);
-            this.Name = "Escape";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "frmZ1B";
             this.Text = "Escape";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Escape_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -216,13 +221,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.obsStartTop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaObsTop)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.obsStartMid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxIsraelitesBot)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.obsStartBot)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxIsraelitesTop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxIsraelitesMid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaObsMid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaObsBot)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obsStartMid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -235,7 +240,6 @@
         private System.Windows.Forms.PictureBox areaObsBot;
         private System.Windows.Forms.PictureBox obsStartBot;
         private System.Windows.Forms.Timer timerAdd;
-        private System.Windows.Forms.PictureBox obsStartMid;
         private System.Windows.Forms.Timer timerMove;
         private System.Windows.Forms.PictureBox obsStartTop;
         private System.Windows.Forms.PictureBox areaObsTop;
@@ -243,5 +247,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox obsStartMid;
     }
 }

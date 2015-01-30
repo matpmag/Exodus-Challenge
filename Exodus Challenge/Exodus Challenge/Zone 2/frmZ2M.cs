@@ -5,55 +5,62 @@ using Exodus_Challenge.CustomControls;
 
 namespace Exodus_Challenge
 {
-    public partial class frmZ2M : Form
+    public partial class frmZ2M : StandardLevel
     {
-        internal int timeRemaining;
-        private int scoreMultiplier = 50;
-        string q1Text = "What did Pharaoh command the taskmasters when Moses first requested him to let Israel go?";
-        string q2Text = "How old was Moses when he spoke to Pharaoh?";
-        string q3Text = "How did God make a difference between the Israelites and the Egyptians?";
-        string q4Text = "How many years did the children of Israel live in Egypt?";
         public frmZ2M()
         {
             InitializeComponent();
+            setupReferences();
+            setupAns();
+        }
+
+        internal void setupReferences()
+        {
+            tabControlRef = tabControl1;
+            lblQTextRef = lblQText;
             timeRemaining = verticalProgressBar1.Value;
+            lblScoreMultiplierRef = lblScoreMultiplier;
+            verticalProgressBarRef = verticalProgressBar1;
+        }
+
+        internal void setupAns()
+        {
+            qText = new string[]
+            {
+                "What did Pharaoh command the taskmasters when Moses first requested him to let Israel go?",
+                "How old was Moses when he spoke to Pharaoh?",
+                "How did God make a difference between the Israelites and the Egyptians?",
+                "How many years did the children of Israel live in Egypt?"
+            };
+            
+            qAns = new string[]
+            {
+                "Take away their straw for making bricks",
+                "80",
+                "All of the above",
+                "430"
+            };
+
+            qInput = new string[]
+            {
+               cboxQ1.Text,
+               nudQ2.Value.ToString(),
+               cboxQ3.Text,
+               nudQ4.Value.ToString()
+            };
         }
 
 
         private void btnQuit_Click( object sender, EventArgs e )
         {
-            this.Close();
-            Form lvl = new LevelSelect();
-            lvl.Show();
+            returnToMap();
         }
 
         private void btnSubmit_Click( object sender, EventArgs e )
         {
-            if ( tabControl1.SelectedIndex != tabControl1.TabCount )
-            {
-                int i = tabControl1.SelectedIndex;
-                tabControl1.SelectedIndex = i + 1;
-            }
-            if ( correct() )
-            {
-                MessageBox.Show( "Congratulations!" );
-                UserDatabaseAccess.user.userScoreManna += 10 * timeRemaining;
-            }
+            submitAns();
         }
 
-        private bool correct()
-        {
-            if ( cboxQ1.Text != "Judah" )
-                return false;
-            if ( verticalProgressBar1.Value != 7 )
-                return false;
-            //if ( tbxQ3.Text.ToLower() != "jochebed" )
-            //    return false;
-            //if ( !rbtnQ4c.Checked )
-            //    return false;
-            return true;
-
-        }
 
         private void whatDoIDoToolStripMenuItem_Click( object sender, EventArgs e )
         {
@@ -64,50 +71,17 @@ namespace Exodus_Challenge
         {
             //TODO: Bible pointers for level
         }
-
+        
         private void retryToolStripMenuItem_Click( object sender, EventArgs e )
         {
-            
+            thisLevel = new frmZ2M();
+            retry();
         }
 
         private void timerScoreDecrement_Tick( object sender, EventArgs e )
         {
-            timeRemaining--;
-            if ( timeRemaining >= 0 )
-            {
-                updateScoreMultiplier();
-            }
+            decrementScore();
         }
-        double proportionOfTimeRemaining;
-        private void updateScoreMultiplier()
-        {
-            verticalProgressBar1.Value = timeRemaining;
-            proportionOfTimeRemaining = ( verticalProgressBar1.Value / (double)1200 );
-            if ( proportionOfTimeRemaining >= 0.9 )
-            {
-                scoreMultiplier = 50;
-            }
-            else if ( proportionOfTimeRemaining >= 0.75 )
-            {
-                scoreMultiplier = 25;
-            }
-            else if ( proportionOfTimeRemaining >= 0.5 )
-            {
-                scoreMultiplier = 10;
-            }
-            else if ( proportionOfTimeRemaining >= 0.25 )
-            {
-                scoreMultiplier = 5;
-            }
-            else if ( proportionOfTimeRemaining >= 0.1 )
-            {
-                scoreMultiplier = 2;
-            }
-            else
-            {
-                scoreMultiplier = 1;
-            }
-            lblScoreMultiplier.Text = scoreMultiplier.ToString();
-        }
+        
     }
 }

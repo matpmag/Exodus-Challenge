@@ -3,3 +3,5 @@
 2,Simsy,sims@Yahoo.org,J@ckLamont1,../../../Media/Avatars/moses.png,0,novice;
 14,testuser,altmatpmag@gmail.com,Pass101#,../../../Media/Avatars/moses.png,0,novice;
 87,usernametest101,emailtest@email.co.lel,../../../Media/Avatars/moses.png,0,novice;
+54,ctrlmatpmag,matpmag@gmail.com,Big3dd13123,C:\Users\Matthew\Documents\Development\Online\GitHub\Repositories\Exodus-Challenge\Exodus Challenge\Media\Avatars\74311_538024816217262_1666072805_n.jpg,0,apprentice;
+54,tracylmaguire,tracylmaguire@yahoo.co.uk,Password1,../../../Media/Avatars\6.png,,apprentice;

@@ -11,8 +11,37 @@ namespace Exodus_Challenge
         public static bool? collision = null;
     }
 
-    public partial class frmZ1B : Form
+    public partial class frmZ1B : Level
     {
+        private Image randomObsImageGen()
+        {
+            Random random = new Random();
+            int randomObsImageIndex = random.Next( 1, 4 );
+            switch ( randomObsImageIndex )
+            {
+                case 1:
+                    return obsStartTop.Image;
+
+                case 2:
+                    return obsStartMid.Image;
+
+                case 3:
+                    return obsStartBot.Image;
+
+                default:
+                    try
+                    {
+                        throw new IndexOutOfRangeException();
+                    }
+                    catch(Exception e)
+                    {
+                        MessageBox.Show(string.Format("The random number generator returned an unexpected value: {0}",
+                                                       randomObsImageIndex.ToString()), e.ToString());
+                        return obsStartTop.Image;
+                    }
+            }
+            
+        }
         private void timerAdd_Tick( object sender, EventArgs e )
         {
             PictureBox nextObsArea = pictureBox2;
@@ -34,11 +63,12 @@ namespace Exodus_Challenge
                     nextObsStart = obsStartBot.Location;
                     break;
             }
+            
             PictureBox pbxNew = new PictureBox
             {
-                Image = obsStartMid.Image,
+
+                Image = randomObsImageGen(),
                 SizeMode = PictureBoxSizeMode.Zoom,
-                BackColor = Color.PeachPuff,
                 Size = obsStartMid.Size,
                 Height = obsStartMid.Height,
                 Location = nextObsStart
@@ -90,7 +120,7 @@ namespace Exodus_Challenge
                     break;
 
                 default:
-                    Form LevelSelectScreen = new LevelSelect();
+                    Form LevelSelectScreen = new frmLevelSelect();
                     this.Close();
                     LevelSelectScreen.Show();
                     break;
@@ -143,11 +173,11 @@ namespace Exodus_Challenge
 
     internal class Obstacle
     {
-        public PictureBox area;
-        public PictureBox pbx;
-        public bool run = true;
+        internal PictureBox area;
+        internal PictureBox pbx;
+        internal bool run = true;
 
-        public bool move( PictureBox israeliteCurrent )
+        internal bool move( PictureBox israeliteCurrent )
         {
             Z1BGameInfo.collision = null;
             pbx.Left -= 10;

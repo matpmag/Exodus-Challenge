@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmZ2M));
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblQText = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,27 +83,27 @@
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // label6
+            // lblQText
             // 
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label6.Font = new System.Drawing.Font("Monotype Corsiva", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(150, 20);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(382, 167);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "What did Pharaoh command the taskmasters when Moses first requested him to let Is" +
+            this.lblQText.BackColor = System.Drawing.Color.Transparent;
+            this.lblQText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblQText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblQText.Font = new System.Drawing.Font("Monotype Corsiva", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQText.Location = new System.Drawing.Point(150, 20);
+            this.lblQText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblQText.Name = "lblQText";
+            this.lblQText.Size = new System.Drawing.Size(382, 167);
+            this.lblQText.TabIndex = 12;
+            this.lblQText.Text = "What did Pharaoh command the taskmasters when Moses first requested him to let Is" +
     "rael go?";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblQText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Transparent;
             this.panel6.BackgroundImage = global::Exodus_Challenge.Properties.Resources.Scroll;
             this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel6.Controls.Add(this.label6);
+            this.panel6.Controls.Add(this.lblQText);
             this.panel6.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel6.Location = new System.Drawing.Point(118, 65);
             this.panel6.Margin = new System.Windows.Forms.Padding(20);
@@ -114,6 +114,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem,
             this.retryToolStripMenuItem,
@@ -163,14 +164,14 @@
             // whatDoIDoToolStripMenuItem
             // 
             this.whatDoIDoToolStripMenuItem.Name = "whatDoIDoToolStripMenuItem";
-            this.whatDoIDoToolStripMenuItem.Size = new System.Drawing.Size(314, 30);
+            this.whatDoIDoToolStripMenuItem.Size = new System.Drawing.Size(269, 24);
             this.whatDoIDoToolStripMenuItem.Text = "What do I do?";
             this.whatDoIDoToolStripMenuItem.Click += new System.EventHandler(this.whatDoIDoToolStripMenuItem_Click);
             // 
             // whereDoIFindTheAnswersToolStripMenuItem
             // 
             this.whereDoIFindTheAnswersToolStripMenuItem.Name = "whereDoIFindTheAnswersToolStripMenuItem";
-            this.whereDoIFindTheAnswersToolStripMenuItem.Size = new System.Drawing.Size(314, 30);
+            this.whereDoIFindTheAnswersToolStripMenuItem.Size = new System.Drawing.Size(269, 24);
             this.whereDoIFindTheAnswersToolStripMenuItem.Text = "Where do I find the answers?";
             this.whereDoIFindTheAnswersToolStripMenuItem.Click += new System.EventHandler(this.whereDoIFindTheAnswersToolStripMenuItem_Click);
             // 
@@ -191,7 +192,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(3, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 28);
+            this.label1.Size = new System.Drawing.Size(19, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "x";
             // 
@@ -204,7 +205,7 @@
             this.lblScoreMultiplier.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.lblScoreMultiplier.Location = new System.Drawing.Point(11, -2);
             this.lblScoreMultiplier.Name = "lblScoreMultiplier";
-            this.lblScoreMultiplier.Size = new System.Drawing.Size(79, 67);
+            this.lblScoreMultiplier.Size = new System.Drawing.Size(66, 56);
             this.lblScoreMultiplier.TabIndex = 1;
             this.lblScoreMultiplier.Text = "50";
             this.lblScoreMultiplier.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -292,7 +293,7 @@
             this.cboxQ1.Location = new System.Drawing.Point(27, 38);
             this.cboxQ1.Margin = new System.Windows.Forms.Padding(6);
             this.cboxQ1.Name = "cboxQ1";
-            this.cboxQ1.Size = new System.Drawing.Size(369, 35);
+            this.cboxQ1.Size = new System.Drawing.Size(369, 31);
             this.cboxQ1.TabIndex = 34;
             // 
             // tabPage2
@@ -327,7 +328,7 @@
             0,
             0});
             this.nudQ2.Name = "nudQ2";
-            this.nudQ2.Size = new System.Drawing.Size(106, 57);
+            this.nudQ2.Size = new System.Drawing.Size(106, 49);
             this.nudQ2.TabIndex = 13;
             this.nudQ2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudQ2.Value = new decimal(new int[] {
@@ -361,7 +362,7 @@
             this.cboxQ3.Location = new System.Drawing.Point(27, 38);
             this.cboxQ3.Margin = new System.Windows.Forms.Padding(6);
             this.cboxQ3.Name = "cboxQ3";
-            this.cboxQ3.Size = new System.Drawing.Size(369, 35);
+            this.cboxQ3.Size = new System.Drawing.Size(369, 31);
             this.cboxQ3.TabIndex = 33;
             // 
             // tabPage4
@@ -396,7 +397,7 @@
             0,
             0});
             this.nudQ4.Name = "nudQ4";
-            this.nudQ4.Size = new System.Drawing.Size(106, 57);
+            this.nudQ4.Size = new System.Drawing.Size(106, 49);
             this.nudQ4.TabIndex = 14;
             this.nudQ4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudQ4.Value = new decimal(new int[] {
@@ -407,6 +408,7 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Location = new System.Drawing.Point(585, 313);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(224, 175);
@@ -415,7 +417,7 @@
             // 
             // frmZ2M
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Exodus_Challenge.Properties.Resources.sandstoneBrickSmallest;
             this.ClientSize = new System.Drawing.Size(1137, 649);
@@ -457,7 +459,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnSubmit;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblQText;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;

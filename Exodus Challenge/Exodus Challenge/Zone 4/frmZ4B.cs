@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace Exodus_Challenge
 {
-    public partial class frmZ4B : Form
+    public partial class frmZ4B : Level
     {
         public int Accuracy = 0;
 

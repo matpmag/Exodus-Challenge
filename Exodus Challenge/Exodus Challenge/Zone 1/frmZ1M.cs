@@ -2,7 +2,7 @@
 
 namespace Exodus_Challenge
 {
-    public partial class frmZ1M : Form
+    public partial class frmZ1M : Level
     {
         private void checkAll()
         {
@@ -201,7 +201,7 @@ namespace Exodus_Challenge
         private void btnQuit_Click( object sender, System.EventArgs e )
         {
             this.Close();
-            Form lvl = new LevelSelect();
+            Form lvl = new frmLevelSelect();
             lvl.Show();
         }
     }
